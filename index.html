@@ -73,6 +73,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-dd-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/15/dd-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-04-14T16:16:09.000Z" itemprop="datePublished">2024-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/15/dd-linux-command/">dd_linux_command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="dd命令"><a href="#dd命令" class="headerlink" title="dd命令"></a>dd命令</h1><h2 id="文件输入输出"><a href="#文件输入输出" class="headerlink" title="文件输入输出"></a>文件输入输出</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">if</span>= 接输入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">of= 接输出文件</span></span><br><span class="line">dd if=/dev/zero of=./zero.file</span><br></pre></td></tr></table></figure>
+<h2 id="字节数调整"><a href="#字节数调整" class="headerlink" title="字节数调整"></a>字节数调整</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">bs= 设置输入文件 输出文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ibs= 仅设置输入文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">obs= 仅设置输出文件 块大小</span></span><br><span class="line">dd if=/dev/zero of=./zero.file bs=4096 </span><br></pre></td></tr></table></figure>
+<h2 id="指定参数转换文件"><a href="#指定参数转换文件" class="headerlink" title="指定参数转换文件"></a>指定参数转换文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">conv=指定参数</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ascii ebcdic转换为ascii</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ebcdic ascii转换为ebcdic</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ibm ascii转换为alternate ebcdic</span></span><br><span class="line">dd if=test of=out conv=ebcdic </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">cbs= 设置每次转换缓冲区大小</span></span><br><span class="line">dd if=test of=out conv=ebcdic cbs=1024</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">block 把每一行转换位长度位cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=16 conv=block,ebcdic</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">unblock 使每一行的长度都为cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=32 conv=unblock,ascii</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">lcase 把大写字母转为小写</span></span><br><span class="line">dd if=test of=out cbs=16 conv=lcase,ascii</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ucase 把小写字母转为大写</span></span><br><span class="line">dd if=test of=out cbs=64 conv=ucase,ebcdic</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">swab 交换输入的每对字节</span></span><br><span class="line">dd if=test of=out cbs=2 conv=swab</span><br></pre></td></tr></table></figure>
+
+<p>#noerror 出错时不停止<br>#notrunc 不截短输出文件<br>#sync 将每个输入块填充盗ibs个字节</p>
+<h2 id="跳过一定字节再开始复制"><a href="#跳过一定字节再开始复制" class="headerlink" title="跳过一定字节再开始复制"></a>跳过一定字节再开始复制</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">skip=nblocks 从输入文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out skip=10</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">seek=nblocks 从输出文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out seek=12</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/04/15/dd-linux-command/" data-id="cluzrdka80000vpz8hvxjhibi" data-title="dd_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-split-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/14/split-linux-command/" class="article-date">
@@ -110,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/14/split-linux-command/" data-id="cluzq2jsm0005fnz882251erh" data-title="split_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/04/14/split-linux-command/" data-id="cluzrdkal0006vpz84dynhvdj" data-title="split_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -172,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="cluzq2jsg0001fnz8fdc1dt0p" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="cluzrdkah0002vpz88avxbu87" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -226,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/squid/" data-id="cluzq2jsn0006fnz8fjujankn" data-title="squid-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/squid/" data-id="cluzrdkal0007vpz819nje21j" data-title="squid-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -337,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/git/" data-id="cluzq2jsj0002fnz8ekfz06w6" data-title="git_study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/git/" data-id="cluzrdkai0003vpz8cvynfriv" data-title="git_study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -388,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/hello-world/" data-id="cluzq2jsk0003fnz88elf2l8u" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/hello-world/" data-id="cluzrdkaj0004vpz849kh9psw" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -450,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/docker/" data-id="cluzq2jsa0000fnz8aiicbgqe" data-title="docker-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/docker/" data-id="cluzrdkaf0001vpz83wj8dq1r" data-title="docker-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -501,7 +548,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/hexo/" data-id="cluzq2jsl0004fnz8h8qwau22" data-title="hexo-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/hexo/" data-id="cluzrdkak0005vpz8d1uwg5ey" data-title="hexo-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -544,6 +591,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/15/dd-linux-command/">dd_linux_command</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/14/split-linux-command/">split_linux_command</a>
           </li>
         
@@ -557,10 +608,6 @@
         
           <li>
             <a href="/2024/03/28/git/">git_study</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/28/hello-world/">Hello World</a>
           </li>
         
       </ul>

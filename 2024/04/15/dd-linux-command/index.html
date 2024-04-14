@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>dd_linux_command | Bjmu1026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="dd命令文件输入输出123#if&#x3D; 接输入文件#of&#x3D; 接输出文件dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;.&#x2F;zero.file 字节数调整1234#bs&#x3D; 设置输入文件 输出文件 块大小#ibs&#x3D; 仅设置输入文件 块大小#obs&#x3D; 仅设置输出文件 块大小dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;.&#x2F;zero.file bs&#x3D;4096  指定参数转换文件1234567891011121314151617">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dd_linux_command">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/04/15/dd-linux-command/index.html">
+<meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="dd命令文件输入输出123#if&#x3D; 接输入文件#of&#x3D; 接输出文件dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;.&#x2F;zero.file 字节数调整1234#bs&#x3D; 设置输入文件 输出文件 块大小#ibs&#x3D; 仅设置输入文件 块大小#obs&#x3D; 仅设置输出文件 块大小dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;.&#x2F;zero.file bs&#x3D;4096  指定参数转换文件1234567891011121314151617">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-04-14T16:16:09.000Z">
+<meta property="article:modified_time" content="2024-04-14T16:38:53.470Z">
+<meta property="article:author" content="tongxu24">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bjmu1026" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bjmu1026</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal study notes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bjmu1026.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-dd-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/15/dd-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-04-14T16:16:09.000Z" itemprop="datePublished">2024-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      dd_linux_command
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="dd命令"><a href="#dd命令" class="headerlink" title="dd命令"></a>dd命令</h1><h2 id="文件输入输出"><a href="#文件输入输出" class="headerlink" title="文件输入输出"></a>文件输入输出</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">if</span>= 接输入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">of= 接输出文件</span></span><br><span class="line">dd if=/dev/zero of=./zero.file</span><br></pre></td></tr></table></figure>
+<h2 id="字节数调整"><a href="#字节数调整" class="headerlink" title="字节数调整"></a>字节数调整</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">bs= 设置输入文件 输出文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ibs= 仅设置输入文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">obs= 仅设置输出文件 块大小</span></span><br><span class="line">dd if=/dev/zero of=./zero.file bs=4096 </span><br></pre></td></tr></table></figure>
+<h2 id="指定参数转换文件"><a href="#指定参数转换文件" class="headerlink" title="指定参数转换文件"></a>指定参数转换文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">conv=指定参数</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ascii ebcdic转换为ascii</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ebcdic ascii转换为ebcdic</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ibm ascii转换为alternate ebcdic</span></span><br><span class="line">dd if=test of=out conv=ebcdic </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">cbs= 设置每次转换缓冲区大小</span></span><br><span class="line">dd if=test of=out conv=ebcdic cbs=1024</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">block 把每一行转换位长度位cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=16 conv=block,ebcdic</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">unblock 使每一行的长度都为cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=32 conv=unblock,ascii</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">lcase 把大写字母转为小写</span></span><br><span class="line">dd if=test of=out cbs=16 conv=lcase,ascii</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ucase 把小写字母转为大写</span></span><br><span class="line">dd if=test of=out cbs=64 conv=ucase,ebcdic</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">swab 交换输入的每对字节</span></span><br><span class="line">dd if=test of=out cbs=2 conv=swab</span><br></pre></td></tr></table></figure>
+
+<p>#noerror 出错时不停止<br>#notrunc 不截短输出文件<br>#sync 将每个输入块填充盗ibs个字节</p>
+<h2 id="跳过一定字节再开始复制"><a href="#跳过一定字节再开始复制" class="headerlink" title="跳过一定字节再开始复制"></a>跳过一定字节再开始复制</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">skip=nblocks 从输入文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out skip=10</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">seek=nblocks 从输出文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out seek=12</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/04/15/dd-linux-command/" data-id="cluzrdka80000vpz8hvxjhibi" data-title="dd_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/04/14/split-linux-command/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">split_linux_command</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/04/15/dd-linux-command/">dd_linux_command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/14/split-linux-command/">split_linux_command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/13/find-linux-command/">find_linux_command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/28/squid/">squid-study</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/28/git/">git_study</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 tongxu24<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
