@@ -73,6 +73,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-split-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/14/split-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-04-14T15:42:46.000Z" itemprop="datePublished">2024-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/14/split-linux-command/">split_linux_command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="split-命令"><a href="#split-命令" class="headerlink" title="split 命令"></a>split 命令</h1><h2 id="根据行数分割"><a href="#根据行数分割" class="headerlink" title="根据行数分割"></a>根据行数分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将test.txt文件 每10行分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line">split -l 10 test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据大小分割"><a href="#根据大小分割" class="headerlink" title="根据大小分割"></a>根据大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将test.txt文件 每10K分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-b 单位byte k M G</span></span><br><span class="line">split -b 10k test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据单行大小分割"><a href="#根据单行大小分割" class="headerlink" title="根据单行大小分割"></a>根据单行大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据单行最大不超过32byte 进行分割 尽量保证每行的完整性 如换行符直</span></span><br><span class="line">split -C 32 test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用数字作为后缀"><a href="#使用数字作为后缀" class="headerlink" title="使用数字作为后缀"></a>使用数字作为后缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用数字作为后缀 每10行分割 test.txt文件</span></span><br><span class="line">split -l 10 test.txt -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="指定后缀字符数量"><a href="#指定后缀字符数量" class="headerlink" title="指定后缀字符数量"></a>指定后缀字符数量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每行16byte 以3为数字作为后缀 分割test.txt文件</span></span><br><span class="line">split -C 16 test.txt -d -a 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="更改输出前缀"><a href="#更改输出前缀" class="headerlink" title="更改输出前缀"></a>更改输出前缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每16byte <span class="built_in">split</span>最为输出名前缀 分割test.txt文件</span></span><br><span class="line">split -b 16 test.txt split </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/04/14/split-linux-command/" data-id="cluzq0r4g00052wz8fjpob85v" data-title="split_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-find-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/13/find-linux-command/" class="article-date">
@@ -123,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="cluyv7d5r0001k6z8d6kz0mey" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="cluzq0r4c00012wz84kuwbgsd" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -177,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/squid/" data-id="cluyv7d5w0005k6z8h1uzfgd3" data-title="squid-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/squid/" data-id="cluzq0r4h00062wz8eh1rfykf" data-title="squid-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -288,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/git/" data-id="cluyv7d5t0002k6z82jgh1ygh" data-title="git_study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/git/" data-id="cluzq0r4e00022wz8cu9vdltj" data-title="git_study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -339,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/hello-world/" data-id="cluyv7d5u0003k6z856bl9l3a" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/hello-world/" data-id="cluzq0r4f00032wz8679f82xn" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -401,7 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/docker/" data-id="cluyv7d5m0000k6z84r945vna" data-title="docker-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/docker/" data-id="cluzq0r4700002wz82mpvdx2x" data-title="docker-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -452,7 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/hexo/" data-id="cluyv7d5v0004k6z8fhmxftrm" data-title="hexo-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/hexo/" data-id="cluzq0r4f00042wz894haci0a" data-title="hexo-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -495,6 +544,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/14/split-linux-command/">split_linux_command</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/13/find-linux-command/">find_linux_command</a>
           </li>
         
@@ -508,10 +561,6 @@
         
           <li>
             <a href="/2024/03/28/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/28/docker/">docker-study</a>
           </li>
         
       </ul>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>split_linux_command | Bjmu1026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="split 命令根据行数分割12#将test.txt文件 每10行分割成一系列 新的文件 x开头 后缀为字母split -l 10 test.txt  根据大小分割123# 将test.txt文件 每10K分割成一系列 新的文件 x开头 后缀为字母# -b 单位byte k M Gsplit -b 10k test.txt  根据单行大小分割12# 根据单行最大不超过32byte 进行分割 尽量保">
+<meta property="og:type" content="article">
+<meta property="og:title" content="split_linux_command">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/04/14/split-linux-command/index.html">
+<meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="split 命令根据行数分割12#将test.txt文件 每10行分割成一系列 新的文件 x开头 后缀为字母split -l 10 test.txt  根据大小分割123# 将test.txt文件 每10K分割成一系列 新的文件 x开头 后缀为字母# -b 单位byte k M Gsplit -b 10k test.txt  根据单行大小分割12# 根据单行最大不超过32byte 进行分割 尽量保">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-04-14T15:42:46.000Z">
+<meta property="article:modified_time" content="2024-04-14T16:08:48.366Z">
+<meta property="article:author" content="tongxu24">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bjmu1026" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bjmu1026</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal study notes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bjmu1026.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-split-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/14/split-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-04-14T15:42:46.000Z" itemprop="datePublished">2024-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      split_linux_command
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="split-命令"><a href="#split-命令" class="headerlink" title="split 命令"></a>split 命令</h1><h2 id="根据行数分割"><a href="#根据行数分割" class="headerlink" title="根据行数分割"></a>根据行数分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将test.txt文件 每10行分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line">split -l 10 test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据大小分割"><a href="#根据大小分割" class="headerlink" title="根据大小分割"></a>根据大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将test.txt文件 每10K分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-b 单位byte k M G</span></span><br><span class="line">split -b 10k test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据单行大小分割"><a href="#根据单行大小分割" class="headerlink" title="根据单行大小分割"></a>根据单行大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据单行最大不超过32byte 进行分割 尽量保证每行的完整性 如换行符直</span></span><br><span class="line">split -C 32 test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用数字作为后缀"><a href="#使用数字作为后缀" class="headerlink" title="使用数字作为后缀"></a>使用数字作为后缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用数字作为后缀 每10行分割 test.txt文件</span></span><br><span class="line">split -l 10 test.txt -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="指定后缀字符数量"><a href="#指定后缀字符数量" class="headerlink" title="指定后缀字符数量"></a>指定后缀字符数量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每行16byte 以3为数字作为后缀 分割test.txt文件</span></span><br><span class="line">split -C 16 test.txt -d -a 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="更改输出前缀"><a href="#更改输出前缀" class="headerlink" title="更改输出前缀"></a>更改输出前缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每16byte <span class="built_in">split</span>最为输出名前缀 分割test.txt文件</span></span><br><span class="line">split -b 16 test.txt split </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/04/14/split-linux-command/" data-id="cluzq0r4g00052wz8fjpob85v" data-title="split_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/04/13/find-linux-command/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">find_linux_command</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/04/14/split-linux-command/">split_linux_command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/13/find-linux-command/">find_linux_command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/28/squid/">squid-study</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/28/git/">git_study</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/28/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 tongxu24<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
