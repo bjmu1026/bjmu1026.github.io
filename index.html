@@ -73,6 +73,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cat-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/15/cat-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-04-15T00:52:16.000Z" itemprop="datePublished">2024-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/15/cat-linux-command/">cat_linux_command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="cat命令"><a href="#cat命令" class="headerlink" title="cat命令"></a>cat命令</h1><h2 id="创建新文件"><a href="#创建新文件" class="headerlink" title="创建新文件"></a>创建新文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以^D结束</span></span><br><span class="line">cat &gt; test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示文件内容"><a href="#显示文件内容" class="headerlink" title="显示文件内容"></a>显示文件内容</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看单个文件</span></span><br><span class="line">cat test.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看多个文件</span></span><br><span class="line">cat test1.txt test2.txt</span><br></pre></td></tr></table></figure>
+<h2 id="备份文件"><a href="#备份文件" class="headerlink" title="备份文件"></a>备份文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">备份单个文件</span></span><br><span class="line">cat test1 &gt; test2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">备份多个文件</span></span><br><span class="line">cat test1 test2 &gt; test3</span><br></pre></td></tr></table></figure>
+
+<h2 id="反序查看文件内容"><a href="#反序查看文件内容" class="headerlink" title="反序查看文件内容"></a>反序查看文件内容</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以反行序的方式查看文件内容</span></span><br><span class="line">tac test1.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加文件内容盗另外一个文件末尾"><a href="#添加文件内容盗另外一个文件末尾" class="headerlink" title="添加文件内容盗另外一个文件末尾"></a>添加文件内容盗另外一个文件末尾</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#将test1的内容添加盗test2文件末尾</span></span></span><br><span class="line">cat test1 &gt;&gt; test2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#终端输入 ^D结束输入 添加盗test.file末尾</span></span></span><br><span class="line">cat &gt;&gt; test.file</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看文件参数"><a href="#查看文件参数" class="headerlink" title="查看文件参数"></a>查看文件参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-n 显示行号</span></span></span><br><span class="line">cat -n test1.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-E 显示每行的末尾和行之间的空格</span></span></span><br><span class="line">cat -E test2.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-T 显示制表符空格^|</span></span></span><br><span class="line">cat -T test3.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-s 忽略空白行</span></span></span><br><span class="line">cat -s test4.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-v 显示^ M符号的不可打印字符</span></span></span><br><span class="line">cat -v test5.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-t 等同-vT</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-u 被用来忽略</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-e 等同-vE</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-A 展示所有文件内容</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/04/15/cat-linux-command/" data-id="clv09g82s00006bz819nyemva" data-title="cat_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-dd-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/15/dd-linux-command/" class="article-date">
@@ -108,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/15/dd-linux-command/" data-id="cluzrdka80000vpz8hvxjhibi" data-title="dd_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/04/15/dd-linux-command/" data-id="clv09g82x00016bz81zfz7bti" data-title="dd_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -157,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/14/split-linux-command/" data-id="cluzrdkal0006vpz84dynhvdj" data-title="split_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/04/14/split-linux-command/" data-id="clv09g83200076bz854uu8ewm" data-title="split_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -219,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="cluzrdkah0002vpz88avxbu87" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="clv09g83000036bz8fbmjfi7s" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -273,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/squid/" data-id="cluzrdkal0007vpz819nje21j" data-title="squid-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/squid/" data-id="clv09g83300086bz800oo8wz9" data-title="squid-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -384,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/git/" data-id="cluzrdkai0003vpz8cvynfriv" data-title="git_study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/git/" data-id="clv09g83000046bz8bd5saf51" data-title="git_study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -435,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/hello-world/" data-id="cluzrdkaj0004vpz849kh9psw" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/hello-world/" data-id="clv09g83100056bz829jhghlh" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -497,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/docker/" data-id="cluzrdkaf0001vpz83wj8dq1r" data-title="docker-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/docker/" data-id="clv09g82z00026bz8a3sogu47" data-title="docker-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -548,7 +598,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/03/28/hexo/" data-id="cluzrdkak0005vpz8d1uwg5ey" data-title="hexo-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/03/28/hexo/" data-id="clv09g83200066bz8bv6bh1nr" data-title="hexo-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -591,6 +641,10 @@
       <ul>
         
           <li>
+            <a href="/2024/04/15/cat-linux-command/">cat_linux_command</a>
+          </li>
+        
+          <li>
             <a href="/2024/04/15/dd-linux-command/">dd_linux_command</a>
           </li>
         
@@ -604,10 +658,6 @@
         
           <li>
             <a href="/2024/03/28/squid/">squid-study</a>
-          </li>
-        
-          <li>
-            <a href="/2024/03/28/git/">git_study</a>
           </li>
         
       </ul>
