@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>hexdump_linux_command.md | Bjmu1026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="hexdump12#主要用来查看二进制文件的十六进制编码#hexdump [options] [file] ...  选项1234567891011121314151617-n length 格式化输出文件的前length个字节-C 输出规范的十六进制和ASCII码-b 单字节八进制显示-c 单字节字符显示-d 双字节字符显示-o 双字节十进制显示-x 双字节十六进制显示-s 从偏移量开始输出-e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexdump_linux_command.md">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/05/14/hexdump-linux-command/index.html">
+<meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="hexdump12#主要用来查看二进制文件的十六进制编码#hexdump [options] [file] ...  选项1234567891011121314151617-n length 格式化输出文件的前length个字节-C 输出规范的十六进制和ASCII码-b 单字节八进制显示-c 单字节字符显示-d 双字节字符显示-o 双字节十进制显示-x 双字节十六进制显示-s 从偏移量开始输出-e">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-05-14T12:50:59.000Z">
+<meta property="article:modified_time" content="2024-05-14T13:55:06.199Z">
+<meta property="article:author" content="tongxu24">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bjmu1026" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bjmu1026</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal study notes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bjmu1026.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-hexdump-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/14/hexdump-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-05-14T12:50:59.000Z" itemprop="datePublished">2024-05-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      hexdump_linux_command.md
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="hexdump"><a href="#hexdump" class="headerlink" title="hexdump"></a>hexdump</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">主要用来查看二进制文件的十六进制编码</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">hexdump [options] [file] ...</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-n length 格式化输出文件的前length个字节</span><br><span class="line">-C 输出规范的十六进制和ASCII码</span><br><span class="line">-b 单字节八进制显示</span><br><span class="line">-c 单字节字符显示</span><br><span class="line">-d 双字节字符显示</span><br><span class="line">-o 双字节十进制显示</span><br><span class="line">-x 双字节十六进制显示</span><br><span class="line">-s 从偏移量开始输出</span><br><span class="line">-e 指定格式字符串</span><br><span class="line">  格式字符串由&#x27;&#x27;包裹 &#x27;a/b &quot;format1&quot;  &quot;format2&quot;&#x27;</span><br><span class="line">  format %02d 两位十进制   %03x 三位十六进制数</span><br><span class="line">         %02o 两位八进制数 %c 单个字符等</span><br><span class="line">         %_ad 标记下一个输出字符的序号，用十进制表示</span><br><span class="line">         %_ax ～，用十六进制表示</span><br><span class="line">         %_ao ～，用八进制表示</span><br><span class="line">         %_p  对不能以常规字符显示的用.代替</span><br><span class="line">         同一行多个格式字符串，可以跟多个-e选项</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hexdump test   格式化输出文件</span><br><span class="line"></span><br><span class="line">hexdump -n 10 test 格式化输出文件的前10个字节</span><br><span class="line"></span><br><span class="line">hexdump -n 10 -c test 格式化输出文件的前10个字节，并以16进制表示</span><br><span class="line"></span><br><span class="line">hexdump -n 10 -C -s 20 格式化输出从10开始的10个字节，并以16进制显示</span><br><span class="line"></span><br><span class="line">hexdump -e &#x27;16/1 &quot;%02x&quot; &quot;|&quot;&#x27; -e &#x27;16/1 &quot;%_p&quot; &quot;\n&quot;&#x27; test</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">format: iteration_count/byte_count format</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/05/14/hexdump-linux-command/" data-id="clw6ggl5c00079tz87v8yfgg7" data-title="hexdump_linux_command.md" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/04/28/telnet-linux-command/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">telnet_linux_command.md</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/14/hexdump-linux-command/">hexdump_linux_command.md</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/28/telnet-linux-command/">telnet_linux_command.md</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/27/wget-linux-command/">wget_linux_command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/27/curl-linux-command/">curl_linux_command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/20/nft-linux-command/">nft_linux_command</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 tongxu24<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
