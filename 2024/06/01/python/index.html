@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Bjmu1026</title>
+  <title>source/_posts/python | Bjmu1026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Bjmu1026">
-<meta property="og:url" content="https://bjmu1026.github.io/index.html">
+  <meta name="description" content="基础语法 编码默认python3源码使用UTF-8编码 所有字符使用UNICODE&#x2F;# 指定源码使用的编码&#x2F;# -- coding: cp-1252 --  标识符第一个字符  字母 或 _其他部分由字母 数字 下划线组成大小写敏感  保留字 12&gt;&gt;&gt;import keyword&gt;&gt;&gt;keyword.kwlist  注释 1# 这是一个注释">
+<meta property="og:type" content="article">
+<meta property="og:title" content="source&#x2F;_posts&#x2F;python">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/06/01/python/index.html">
 <meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="基础语法 编码默认python3源码使用UTF-8编码 所有字符使用UNICODE&#x2F;# 指定源码使用的编码&#x2F;# -- coding: cp-1252 --  标识符第一个字符  字母 或 _其他部分由字母 数字 下划线组成大小写敏感  保留字 12&gt;&gt;&gt;import keyword&gt;&gt;&gt;keyword.kwlist  注释 1# 这是一个注释">
 <meta property="og:locale">
+<meta property="article:published_time" content="2024-06-01T06:01:57.000Z">
+<meta property="article:modified_time" content="2024-06-06T09:53:10.723Z">
 <meta property="article:author" content="tongxu24">
 <meta name="twitter:card" content="summary">
   
@@ -71,9 +75,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-python" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-python" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/06/01/python/" class="article-date">
   <time class="dt-published" datetime="2024-06-01T06:01:57.000Z" itemprop="datePublished">2024-06-01</time>
@@ -86,8 +88,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/06/01/python/">source/_posts/python</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      source/_posts/python
     </h1>
   
 
@@ -1152,455 +1154,20 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hexdump-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/14/hexdump-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-05-14T12:50:59.000Z" itemprop="datePublished">2024-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/05/14/hexdump-linux-command/">hexdump_linux_command.md</a>
-    </h1>
+    <a href="/2024/05/14/hexdump-linux-command/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">hexdump_linux_command.md</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="hexdump"><a href="#hexdump" class="headerlink" title="hexdump"></a>hexdump</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">主要用来查看二进制文件的十六进制编码</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">hexdump [options] [file] ...</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-n length 格式化输出文件的前length个字节</span><br><span class="line">-C 输出规范的十六进制和ASCII码</span><br><span class="line">-b 单字节八进制显示</span><br><span class="line">-c 单字节字符显示</span><br><span class="line">-d 双字节字符显示</span><br><span class="line">-o 双字节十进制显示</span><br><span class="line">-x 双字节十六进制显示</span><br><span class="line">-s 从偏移量开始输出</span><br><span class="line">-e 指定格式字符串</span><br><span class="line">  格式字符串由&#x27;&#x27;包裹 &#x27;a/b &quot;format1&quot;  &quot;format2&quot;&#x27;</span><br><span class="line">  format %02d 两位十进制   %03x 三位十六进制数</span><br><span class="line">         %02o 两位八进制数 %c 单个字符等</span><br><span class="line">         %_ad 标记下一个输出字符的序号，用十进制表示</span><br><span class="line">         %_ax ～，用十六进制表示</span><br><span class="line">         %_ao ～，用八进制表示</span><br><span class="line">         %_p  对不能以常规字符显示的用.代替</span><br><span class="line">         同一行多个格式字符串，可以跟多个-e选项</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hexdump test   格式化输出文件</span><br><span class="line"></span><br><span class="line">hexdump -n 10 test 格式化输出文件的前10个字节</span><br><span class="line"></span><br><span class="line">hexdump -n 10 -c test 格式化输出文件的前10个字节，并以16进制表示</span><br><span class="line"></span><br><span class="line">hexdump -n 10 -C -s 20 格式化输出从10开始的10个字节，并以16进制显示</span><br><span class="line"></span><br><span class="line">hexdump -e &#x27;16/1 &quot;%02x&quot; &quot;|&quot;&#x27; -e &#x27;16/1 &quot;%_p&quot; &quot;\n&quot;&#x27; test</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">format: iteration_count/byte_count format</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/05/14/hexdump-linux-command/" data-id="clw6ghcfr0007giz800i8et1n" data-title="hexdump_linux_command.md" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
 
-
-
-  
-    <article id="post-telnet-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/28/telnet-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-28T05:59:59.000Z" itemprop="datePublished">2024-04-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/28/telnet-linux-command/">telnet_linux_command.md</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="telnet命令"><a href="#telnet命令" class="headerlink" title="telnet命令"></a>telnet命令</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">链接倒远程主机</span></span><br><span class="line">telnet [host] [port]</span><br><span class="line">telnet baidu.com 8080</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">默认脱离字符Ctrl+]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="命令界面"><a href="#命令界面" class="headerlink" title="命令界面"></a>命令界面</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">open 建立倒主机的telnet连接</span><br><span class="line">close 关闭现有的连接</span><br><span class="line">display 查看Telnet客户端当前设置</span><br><span class="line">send 向telnet服务器发送明两年</span><br><span class="line">    ao 放弃输出命令</span><br><span class="line">    ayt Are you there命令</span><br><span class="line">    esc 发送当前的转义字符</span><br><span class="line">    ip 中断进程命令</span><br><span class="line">    synch 执行telnet同步操作</span><br><span class="line">    brk 发送信号</span><br><span class="line">    quit 退出telnet</span><br><span class="line">缩写  c --close</span><br><span class="line">      d --display</span><br><span class="line">      o --open hostname [port]</span><br><span class="line">      q --quit</span><br><span class="line">      set --set</span><br><span class="line">      sen --send</span><br><span class="line">      st  --status</span><br><span class="line">      u   --unset</span><br><span class="line">      ?/h --help</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/28/telnet-linux-command/" data-id="clw6ghcfu000cgiz819zlg1fd" data-title="telnet_linux_command.md" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-wget-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/27/wget-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-27T00:10:09.000Z" itemprop="datePublished">2024-04-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/27/wget-linux-command/">wget_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="wget命令"><a href="#wget命令" class="headerlink" title="wget命令"></a>wget命令</h1><h2 id="启动参数"><a href="#启动参数" class="headerlink" title="启动参数"></a>启动参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-V --version 显示版本</span><br><span class="line">-h --help  打印帮助语法</span><br><span class="line">-b --background 后台执行</span><br><span class="line">-e --execute=COMMAND 执行wgetrc格式命令</span><br></pre></td></tr></table></figure>
-
-<h2 id="记录和输入文件参数"><a href="#记录和输入文件参数" class="headerlink" title="记录和输入文件参数"></a>记录和输入文件参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-o --output-fle=FILE 把记录写入文件FILE中</span><br><span class="line">-a --append-output=FILE 把记录追加倒FILE文件中</span><br><span class="line">-d --debug 打印调试输出</span><br><span class="line">-q --quiet 没有输出</span><br><span class="line">-v --verbose 冗长模式</span><br><span class="line">-nv --non-verbose 关闭冗长模式，但是不是安静模式</span><br><span class="line">-i --input-file=FILE 下载在FILE文件种出现的URLs</span><br><span class="line">-F --force-html 把输入文件当做HMTL格式对待</span><br><span class="line">-B --base-URL 把URL座位-F -i 参数指定的文件中出现的相对链接的前缀</span><br></pre></td></tr></table></figure>
-
-<h2 id="下载参数"><a href="#下载参数" class="headerlink" title="下载参数"></a>下载参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-t  --tries=NUMBER 设定最大尝试链接次数0表示无限制</span><br><span class="line">-O --output-document=FILE 把文档写到FILE文件种</span><br><span class="line">-nc --no-clobber 不要复盖存在的文件或使用.#前缀</span><br><span class="line">-c --continue 接着下载没下载完的文件</span><br><span class="line">--progress=TYPE 设定进程条标记</span><br><span class="line">-N --timestamping 不要下载文件除非比本地文件新</span><br><span class="line">-S --server-response 打印服务器的回应</span><br><span class="line">  --spider 不下载任何东西</span><br><span class="line">-T --timeout=SECONDS 设定响应超时的秒数</span><br><span class="line">-w --wait=SECONDS 两次尝试之间间隔SECONDS秒</span><br><span class="line">   --waitretry=SECONDS 在重新连接之间等待1..SECONDS秒</span><br><span class="line">-Y --proxy=on/off 打开或关闭代理</span><br><span class="line">-Q -quota=NUMBER 设置下载的容量限制</span><br><span class="line">  --limit-rate=RATE 限定下载速率</span><br></pre></td></tr></table></figure>
-
-<h2 id="目录格式"><a href="#目录格式" class="headerlink" title="目录格式"></a>目录格式</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-nd --no-directories 不创建目录</span><br><span class="line">-x --force-directories 强制创建目录</span><br><span class="line">-nH --no-host-directories 不创建主机目录</span><br><span class="line">-P --directory-prefix=PREFIX 将文件保存在目录PREFIX下</span><br></pre></td></tr></table></figure>
-
-<h2 id="HTTP选项参数"><a href="#HTTP选项参数" class="headerlink" title="HTTP选项参数"></a>HTTP选项参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">--http-user=USER 设定HTTP用户名为USER</span><br><span class="line">--http-passwd=PASS 设定密码为PASS</span><br><span class="line">-C --cache=on/off 允许/不允许服务器端的数据缓存</span><br><span class="line">-E --html-extension 将所有text/html文档以.html扩展名保存</span><br><span class="line">-s --save-headers 保存HTPP头到文件</span><br><span class="line">-U --user-agent=AGENT 设定代理的名称为AGENT</span><br></pre></td></tr></table></figure>
-
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">wget -S --spider url ## 不下载只显示过程</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 下载单个文件</span></span></span><br><span class="line">wget url</span><br><span class="line">wget -O filename.mp4 url</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 限速下载</span></span></span><br><span class="line">wget --limit-rate=300K url</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 后台下载</span></span></span><br><span class="line">wget -b url</span><br><span class="line">tail -f wget-log  ## 查看进度</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 伪装代理名称下载</span></span></span><br><span class="line">wget --user-agent=&quot;Mozilla/5.0 (Windows;U;Windows NT ) ...&quot; URL</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 增加重试次数</span></span></span><br><span class="line">wget --tries=40 URL</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 使用-i 下载多个文件</span></span></span><br><span class="line">cat &gt; filelist.txt</span><br><span class="line">URL1</span><br><span class="line">URL2</span><br><span class="line">URL3</span><br><span class="line"></span><br><span class="line">wget -i filelist.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 镜像网站</span></span></span><br><span class="line">wget --mirror -p --convert-links -P ./LOCAL URL</span><br><span class="line">--mirror 镜像下载</span><br><span class="line">-p 下载所有为了HTML页面正常显示的文件</span><br><span class="line">--convert-links 转换成本地的链接</span><br><span class="line">-P ./LOCAL保存在本地指定目录</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 过滤指定格式下载</span></span></span><br><span class="line">wget --reject=gif url</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 保存日志文件</span></span></span><br><span class="line">wget -o download.log url</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 限制总下载文件大小</span></span></span><br><span class="line">wget -Q5m -i filelist.txt  限制5M</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 下载指定格式的文件</span></span></span><br><span class="line">wget -r -A.pdf url</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/27/wget-linux-command/" data-id="clw6ghcfv000dgiz89fmb4jrz" data-title="wget_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-curl-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/27/curl-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-26T23:42:37.000Z" itemprop="datePublished">2024-04-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/27/curl-linux-command/">curl_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="curl命令"><a href="#curl命令" class="headerlink" title="curl命令"></a>curl命令</h1><h2 id="网页下载"><a href="#网页下载" class="headerlink" title="网页下载"></a>网页下载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以指定的文件名另存稻本地</span></span><br><span class="line">curl -o lesson0.mp4 http://url/path/file.mp4</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">自动从URL中解析出文件名另存导本地</span></span><br><span class="line">curl -O http://url/path/file.mp4</span><br></pre></td></tr></table></figure>
-
-<h2 id="通配符支持"><a href="#通配符支持" class="headerlink" title="通配符支持"></a>通配符支持</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载video1-4所有视频，按照video1.mp4 video2.mp4 a。。。保存</span></span><br><span class="line">curl -o &#x27;video#1.mp4&#x27; &#x27;http://url/path/file[1-4].mp4&#x27;</span><br><span class="line"></span><br><span class="line">curl -O http://url/path/file[1-4].mp4</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以指定步长</span></span><br><span class="line">curl -O http://url/path/file[00-99:2].mp4</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看Http头部响应头"><a href="#查看Http头部响应头" class="headerlink" title="查看Http头部响应头"></a>查看Http头部响应头</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I http://www.baidu.com</span><br></pre></td></tr></table></figure>
-
-<h2 id="自动跟踪重定向"><a href="#自动跟踪重定向" class="headerlink" title="自动跟踪重定向"></a>自动跟踪重定向</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L http://www.sina.com</span><br></pre></td></tr></table></figure>
-
-<h2 id="指定HTTP请求方式"><a href="#指定HTTP请求方式" class="headerlink" title="指定HTTP请求方式"></a>指定HTTP请求方式</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">发起post请求</span></span><br><span class="line">curl -X POST </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">发起update请求</span></span><br><span class="line">curl -X UPDATE</span><br></pre></td></tr></table></figure>
-
-<h2 id="自定义HTTP请求头"><a href="#自定义HTTP请求头" class="headerlink" title="自定义HTTP请求头"></a>自定义HTTP请求头</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">cookie:</span></span><br><span class="line">  --cookie &quot;name1=xxx;name2=xxx;name3=xxx&quot; http:www.curltest.com</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">referer:</span></span><br><span class="line">  --referer &quot;&lt;script&gt;alert(&quot;I am admin,bitch!&quot;)&lt;/script&gt;&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ua</span></span><br><span class="line">  --user-agent &quot;&lt;script&gt;alert(&quot;I am admin,bitch!S&quot;)&quot;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a>提交表单</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以上传多个参数</span></span><br><span class="line">curl -X post -F &quot;name=chihz&quot; -F &quot;age=22&quot; -F &quot;heading=@path/selection_translate.sh&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="多进程下载"><a href="#多进程下载" class="headerlink" title="多进程下载"></a>多进程下载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载前500个字节的文件</span></span><br><span class="line">curl -o -r&#x27;0-500&#x27; http://path/file.mp4</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/27/curl-linux-command/" data-id="clw6ghcfl0001giz8ezqy49dc" data-title="curl_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-nft-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/20/nft-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-20T13:39:04.000Z" itemprop="datePublished">2024-04-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/20/nft-linux-command/">nft_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/20/nft-linux-command/" data-id="clw6ghcfs0009giz8d1wqg1bs" data-title="nft_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-cat-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/15/cat-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-15T00:52:16.000Z" itemprop="datePublished">2024-04-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/15/cat-linux-command/">cat_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="cat命令"><a href="#cat命令" class="headerlink" title="cat命令"></a>cat命令</h1><h2 id="创建新文件"><a href="#创建新文件" class="headerlink" title="创建新文件"></a>创建新文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以^D结束</span></span><br><span class="line">cat &gt; test.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="显示文件内容"><a href="#显示文件内容" class="headerlink" title="显示文件内容"></a>显示文件内容</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看单个文件</span></span><br><span class="line">cat test.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看多个文件</span></span><br><span class="line">cat test1.txt test2.txt</span><br></pre></td></tr></table></figure>
-<h2 id="备份文件"><a href="#备份文件" class="headerlink" title="备份文件"></a>备份文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">备份单个文件</span></span><br><span class="line">cat test1 &gt; test2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">备份多个文件</span></span><br><span class="line">cat test1 test2 &gt; test3</span><br></pre></td></tr></table></figure>
-
-<h2 id="反序查看文件内容"><a href="#反序查看文件内容" class="headerlink" title="反序查看文件内容"></a>反序查看文件内容</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以反行序的方式查看文件内容</span></span><br><span class="line">tac test1.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加文件内容盗另外一个文件末尾"><a href="#添加文件内容盗另外一个文件末尾" class="headerlink" title="添加文件内容盗另外一个文件末尾"></a>添加文件内容盗另外一个文件末尾</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#将test1的内容添加盗test2文件末尾</span></span></span><br><span class="line">cat test1 &gt;&gt; test2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#终端输入 ^D结束输入 添加盗test.file末尾</span></span></span><br><span class="line">cat &gt;&gt; test.file</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看文件参数"><a href="#查看文件参数" class="headerlink" title="查看文件参数"></a>查看文件参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-n 显示行号</span></span></span><br><span class="line">cat -n test1.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-E 显示每行的末尾和行之间的空格</span></span></span><br><span class="line">cat -E test2.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-T 显示制表符空格^|</span></span></span><br><span class="line">cat -T test3.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-s 忽略空白行</span></span></span><br><span class="line">cat -s test4.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-v 显示^ M符号的不可打印字符</span></span></span><br><span class="line">cat -v test5.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-t 等同-vT</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-u 被用来忽略</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-e 等同-vE</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#-A 展示所有文件内容</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/15/cat-linux-command/" data-id="clw6ghcfh0000giz86ahi34id" data-title="cat_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-dd-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/15/dd-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-14T16:16:09.000Z" itemprop="datePublished">2024-04-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/15/dd-linux-command/">dd_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="dd命令"><a href="#dd命令" class="headerlink" title="dd命令"></a>dd命令</h1><h2 id="文件输入输出"><a href="#文件输入输出" class="headerlink" title="文件输入输出"></a>文件输入输出</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">if</span>= 接输入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">of= 接输出文件</span></span><br><span class="line">dd if=/dev/zero of=./zero.file</span><br></pre></td></tr></table></figure>
-<h2 id="字节数调整"><a href="#字节数调整" class="headerlink" title="字节数调整"></a>字节数调整</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">bs= 设置输入文件 输出文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ibs= 仅设置输入文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">obs= 仅设置输出文件 块大小</span></span><br><span class="line">dd if=/dev/zero of=./zero.file bs=4096 </span><br></pre></td></tr></table></figure>
-<h2 id="指定参数转换文件"><a href="#指定参数转换文件" class="headerlink" title="指定参数转换文件"></a>指定参数转换文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">conv=指定参数</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ascii ebcdic转换为ascii</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ebcdic ascii转换为ebcdic</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ibm ascii转换为alternate ebcdic</span></span><br><span class="line">dd if=test of=out conv=ebcdic </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">cbs= 设置每次转换缓冲区大小</span></span><br><span class="line">dd if=test of=out conv=ebcdic cbs=1024</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">block 把每一行转换位长度位cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=16 conv=block,ebcdic</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">unblock 使每一行的长度都为cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=32 conv=unblock,ascii</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">lcase 把大写字母转为小写</span></span><br><span class="line">dd if=test of=out cbs=16 conv=lcase,ascii</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ucase 把小写字母转为大写</span></span><br><span class="line">dd if=test of=out cbs=64 conv=ucase,ebcdic</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">swab 交换输入的每对字节</span></span><br><span class="line">dd if=test of=out cbs=2 conv=swab</span><br></pre></td></tr></table></figure>
-
-<p>#noerror 出错时不停止<br>#notrunc 不截短输出文件<br>#sync 将每个输入块填充盗ibs个字节</p>
-<h2 id="跳过一定字节再开始复制"><a href="#跳过一定字节再开始复制" class="headerlink" title="跳过一定字节再开始复制"></a>跳过一定字节再开始复制</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">skip=nblocks 从输入文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out skip=10</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">seek=nblocks 从输出文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out seek=12</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/15/dd-linux-command/" data-id="clw6ghcfn0002giz80ilzec45" data-title="dd_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-split-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/14/split-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-14T15:42:46.000Z" itemprop="datePublished">2024-04-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/14/split-linux-command/">split_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="split-命令"><a href="#split-命令" class="headerlink" title="split 命令"></a>split 命令</h1><h2 id="根据行数分割"><a href="#根据行数分割" class="headerlink" title="根据行数分割"></a>根据行数分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将test.txt文件 每10行分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line">split -l 10 test.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据大小分割"><a href="#根据大小分割" class="headerlink" title="根据大小分割"></a>根据大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将test.txt文件 每10K分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-b 单位byte k M G</span></span><br><span class="line">split -b 10k test.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据单行大小分割"><a href="#根据单行大小分割" class="headerlink" title="根据单行大小分割"></a>根据单行大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据单行最大不超过32byte 进行分割 尽量保证每行的完整性 如换行符直</span></span><br><span class="line">split -C 32 test.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用数字作为后缀"><a href="#使用数字作为后缀" class="headerlink" title="使用数字作为后缀"></a>使用数字作为后缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用数字作为后缀 每10行分割 test.txt文件</span></span><br><span class="line">split -l 10 test.txt -d</span><br></pre></td></tr></table></figure>
-
-<h2 id="指定后缀字符数量"><a href="#指定后缀字符数量" class="headerlink" title="指定后缀字符数量"></a>指定后缀字符数量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每行16byte 以3为数字作为后缀 分割test.txt文件</span></span><br><span class="line">split -C 16 test.txt -d -a 3</span><br></pre></td></tr></table></figure>
-
-<h2 id="更改输出前缀"><a href="#更改输出前缀" class="headerlink" title="更改输出前缀"></a>更改输出前缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每16byte <span class="built_in">split</span>最为输出名前缀 分割test.txt文件</span></span><br><span class="line">split -b 16 test.txt split </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/14/split-linux-command/" data-id="clw6ghcft000agiz84fld2s3b" data-title="split_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-find-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/13/find-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-13T01:39:35.000Z" itemprop="datePublished">2024-04-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/13/find-linux-command/">find_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="find-命令"><a href="#find-命令" class="headerlink" title="find 命令"></a>find 命令</h1><h2 id="根据文件名查找"><a href="#根据文件名查找" class="headerlink" title="根据文件名查找"></a>根据文件名查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-name 跟文件名 可用通配符</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-iname 忽略大小写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-regex 跟文件路径字符串</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-iregex 忽略大小写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-prune 不寻找字符串作为范本样式</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找<span class="built_in">test</span>开头 sh结尾的文件</span></span><br><span class="line">find ./ -iname &quot;test*.sh&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据属主-属组查找"><a href="#根据属主-属组查找" class="headerlink" title="根据属主 属组查找"></a>根据属主 属组查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-user username</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-group groupname</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-uid UserID</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-gid GroupID</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-nouser 没有属主</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-nogroup 没有属组</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前文件查找属主是root 以pass开头的文件</span></span><br><span class="line">find ./ -user root -name &quot;pass*&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据文件类型查找"><a href="#根据文件类型查找" class="headerlink" title="根据文件类型查找"></a>根据文件类型查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">type</span> f普通文件 d目录文件 l符号链接 s套接字文件 b块设备文件 c字符设备文件 p管道文件</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找myDemo开头的目录文件</span></span><br><span class="line">find ./ -type d -name &quot;myDemo*&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="组合条件"><a href="#组合条件" class="headerlink" title="组合条件"></a>组合条件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-a and与</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-o or或</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-not -! 非</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="根据文件大小查找"><a href="#根据文件大小查找" class="headerlink" title="根据文件大小查找"></a>根据文件大小查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-size b c w k M G</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找文件大小大于10M小于10G的普通文件</span></span><br><span class="line">find ./ -type f -size -10G -size +10M</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据时间戳查找"><a href="#根据时间戳查找" class="headerlink" title="根据时间戳查找"></a>根据时间戳查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以天为单位</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-atime 最近访问时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mtime 最近修改文件内容时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ctime 最近修改元数据时间</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以分钟为单位</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-amin</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mmin</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-cmin</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">高级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-daystart 从本日开始计算时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-newer &lt;参考文件或目录&gt; 查找其更改时间更接近现在的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-anewer &lt;参考文件或目录&gt;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-cnewer &lt;参考文件或目录&gt;</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找比new文件修改时间更新的文件或目录</span></span><br><span class="line">find ./ -type f -newer new</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="根据权限查找"><a href="#根据权限查找" class="headerlink" title="根据权限查找"></a>根据权限查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-perm 4-r 2-w 1-x</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找可读可写的目录</span></span><br><span class="line">find ./ -type d -perm 555</span><br></pre></td></tr></table></figure>
-
-<h2 id="符号链接处理"><a href="#符号链接处理" class="headerlink" title="符号链接处理"></a>符号链接处理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-follow 排除符号链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-links &lt;链接数目&gt;  查找符合指定的硬链接数目的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-inum &lt;inode 编号&gt;  查找符合指定的inode编号的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-noleaf 不去考虑目录至少需要拥有两个硬链接存在</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录排除符号链接查找含有pass的普通文件</span></span><br><span class="line">find ./ -type f -follow -name  &quot;*pass*&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="查找深度"><a href="#查找深度" class="headerlink" title="查找深度"></a>查找深度</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-path &lt;范本样式&gt; 指定字符串做为寻找目录的范本样式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ipath 忽略大小写</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mindepth &lt;目录层级&gt;  设置最小目录层级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-maxdepth &lt;目录层级&gt;  设置最大目录层级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-depth 从指定目录下最深层的子目录开始查找</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录3层深度内查找10天内访问过的普通文件</span></span><br><span class="line">find ./ -type f -atime -10 -maxdepth 3</span><br></pre></td></tr></table></figure>
-
-<h2 id="处理动作"><a href="#处理动作" class="headerlink" title="处理动作"></a>处理动作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">print</span> 默认处理动作  显示岛屏幕</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-print0 将文件或目录名称列出岛标准输出，格式为全部的名称全在同一行</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">printf</span> &lt;输出格式&gt;  自行设定输出格式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">ls</span> 类似对查找盗的文件执行“<span class="built_in">ls</span> -l”命令</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-delete 刹车农户查找盗的文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-fls /path/to/somefile 查找到所有文件的长格式信息保存至指定文件种</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ok COMMAND &#123;&#125; \; 对查找到的每个文件执行由COMMAND指定的命令  每次都会要求用户确认</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">exec</span> COMMAND &#123;&#125; \; 不需要确认</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录下对所有包含pass的普通文件执行<span class="built_in">ls</span> -lh命令</span></span><br><span class="line">find ./ -type f -exec ls -lh &#123;&#125; \; -name &quot;*pass*&quot;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="clw6ghcfp0004giz87vcp3eap" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
-  </nav>
 
 </section>
         
