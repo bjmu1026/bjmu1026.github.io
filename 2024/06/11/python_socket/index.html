@@ -4,15 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>nft_linux_command | Bjmu1026</title>
+  <title>python_socket | Bjmu1026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="nft_linux_command">
-<meta property="og:url" content="https://bjmu1026.github.io/2024/04/20/nft-linux-command/index.html">
+  <meta name="description" content="python socketsocket 函数socket.socket(family,type,protocol)  family AF_UNIX 或AF_INET type TCP SOCK_STREAM  UDP SOCK_DGRAM protocol: 一般不填  Socket对象方法 服务端   s.bind((host,port))   绑定地址    s.listen()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python_socket">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/06/11/python_socket/index.html">
 <meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="python socketsocket 函数socket.socket(family,type,protocol)  family AF_UNIX 或AF_INET type TCP SOCK_STREAM  UDP SOCK_DGRAM protocol: 一般不填  Socket对象方法 服务端   s.bind((host,port))   绑定地址    s.listen()">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-04-20T13:39:04.000Z">
-<meta property="article:modified_time" content="2024-04-20T13:39:04.941Z">
+<meta property="article:published_time" content="2024-06-11T05:43:00.000Z">
+<meta property="article:modified_time" content="2024-06-11T06:45:04.864Z">
 <meta property="article:author" content="tongxu24">
 <meta name="twitter:card" content="summary">
   
@@ -73,10 +75,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-nft-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-python_socket" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/04/20/nft-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-20T13:39:04.000Z" itemprop="datePublished">2024-04-20</time>
+    <a href="/2024/06/11/python_socket/" class="article-date">
+  <time class="dt-published" datetime="2024-06-11T05:43:00.000Z" itemprop="datePublished">2024-06-11</time>
 </a>
     
   </div>
@@ -87,7 +89,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      nft_linux_command
+      python_socket
     </h1>
   
 
@@ -95,11 +97,78 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="python-socket"><a href="#python-socket" class="headerlink" title="python socket"></a>python socket</h1><h2 id="socket-函数"><a href="#socket-函数" class="headerlink" title="socket 函数"></a>socket 函数</h2><p>socket.socket(family,type,protocol)</p>
+<ol>
+<li>family AF_UNIX 或AF_INET</li>
+<li>type TCP SOCK_STREAM  UDP SOCK_DGRAM</li>
+<li>protocol: 一般不填</li>
+</ol>
+<h2 id="Socket对象方法"><a href="#Socket对象方法" class="headerlink" title="Socket对象方法"></a>Socket对象方法</h2><ul>
+<li>服务端</li>
+</ul>
+<ol>
+<li>s.bind((host,port))   绑定地址   </li>
+<li>s.listen()            TCP监听 操作系统可以挂起的最大连接数</li>
+<li>s.accept()            被动接受tcp客户端连接</li>
+</ol>
+<ul>
+<li>客户端</li>
+</ul>
+<ol>
+<li>s.connect((hostname,port))            主动初始化TCP服务连接</li>
+<li>s.connect_ex()                       connect(0函数的扩展版 出错返回错误码</li>
+</ol>
+<ul>
+<li><p>公共用途</p>
+<ul>
+<li>TCP</li>
+</ul>
+<ol>
+<li>s.recv(bufsize,flag)    接受TCP数据 返回字符串 bufsize 指定要接受的最大数据 flag 提供有发热消息的其他信息<br>通常忽略</li>
+<li>s.send(string)   发送TCP数据 返回字节数</li>
+<li>s.sendall(string)      返回前尝试发送所有的数据 成功返回None 失败抛出异常</li>
+</ol>
+<ul>
+<li>UDP</li>
+</ul>
+<ol>
+<li>s.recvfrom()   接受udp数据  返回(data,address) address为(ip,port)</li>
+<li>s.sendto()     发送udp</li>
+</ol>
+</li>
+<li><p>关闭<br>s.close()</p>
+</li>
+<li><p>地址</p>
+</li>
+</ul>
+<ol>
+<li>s.getpeername()  获取远程地址</li>
+<li>s.getsockname()  获取自己的地址</li>
+</ol>
+<ul>
+<li>选项</li>
+</ul>
+<ol>
+<li>s.setsockopt(level,optname,value)</li>
+<li>s.getsockopt(leve,optname[.buflen])</li>
+<li>s.settimeout(timeout) 设置套接字超时时间</li>
+<li>s.gettimeout() 获取超时时间</li>
+</ol>
+<ul>
+<li><p>阻塞 非阻塞<br>  s.setblocking(flag)  flag&#x3D;0 非阻塞式</p>
+</li>
+<li><p>文件</p>
+</li>
+</ul>
+<ol>
+<li>s.fileno()  返回套接字的fd</li>
+<li>s.makefile() 创建一个与该套接字相关的文件</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/20/nft-linux-command/" data-id="clw6ghcfs0009giz8d1wqg1bs" data-title="nft_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/06/11/python_socket/" data-id="clxhmi4cc0001f9z8g1m2h8sq" data-title="python_socket" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -109,19 +178,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2024/04/27/curl-linux-command/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/06/16/gpgme-error/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          curl_linux_command
+          archlinux pacman gpgme-error
         
       </div>
     </a>
   
   
-    <a href="/2024/04/15/cat-linux-command/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2024/06/07/wx-program/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">cat_linux_command</div>
+      <div class="article-nav-title">source/_posts/wx_program</div>
     </a>
   
 </nav>

@@ -73,6 +73,436 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-gpgme-error" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/16/gpgme-error/" class="article-date">
+  <time class="dt-published" datetime="2024-06-16T14:00:31.000Z" itemprop="datePublished">2024-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/06/16/gpgme-error/">archlinux pacman gpgme-error</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -R /var/lib/pacman/sync</span><br><span class="line">sudo pacman -Syu</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/06/16/gpgme-error/" data-id="clxhmi4c80000f9z8bkis6eni" data-title="archlinux pacman gpgme-error" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python_socket" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/11/python_socket/" class="article-date">
+  <time class="dt-published" datetime="2024-06-11T05:43:00.000Z" itemprop="datePublished">2024-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/06/11/python_socket/">python_socket</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="python-socket"><a href="#python-socket" class="headerlink" title="python socket"></a>python socket</h1><h2 id="socket-函数"><a href="#socket-函数" class="headerlink" title="socket 函数"></a>socket 函数</h2><p>socket.socket(family,type,protocol)</p>
+<ol>
+<li>family AF_UNIX 或AF_INET</li>
+<li>type TCP SOCK_STREAM  UDP SOCK_DGRAM</li>
+<li>protocol: 一般不填</li>
+</ol>
+<h2 id="Socket对象方法"><a href="#Socket对象方法" class="headerlink" title="Socket对象方法"></a>Socket对象方法</h2><ul>
+<li>服务端</li>
+</ul>
+<ol>
+<li>s.bind((host,port))   绑定地址   </li>
+<li>s.listen()            TCP监听 操作系统可以挂起的最大连接数</li>
+<li>s.accept()            被动接受tcp客户端连接</li>
+</ol>
+<ul>
+<li>客户端</li>
+</ul>
+<ol>
+<li>s.connect((hostname,port))            主动初始化TCP服务连接</li>
+<li>s.connect_ex()                       connect(0函数的扩展版 出错返回错误码</li>
+</ol>
+<ul>
+<li><p>公共用途</p>
+<ul>
+<li>TCP</li>
+</ul>
+<ol>
+<li>s.recv(bufsize,flag)    接受TCP数据 返回字符串 bufsize 指定要接受的最大数据 flag 提供有发热消息的其他信息<br>通常忽略</li>
+<li>s.send(string)   发送TCP数据 返回字节数</li>
+<li>s.sendall(string)      返回前尝试发送所有的数据 成功返回None 失败抛出异常</li>
+</ol>
+<ul>
+<li>UDP</li>
+</ul>
+<ol>
+<li>s.recvfrom()   接受udp数据  返回(data,address) address为(ip,port)</li>
+<li>s.sendto()     发送udp</li>
+</ol>
+</li>
+<li><p>关闭<br>s.close()</p>
+</li>
+<li><p>地址</p>
+</li>
+</ul>
+<ol>
+<li>s.getpeername()  获取远程地址</li>
+<li>s.getsockname()  获取自己的地址</li>
+</ol>
+<ul>
+<li>选项</li>
+</ul>
+<ol>
+<li>s.setsockopt(level,optname,value)</li>
+<li>s.getsockopt(leve,optname[.buflen])</li>
+<li>s.settimeout(timeout) 设置套接字超时时间</li>
+<li>s.gettimeout() 获取超时时间</li>
+</ol>
+<ul>
+<li><p>阻塞 非阻塞<br>  s.setblocking(flag)  flag&#x3D;0 非阻塞式</p>
+</li>
+<li><p>文件</p>
+</li>
+</ul>
+<ol>
+<li>s.fileno()  返回套接字的fd</li>
+<li>s.makefile() 创建一个与该套接字相关的文件</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/06/11/python_socket/" data-id="clxhmi4cc0001f9z8g1m2h8sq" data-title="python_socket" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-wx-program" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/07/wx-program/" class="article-date">
+  <time class="dt-published" datetime="2024-06-07T02:33:19.000Z" itemprop="datePublished">2024-06-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/06/07/wx-program/">source/_posts/wx_program</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="小程序代码构成"><a href="#小程序代码构成" class="headerlink" title="小程序代码构成"></a>小程序代码构成</h2><ol>
+<li>JSON配置<br>1. app.json<ul>
+<li>小程序的全局配置</li>
+<li>包括所有页面路径 界面表现 网络超时时间 底部tap <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;pages/index/index&quot;</span></span><br><span class="line">    <span class="string">&quot;pages/logs/logs&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">&quot;window&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;backgroundTextStyle&quot;</span><span class="punctuation">:</span><span class="string">&quot;light&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span><span class="string">&quot;#fff&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span><span class="string">&quot;Weixin&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span><span class="string">&quot;black&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>project.config.json</li>
+</ol>
+</li>
+<li>在工具上做的任何配置都会直接写入到这个文件</li>
+<li>重新安装工具或更换电脑 只需要载入同一个项目的代码包 会自动恢复配置<ol start="3">
+<li>page.json</li>
+</ol>
+</li>
+<li>用来表示pages&#x2F;logs目录小的logs.json这类和小程序页面相关的配置<ol start="4">
+<li>JSON语法</li>
+</ol>
+</li>
+<li>数据格式</li>
+</ul>
+<ol>
+<li>数字</li>
+<li>字符串</li>
+<li>Bool值</li>
+<li>数组</li>
+<li>对象</li>
+<li>Null</li>
+<li>无法使用注释</li>
+</ol>
+</li>
+<li>WXML模板<br> 和HTML相似</li>
+<li>WXSS样式<br> 和CSS相似</li>
+<li>JS逻辑交互</li>
+</ol>
+<h3 id="小程序宿主环境"><a href="#小程序宿主环境" class="headerlink" title="小程序宿主环境"></a>小程序宿主环境</h3><ul>
+<li><p>渲染层 和 逻辑层  </p>
+<ol>
+<li>WebView进行渲染  每个界面一个线程</li>
+<li>JsCore运行脚本</li>
+</ol>
+</li>
+<li><p>程序与界面</p>
+<ol>
+<li>微信各护短在打开小程序之前 会将整个小程序的代码包下载到本地</li>
+<li>通过app.json的pages字段知道你当前小程序的所有页面路径</li>
+<li>小程序启动 app.js定义的App实例会调用onLaunch</li>
+<li>先根据logs.json配置生成一个界面 顶部颜色和文字都可以在这个json文件内定义好<br>然后客户端装载 WXML结构和WXSS样式<br>最后装载logs.js  Page页面构造器生成了一个页面</li>
+</ol>
+</li>
+<li><p>组件<br>小程序提供丰富的组件<br>&lt;map&gt;&lt;\map&gt; 在界面显示地图</p>
+</li>
+<li><p>API<br>可以调用微信提供的能力 获取用户信息 微信支付<br>调用微信扫一扫能力等</p>
+</li>
+</ul>
+<h2 id="小程序配置"><a href="#小程序配置" class="headerlink" title="小程序配置"></a>小程序配置</h2><ul>
+<li><p>app.json文件用来对微信小程序进行全局配置</p>
+</li>
+<li><p>配置项</p>
+<ol>
+<li>entryPagePath  小程序默认启动首页</li>
+<li>pages          页面路径列表          必须</li>
+<li>window         全局的默认窗口表现</li>
+<li>tabBar         底部tab栏的表现</li>
+<li>networkTimeout 网络超时时间</li>
+<li>debug          是否开启调试</li>
+<li>functionalPages 是否启用插件功能页</li>
+<li>subpackages    分包结构配置</li>
+<li>workers         worker代码放置的目录</li>
+<li>requireBackgroundModes 需要在后台使用的能力 如音乐播放</li>
+<li>requirePrivateInfos 调用的地理位置相关隐私接口</li>
+<li>plugins       使用到的插件</li>
+<li>preloadRule   分包预下载</li>
+<li>resizable      PC小程序是否支持用户任意窗口大小改变</li>
+<li>usingComponents 全局自定义组件配置</li>
+<li>permission      小程序接口全线相关设置</li>
+<li>sitemapLocation  指明sitemap.json的位置</li>
+<li>style           指定使用升级后的weui样式</li>
+<li>useExtendedLib  指定需要引用的扩展库</li>
+<li>entranceDeclare 微信消息用小程序打开</li>
+<li>darkmode        小程序支持DarkMode</li>
+<li>themeLocation   之名theme.json的位置  </li>
+<li>lazyCodeLoading 配置自定义组件代码按需注入</li>
+<li>supportedMaterials  聊天素材小程序打开相关配置</li>
+<li>serviceProviderTicket 定制化型服务商票据</li>
+<li>embeddedAppldList 半屏小程序</li>
+<li>halfPage        视频号直播半屏场景设置</li>
+<li>debugOptions    调试相关配置</li>
+<li>enablePassiveEvent  touch失眠监听是否为passive</li>
+<li>resolveAlias     自定义模块映射规则</li>
+<li>renderer        全局默认的渲染后端</li>
+<li>renderer        渲染后端选项</li>
+<li>componentFramework   组件框架</li>
+<li>miniApp         多端模式场景接入身份管理服务时开启小程序授权页相关配置</li>
+<li>static          正常情况下默认所有资源文件都被打包发布到所有平台<br>可以通过static字段配置特定每个目录&#x2F;文件只能发布到特定的平台</li>
+<li>convertRpxToVw  配置是否将rpx单位转为vw单位</li>
+</ol>
+</li>
+<li><p>page.json<br>页面配置 单个页面的.json文件会对app.json中相同的配置覆盖掉</p>
+</li>
+<li><p>配置项</p>
+<ol>
+<li>navigationBarBackgroundColor </li>
+<li>navigationBarTextStyle</li>
+<li>navigationBarTitleText</li>
+<li>navigationBarStyle</li>
+<li>homeButton </li>
+<li>backgroundColor</li>
+<li>backgroundColorContent</li>
+<li>backgroundTExtStyle</li>
+<li>backgroundColorTop </li>
+<li>backgroundColorBottom</li>
+<li>enablePullDownRefresh</li>
+<li>onReachBottomDistance</li>
+<li>pageOrientation</li>
+<li>disableScroll</li>
+<li>usingComponents</li>
+<li>initialRenderingCache</li>
+<li>style</li>
+<li>singlePage</li>
+<li>restartStrategy</li>
+<li>handleWebviewPreload</li>
+<li>visulEffectlnBackground</li>
+<li>enablePassiveEvent</li>
+<li>renderer</li>
+<li>rendererOptions</li>
+<li>componentFramework</li>
+</ol>
+</li>
+<li><p>sitemap配置<br> 通过sitemap.json配置 或者管理后台页面收录开关来配置其小程序是否允许被微信搜索</p>
+<ul>
+<li>配置项<br>rules     索引规则列表<br>属性：</li>
+</ul>
+<ol>
+<li>action</li>
+<li>page</li>
+<li>params</li>
+<li>matching<br>exact<br>inclusive<br>exclusive<br>partial</li>
+<li>priority</li>
+</ol>
+</li>
+<li><p>场景值<br>ID          说明<br>1000        其他<br>1001        发现小程序<br>1002        微信首页顶部搜素框的搜索结果页<br>1011        扫描二维码<br>1012        长按识别二维码<br>1013        扫描手机相册中的二维码<br>1019        微信钱包<br>1025        扫描一维码</p>
+</li>
+</ul>
+<h2 id="框架接口"><a href="#框架接口" class="headerlink" title="框架接口"></a>框架接口</h2><h3 id="小程序App"><a href="#小程序App" class="headerlink" title="小程序App"></a>小程序App</h3><ol>
+<li>App(Object obj)<br>  注册小程序 接受一个Object参数 用于指定小程序的生命周期回调</li>
+</ol>
+<ul>
+<li><p>必须在app.js中调用 只能调用一次</p>
+</li>
+<li><p>参数：  1. onLaunch   function  监听小程序初始化</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>onShow     function   监听小程序启动或切入前台</p>
+</li>
+<li><p>onHide     function   监听小程序切后台</p>
+</li>
+<li><p>onError    function   错误监听函数</p>
+</li>
+<li><p>onPageNotFound   function 页面不存在监听函数</p>
+</li>
+<li><p>onUnhandledRejection function  未处理的Promise拒绝时间监听函数</p>
+</li>
+<li><p>onThemeChange    function  监听系统主题变化</p>
+</li>
+<li><p>其他</p>
+</li>
+<li><p>AppObject getApp(Object object)<br>  获取到小程序全局唯一的App实例</p>
+</li>
+</ol>
+<p>  -参数</p>
+<ol>
+<li>allowDefault 在App为定义时返回默认实现</li>
+</ol>
+<h3 id="页面Page"><a href="#页面Page" class="headerlink" title="页面Page"></a>页面Page</h3><ol>
+<li>Page(Object obj)<br>  注册小程序中的一个页面</li>
+</ol>
+<ul>
+<li>参数</li>
+</ul>
+<ol>
+<li><p>data     页面初始化数据</p>
+</li>
+<li><p>options  页面的组件选项</p>
+</li>
+<li><p>behaviors</p>
+</li>
+<li><p>onLoad   生命周期回调 监听页面加载</p>
+</li>
+<li><p>onShow   生命周期回调 监听页面显示</p>
+</li>
+<li><p>onReady  监听页面初次渲染完成</p>
+</li>
+<li><p>onHide   监听页面隐藏</p>
+</li>
+<li><p>onUnload 监听页面卸载</p>
+</li>
+<li><p>onRouteDone  监听路由动画完成</p>
+</li>
+<li><p>onPullDownRefresh 简体用户下拉动作</p>
+</li>
+<li><p>onReachBottom   页面上拉触底事件的处理函数</p>
+</li>
+<li><p>onShareAppMessage 用户点击右上角的转发</p>
+</li>
+<li><p>onShareTimeLine   用户点击右上角转发到朋友圈</p>
+</li>
+<li><p>onAddToFavorites    </p>
+</li>
+<li><p>onPageScroll </p>
+</li>
+<li><p>onResize</p>
+</li>
+<li><p>onTabItemTap</p>
+</li>
+<li><p>onSaveExitState</p>
+</li>
+<li><p>其他</p>
+</li>
+<li><p>PageObject[] getCurrentPages()<br> 获取当前页面栈 数组中第一个元素为首页 最后一个元素为当前页面</p>
+</li>
+<li><p>Router<br>页面路由器对象 可以用过this.pageRouter 或<br>tthis.router获得当前页面或自定义组件的路由器对对象</p>
+</li>
+</ol>
+<ul>
+<li>方法</li>
+</ul>
+<ol>
+<li>switchTab</li>
+<li>reLaunch</li>
+<li>redireactTo</li>
+<li>navigateTo</li>
+<li>navigateBack</li>
+</ol>
+<h3 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h3><ol>
+<li>Component(Object object)<br>  创建自定义组件，接受一个Object参数</li>
+</ol>
+<ul>
+<li>参数 字段</li>
+</ul>
+<ol>
+<li>porperties  对外属性</li>
+<li>data       组件的内部数据</li>
+<li>observers  组件数据字段监听器</li>
+<li>methods    组件的方法</li>
+<li>behaviors  </li>
+<li>created     组件生命周期函数</li>
+<li>attached</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/06/07/wx-program/" data-id="clxhmi4ce0002f9z8bad921f2" data-title="source/_posts/wx_program" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-python" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/06/01/python/" class="article-date">
@@ -1437,164 +1867,6 @@
 
 
   
-    <article id="post-dd-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/15/dd-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-14T16:16:09.000Z" itemprop="datePublished">2024-04-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/15/dd-linux-command/">dd_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="dd命令"><a href="#dd命令" class="headerlink" title="dd命令"></a>dd命令</h1><h2 id="文件输入输出"><a href="#文件输入输出" class="headerlink" title="文件输入输出"></a>文件输入输出</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">if</span>= 接输入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">of= 接输出文件</span></span><br><span class="line">dd if=/dev/zero of=./zero.file</span><br></pre></td></tr></table></figure>
-<h2 id="字节数调整"><a href="#字节数调整" class="headerlink" title="字节数调整"></a>字节数调整</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">bs= 设置输入文件 输出文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ibs= 仅设置输入文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">obs= 仅设置输出文件 块大小</span></span><br><span class="line">dd if=/dev/zero of=./zero.file bs=4096 </span><br></pre></td></tr></table></figure>
-<h2 id="指定参数转换文件"><a href="#指定参数转换文件" class="headerlink" title="指定参数转换文件"></a>指定参数转换文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">conv=指定参数</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ascii ebcdic转换为ascii</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ebcdic ascii转换为ebcdic</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ibm ascii转换为alternate ebcdic</span></span><br><span class="line">dd if=test of=out conv=ebcdic </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">cbs= 设置每次转换缓冲区大小</span></span><br><span class="line">dd if=test of=out conv=ebcdic cbs=1024</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">block 把每一行转换位长度位cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=16 conv=block,ebcdic</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">unblock 使每一行的长度都为cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=32 conv=unblock,ascii</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">lcase 把大写字母转为小写</span></span><br><span class="line">dd if=test of=out cbs=16 conv=lcase,ascii</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ucase 把小写字母转为大写</span></span><br><span class="line">dd if=test of=out cbs=64 conv=ucase,ebcdic</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">swab 交换输入的每对字节</span></span><br><span class="line">dd if=test of=out cbs=2 conv=swab</span><br></pre></td></tr></table></figure>
-
-<p>#noerror 出错时不停止<br>#notrunc 不截短输出文件<br>#sync 将每个输入块填充盗ibs个字节</p>
-<h2 id="跳过一定字节再开始复制"><a href="#跳过一定字节再开始复制" class="headerlink" title="跳过一定字节再开始复制"></a>跳过一定字节再开始复制</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">skip=nblocks 从输入文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out skip=10</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">seek=nblocks 从输出文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out seek=12</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/15/dd-linux-command/" data-id="clw6ghcfn0002giz80ilzec45" data-title="dd_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-split-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/14/split-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-14T15:42:46.000Z" itemprop="datePublished">2024-04-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/14/split-linux-command/">split_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="split-命令"><a href="#split-命令" class="headerlink" title="split 命令"></a>split 命令</h1><h2 id="根据行数分割"><a href="#根据行数分割" class="headerlink" title="根据行数分割"></a>根据行数分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将test.txt文件 每10行分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line">split -l 10 test.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据大小分割"><a href="#根据大小分割" class="headerlink" title="根据大小分割"></a>根据大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将test.txt文件 每10K分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-b 单位byte k M G</span></span><br><span class="line">split -b 10k test.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据单行大小分割"><a href="#根据单行大小分割" class="headerlink" title="根据单行大小分割"></a>根据单行大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据单行最大不超过32byte 进行分割 尽量保证每行的完整性 如换行符直</span></span><br><span class="line">split -C 32 test.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用数字作为后缀"><a href="#使用数字作为后缀" class="headerlink" title="使用数字作为后缀"></a>使用数字作为后缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用数字作为后缀 每10行分割 test.txt文件</span></span><br><span class="line">split -l 10 test.txt -d</span><br></pre></td></tr></table></figure>
-
-<h2 id="指定后缀字符数量"><a href="#指定后缀字符数量" class="headerlink" title="指定后缀字符数量"></a>指定后缀字符数量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每行16byte 以3为数字作为后缀 分割test.txt文件</span></span><br><span class="line">split -C 16 test.txt -d -a 3</span><br></pre></td></tr></table></figure>
-
-<h2 id="更改输出前缀"><a href="#更改输出前缀" class="headerlink" title="更改输出前缀"></a>更改输出前缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每16byte <span class="built_in">split</span>最为输出名前缀 分割test.txt文件</span></span><br><span class="line">split -b 16 test.txt split </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/14/split-linux-command/" data-id="clw6ghcft000agiz84fld2s3b" data-title="split_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-find-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/13/find-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-13T01:39:35.000Z" itemprop="datePublished">2024-04-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/13/find-linux-command/">find_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="find-命令"><a href="#find-命令" class="headerlink" title="find 命令"></a>find 命令</h1><h2 id="根据文件名查找"><a href="#根据文件名查找" class="headerlink" title="根据文件名查找"></a>根据文件名查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-name 跟文件名 可用通配符</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-iname 忽略大小写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-regex 跟文件路径字符串</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-iregex 忽略大小写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-prune 不寻找字符串作为范本样式</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找<span class="built_in">test</span>开头 sh结尾的文件</span></span><br><span class="line">find ./ -iname &quot;test*.sh&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据属主-属组查找"><a href="#根据属主-属组查找" class="headerlink" title="根据属主 属组查找"></a>根据属主 属组查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-user username</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-group groupname</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-uid UserID</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-gid GroupID</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-nouser 没有属主</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-nogroup 没有属组</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前文件查找属主是root 以pass开头的文件</span></span><br><span class="line">find ./ -user root -name &quot;pass*&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据文件类型查找"><a href="#根据文件类型查找" class="headerlink" title="根据文件类型查找"></a>根据文件类型查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">type</span> f普通文件 d目录文件 l符号链接 s套接字文件 b块设备文件 c字符设备文件 p管道文件</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找myDemo开头的目录文件</span></span><br><span class="line">find ./ -type d -name &quot;myDemo*&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="组合条件"><a href="#组合条件" class="headerlink" title="组合条件"></a>组合条件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-a and与</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-o or或</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-not -! 非</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="根据文件大小查找"><a href="#根据文件大小查找" class="headerlink" title="根据文件大小查找"></a>根据文件大小查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-size b c w k M G</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找文件大小大于10M小于10G的普通文件</span></span><br><span class="line">find ./ -type f -size -10G -size +10M</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据时间戳查找"><a href="#根据时间戳查找" class="headerlink" title="根据时间戳查找"></a>根据时间戳查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以天为单位</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-atime 最近访问时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mtime 最近修改文件内容时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ctime 最近修改元数据时间</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以分钟为单位</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-amin</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mmin</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-cmin</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">高级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-daystart 从本日开始计算时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-newer &lt;参考文件或目录&gt; 查找其更改时间更接近现在的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-anewer &lt;参考文件或目录&gt;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-cnewer &lt;参考文件或目录&gt;</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找比new文件修改时间更新的文件或目录</span></span><br><span class="line">find ./ -type f -newer new</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="根据权限查找"><a href="#根据权限查找" class="headerlink" title="根据权限查找"></a>根据权限查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-perm 4-r 2-w 1-x</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找可读可写的目录</span></span><br><span class="line">find ./ -type d -perm 555</span><br></pre></td></tr></table></figure>
-
-<h2 id="符号链接处理"><a href="#符号链接处理" class="headerlink" title="符号链接处理"></a>符号链接处理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-follow 排除符号链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-links &lt;链接数目&gt;  查找符合指定的硬链接数目的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-inum &lt;inode 编号&gt;  查找符合指定的inode编号的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-noleaf 不去考虑目录至少需要拥有两个硬链接存在</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录排除符号链接查找含有pass的普通文件</span></span><br><span class="line">find ./ -type f -follow -name  &quot;*pass*&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="查找深度"><a href="#查找深度" class="headerlink" title="查找深度"></a>查找深度</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-path &lt;范本样式&gt; 指定字符串做为寻找目录的范本样式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ipath 忽略大小写</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mindepth &lt;目录层级&gt;  设置最小目录层级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-maxdepth &lt;目录层级&gt;  设置最大目录层级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-depth 从指定目录下最深层的子目录开始查找</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录3层深度内查找10天内访问过的普通文件</span></span><br><span class="line">find ./ -type f -atime -10 -maxdepth 3</span><br></pre></td></tr></table></figure>
-
-<h2 id="处理动作"><a href="#处理动作" class="headerlink" title="处理动作"></a>处理动作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">print</span> 默认处理动作  显示岛屏幕</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-print0 将文件或目录名称列出岛标准输出，格式为全部的名称全在同一行</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">printf</span> &lt;输出格式&gt;  自行设定输出格式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">ls</span> 类似对查找盗的文件执行“<span class="built_in">ls</span> -l”命令</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-delete 刹车农户查找盗的文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-fls /path/to/somefile 查找到所有文件的长格式信息保存至指定文件种</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ok COMMAND &#123;&#125; \; 对查找到的每个文件执行由COMMAND指定的命令  每次都会要求用户确认</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">exec</span> COMMAND &#123;&#125; \; 不需要确认</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录下对所有包含pass的普通文件执行<span class="built_in">ls</span> -lh命令</span></span><br><span class="line">find ./ -type f -exec ls -lh &#123;&#125; \; -name &quot;*pass*&quot;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="clw6ghcfp0004giz87vcp3eap" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1631,23 +1903,23 @@
       <ul>
         
           <li>
+            <a href="/2024/06/16/gpgme-error/">archlinux pacman gpgme-error</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/11/python_socket/">python_socket</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/07/wx-program/">source/_posts/wx_program</a>
+          </li>
+        
+          <li>
             <a href="/2024/06/01/python/">source/_posts/python</a>
           </li>
         
           <li>
             <a href="/2024/05/14/hexdump-linux-command/">hexdump_linux_command.md</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/28/telnet-linux-command/">telnet_linux_command.md</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/27/wget-linux-command/">wget_linux_command</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/27/curl-linux-command/">curl_linux_command</a>
           </li>
         
       </ul>

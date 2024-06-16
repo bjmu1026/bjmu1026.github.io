@@ -73,6 +73,164 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-dd-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/15/dd-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-04-14T16:16:09.000Z" itemprop="datePublished">2024-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/15/dd-linux-command/">dd_linux_command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="dd命令"><a href="#dd命令" class="headerlink" title="dd命令"></a>dd命令</h1><h2 id="文件输入输出"><a href="#文件输入输出" class="headerlink" title="文件输入输出"></a>文件输入输出</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">if</span>= 接输入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">of= 接输出文件</span></span><br><span class="line">dd if=/dev/zero of=./zero.file</span><br></pre></td></tr></table></figure>
+<h2 id="字节数调整"><a href="#字节数调整" class="headerlink" title="字节数调整"></a>字节数调整</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">bs= 设置输入文件 输出文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ibs= 仅设置输入文件 块大小</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">obs= 仅设置输出文件 块大小</span></span><br><span class="line">dd if=/dev/zero of=./zero.file bs=4096 </span><br></pre></td></tr></table></figure>
+<h2 id="指定参数转换文件"><a href="#指定参数转换文件" class="headerlink" title="指定参数转换文件"></a>指定参数转换文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">conv=指定参数</span> </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ascii ebcdic转换为ascii</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ebcdic ascii转换为ebcdic</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ibm ascii转换为alternate ebcdic</span></span><br><span class="line">dd if=test of=out conv=ebcdic </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">cbs= 设置每次转换缓冲区大小</span></span><br><span class="line">dd if=test of=out conv=ebcdic cbs=1024</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">block 把每一行转换位长度位cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=16 conv=block,ebcdic</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">unblock 使每一行的长度都为cbs 不足部分用空格填充</span></span><br><span class="line">dd if=test of=out cbs=32 conv=unblock,ascii</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">lcase 把大写字母转为小写</span></span><br><span class="line">dd if=test of=out cbs=16 conv=lcase,ascii</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ucase 把小写字母转为大写</span></span><br><span class="line">dd if=test of=out cbs=64 conv=ucase,ebcdic</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">swab 交换输入的每对字节</span></span><br><span class="line">dd if=test of=out cbs=2 conv=swab</span><br></pre></td></tr></table></figure>
+
+<p>#noerror 出错时不停止<br>#notrunc 不截短输出文件<br>#sync 将每个输入块填充盗ibs个字节</p>
+<h2 id="跳过一定字节再开始复制"><a href="#跳过一定字节再开始复制" class="headerlink" title="跳过一定字节再开始复制"></a>跳过一定字节再开始复制</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">skip=nblocks 从输入文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out skip=10</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">seek=nblocks 从输出文件开头跳过n个块后再开始复制</span></span><br><span class="line">dd if=test of=out seek=12</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/04/15/dd-linux-command/" data-id="clw6ghcfn0002giz80ilzec45" data-title="dd_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-split-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/14/split-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-04-14T15:42:46.000Z" itemprop="datePublished">2024-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/14/split-linux-command/">split_linux_command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="split-命令"><a href="#split-命令" class="headerlink" title="split 命令"></a>split 命令</h1><h2 id="根据行数分割"><a href="#根据行数分割" class="headerlink" title="根据行数分割"></a>根据行数分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将test.txt文件 每10行分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line">split -l 10 test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据大小分割"><a href="#根据大小分割" class="headerlink" title="根据大小分割"></a>根据大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将test.txt文件 每10K分割成一系列 新的文件 x开头 后缀为字母</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-b 单位byte k M G</span></span><br><span class="line">split -b 10k test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据单行大小分割"><a href="#根据单行大小分割" class="headerlink" title="根据单行大小分割"></a>根据单行大小分割</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据单行最大不超过32byte 进行分割 尽量保证每行的完整性 如换行符直</span></span><br><span class="line">split -C 32 test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用数字作为后缀"><a href="#使用数字作为后缀" class="headerlink" title="使用数字作为后缀"></a>使用数字作为后缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用数字作为后缀 每10行分割 test.txt文件</span></span><br><span class="line">split -l 10 test.txt -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="指定后缀字符数量"><a href="#指定后缀字符数量" class="headerlink" title="指定后缀字符数量"></a>指定后缀字符数量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每行16byte 以3为数字作为后缀 分割test.txt文件</span></span><br><span class="line">split -C 16 test.txt -d -a 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="更改输出前缀"><a href="#更改输出前缀" class="headerlink" title="更改输出前缀"></a>更改输出前缀</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">每16byte <span class="built_in">split</span>最为输出名前缀 分割test.txt文件</span></span><br><span class="line">split -b 16 test.txt split </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/04/14/split-linux-command/" data-id="clw6ghcft000agiz84fld2s3b" data-title="split_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-find-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/13/find-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-04-13T01:39:35.000Z" itemprop="datePublished">2024-04-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/13/find-linux-command/">find_linux_command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="find-命令"><a href="#find-命令" class="headerlink" title="find 命令"></a>find 命令</h1><h2 id="根据文件名查找"><a href="#根据文件名查找" class="headerlink" title="根据文件名查找"></a>根据文件名查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-name 跟文件名 可用通配符</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-iname 忽略大小写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-regex 跟文件路径字符串</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-iregex 忽略大小写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-prune 不寻找字符串作为范本样式</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找<span class="built_in">test</span>开头 sh结尾的文件</span></span><br><span class="line">find ./ -iname &quot;test*.sh&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据属主-属组查找"><a href="#根据属主-属组查找" class="headerlink" title="根据属主 属组查找"></a>根据属主 属组查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-user username</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-group groupname</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-uid UserID</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-gid GroupID</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-nouser 没有属主</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-nogroup 没有属组</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前文件查找属主是root 以pass开头的文件</span></span><br><span class="line">find ./ -user root -name &quot;pass*&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据文件类型查找"><a href="#根据文件类型查找" class="headerlink" title="根据文件类型查找"></a>根据文件类型查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">type</span> f普通文件 d目录文件 l符号链接 s套接字文件 b块设备文件 c字符设备文件 p管道文件</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找myDemo开头的目录文件</span></span><br><span class="line">find ./ -type d -name &quot;myDemo*&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="组合条件"><a href="#组合条件" class="headerlink" title="组合条件"></a>组合条件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-a and与</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-o or或</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-not -! 非</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="根据文件大小查找"><a href="#根据文件大小查找" class="headerlink" title="根据文件大小查找"></a>根据文件大小查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-size b c w k M G</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找文件大小大于10M小于10G的普通文件</span></span><br><span class="line">find ./ -type f -size -10G -size +10M</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据时间戳查找"><a href="#根据时间戳查找" class="headerlink" title="根据时间戳查找"></a>根据时间戳查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以天为单位</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-atime 最近访问时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mtime 最近修改文件内容时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ctime 最近修改元数据时间</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以分钟为单位</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-amin</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mmin</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-cmin</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">高级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-daystart 从本日开始计算时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-newer &lt;参考文件或目录&gt; 查找其更改时间更接近现在的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-anewer &lt;参考文件或目录&gt;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-cnewer &lt;参考文件或目录&gt;</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找比new文件修改时间更新的文件或目录</span></span><br><span class="line">find ./ -type f -newer new</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="根据权限查找"><a href="#根据权限查找" class="headerlink" title="根据权限查找"></a>根据权限查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-perm 4-r 2-w 1-x</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找可读可写的目录</span></span><br><span class="line">find ./ -type d -perm 555</span><br></pre></td></tr></table></figure>
+
+<h2 id="符号链接处理"><a href="#符号链接处理" class="headerlink" title="符号链接处理"></a>符号链接处理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-follow 排除符号链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-links &lt;链接数目&gt;  查找符合指定的硬链接数目的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-inum &lt;inode 编号&gt;  查找符合指定的inode编号的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-noleaf 不去考虑目录至少需要拥有两个硬链接存在</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录排除符号链接查找含有pass的普通文件</span></span><br><span class="line">find ./ -type f -follow -name  &quot;*pass*&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找深度"><a href="#查找深度" class="headerlink" title="查找深度"></a>查找深度</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-path &lt;范本样式&gt; 指定字符串做为寻找目录的范本样式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ipath 忽略大小写</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mindepth &lt;目录层级&gt;  设置最小目录层级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-maxdepth &lt;目录层级&gt;  设置最大目录层级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-depth 从指定目录下最深层的子目录开始查找</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录3层深度内查找10天内访问过的普通文件</span></span><br><span class="line">find ./ -type f -atime -10 -maxdepth 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理动作"><a href="#处理动作" class="headerlink" title="处理动作"></a>处理动作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">print</span> 默认处理动作  显示岛屏幕</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-print0 将文件或目录名称列出岛标准输出，格式为全部的名称全在同一行</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">printf</span> &lt;输出格式&gt;  自行设定输出格式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">ls</span> 类似对查找盗的文件执行“<span class="built_in">ls</span> -l”命令</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-delete 刹车农户查找盗的文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-fls /path/to/somefile 查找到所有文件的长格式信息保存至指定文件种</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ok COMMAND &#123;&#125; \; 对查找到的每个文件执行由COMMAND指定的命令  每次都会要求用户确认</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">exec</span> COMMAND &#123;&#125; \; 不需要确认</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录下对所有包含pass的普通文件执行<span class="built_in">ls</span> -lh命令</span></span><br><span class="line">find ./ -type f -exec ls -lh &#123;&#125; \; -name &quot;*pass*&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="clw6ghcfp0004giz87vcp3eap" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-squid" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/28/squid/" class="article-date">
@@ -438,23 +596,23 @@
       <ul>
         
           <li>
+            <a href="/2024/06/16/gpgme-error/">archlinux pacman gpgme-error</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/11/python_socket/">python_socket</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/07/wx-program/">source/_posts/wx_program</a>
+          </li>
+        
+          <li>
             <a href="/2024/06/01/python/">source/_posts/python</a>
           </li>
         
           <li>
             <a href="/2024/05/14/hexdump-linux-command/">hexdump_linux_command.md</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/28/telnet-linux-command/">telnet_linux_command.md</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/27/wget-linux-command/">wget_linux_command</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/27/curl-linux-command/">curl_linux_command</a>
           </li>
         
       </ul>
