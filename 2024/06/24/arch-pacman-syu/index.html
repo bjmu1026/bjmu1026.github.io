@@ -6,15 +6,15 @@
   
   <title>ignore some package update | Bjmu1026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="禁止某些安装包升级12345678#查找要禁止更新的包名sudo pacman -Qe | grep &#x27;name_of_package&#x27;#在&#x2F;etc&#x2F;pacman.conf文件中IgnorePkg行添加 包名 ,隔开sudo vim &#x2F;etc&#x2F;pacman.confIgnorePkg &#x3D; nvidia, nvidia-utils, nvidia-cg-toolkitsudo p">
+  <meta name="description" content="禁止某些安装包升级12345678#查找要禁止更新的包名sudo pacman -Qe | grep &#x27;name_of_package&#x27;#在&#x2F;etc&#x2F;pacman.conf文件中IgnorePkg行添加 包名 空格隔开sudo vim &#x2F;etc&#x2F;pacman.confIgnorePkg &#x3D; nvidia nvidia-utils nvidia-cg-toolkitsudo pa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ignore some package update">
 <meta property="og:url" content="https://bjmu1026.github.io/2024/06/24/arch-pacman-syu/index.html">
 <meta property="og:site_name" content="Bjmu1026">
-<meta property="og:description" content="禁止某些安装包升级12345678#查找要禁止更新的包名sudo pacman -Qe | grep &#x27;name_of_package&#x27;#在&#x2F;etc&#x2F;pacman.conf文件中IgnorePkg行添加 包名 ,隔开sudo vim &#x2F;etc&#x2F;pacman.confIgnorePkg &#x3D; nvidia, nvidia-utils, nvidia-cg-toolkitsudo p">
+<meta property="og:description" content="禁止某些安装包升级12345678#查找要禁止更新的包名sudo pacman -Qe | grep &#x27;name_of_package&#x27;#在&#x2F;etc&#x2F;pacman.conf文件中IgnorePkg行添加 包名 空格隔开sudo vim &#x2F;etc&#x2F;pacman.confIgnorePkg &#x3D; nvidia nvidia-utils nvidia-cg-toolkitsudo pa">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-06-24T09:41:18.878Z">
-<meta property="article:modified_time" content="2024-06-24T09:41:18.879Z">
+<meta property="article:published_time" content="2024-06-24T09:56:47.668Z">
+<meta property="article:modified_time" content="2024-06-24T09:56:47.668Z">
 <meta property="article:author" content="tongxu24">
 <meta name="twitter:card" content="summary">
   
@@ -78,7 +78,7 @@
         <section id="main"><article id="post-arch-pacman-syu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/06/24/arch-pacman-syu/" class="article-date">
-  <time class="dt-published" datetime="2024-06-24T09:41:18.878Z" itemprop="datePublished">2024-06-24</time>
+  <time class="dt-published" datetime="2024-06-24T09:56:47.668Z" itemprop="datePublished">2024-06-24</time>
 </a>
     
   </div>
@@ -97,7 +97,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="禁止某些安装包升级"><a href="#禁止某些安装包升级" class="headerlink" title="禁止某些安装包升级"></a>禁止某些安装包升级</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查找要禁止更新的包名</span></span><br><span class="line">sudo pacman -Qe | grep &#x27;name_of_package&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在/etc/pacman.conf文件中IgnorePkg行添加 包名 ,隔开</span></span><br><span class="line">sudo vim /etc/pacman.conf</span><br><span class="line">IgnorePkg = nvidia, nvidia-utils, nvidia-cg-toolkit</span><br><span class="line"></span><br><span class="line">sudo pacman -Syyu</span><br></pre></td></tr></table></figure>
+        <h2 id="禁止某些安装包升级"><a href="#禁止某些安装包升级" class="headerlink" title="禁止某些安装包升级"></a>禁止某些安装包升级</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查找要禁止更新的包名</span></span><br><span class="line">sudo pacman -Qe | grep &#x27;name_of_package&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在/etc/pacman.conf文件中IgnorePkg行添加 包名 空格隔开</span></span><br><span class="line">sudo vim /etc/pacman.conf</span><br><span class="line">IgnorePkg = nvidia nvidia-utils nvidia-cg-toolkit</span><br><span class="line"></span><br><span class="line">sudo pacman -Syyu</span><br></pre></td></tr></table></figure>
 
 <h2 id="降级安装包"><a href="#降级安装包" class="headerlink" title="降级安装包"></a>降级安装包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yay -S downgrade</span><br><span class="line">downgrade eclipse</span><br></pre></td></tr></table></figure>
 
