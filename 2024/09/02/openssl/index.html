@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>openssl command | Bjmu1026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="openssl genrsa123openssl genrsa #生成私钥,输出到控制台openssl genrsa -out plaint-private.pem 2048  #密钥长度2048 输出文件plaint-private.pemopenssl genrsa -aes192 -passout pass:123456 -out passwd-private.pem 2048 #指定密码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openssl command">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/09/02/openssl/index.html">
+<meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="openssl genrsa123openssl genrsa #生成私钥,输出到控制台openssl genrsa -out plaint-private.pem 2048  #密钥长度2048 输出文件plaint-private.pemopenssl genrsa -aes192 -passout pass:123456 -out passwd-private.pem 2048 #指定密码">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-09-02T12:43:00.355Z">
+<meta property="article:modified_time" content="2024-09-02T12:43:00.355Z">
+<meta property="article:author" content="tongxu24">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bjmu1026" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bjmu1026</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal study notes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bjmu1026.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-openssl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/02/openssl/" class="article-date">
+  <time class="dt-published" datetime="2024-09-02T12:43:00.355Z" itemprop="datePublished">2024-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      openssl command
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="openssl-genrsa"><a href="#openssl-genrsa" class="headerlink" title="openssl genrsa"></a>openssl genrsa</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa #生成私钥,输出到控制台</span><br><span class="line">openssl genrsa -out plaint-private.pem 2048  #密钥长度2048 输出文件plaint-private.pem</span><br><span class="line">openssl genrsa -aes192 -passout pass:123456 -out passwd-private.pem 2048 #指定密码</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="openssl-rsa"><a href="#openssl-rsa" class="headerlink" title="openssl rsa"></a>openssl rsa</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -in plaint-private.pem -pubout -out plaint-public.pem</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从未加密的私钥中提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in passwd-private.pem -passin:12345 -pubout -out plaint-public.pem</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从加密的私钥中提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in plaint-private.key -pubout </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从未加密的私钥中提取公钥输出到控制台</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in plaint-private.pem -des3 -passout pass:123456 -out passwd-private.pem</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用des3加密私钥</span> </span><br><span class="line"></span><br><span class="line">openssl rsa -inform pem -in plaint-private.pem -outform der -out plaint-private.der</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">私钥格式转换pem -&gt; der</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in plaint-private.pem -check -noout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">校验私钥的完整性</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="openssl-rsautl"><a href="#openssl-rsautl" class="headerlink" title="openssl rsautl"></a>openssl rsautl</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">openssl rsautl -encrypt -inkey plaint-public.pem -pubin -in plaintext.txt -out ciphertext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用公钥加密文件</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -decrypt -inkey plaint-private.pem -in ciphertext.txt -out plaintext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行解密</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -sign -inkey plaint-private.pem -in plaintext.txt -out signature.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行签名</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -verify -inkey plaint-public.pem -in signature.txt -out verified.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">公钥验签</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -encrypt -inkey test-public.cer -certin -in plaintext.txt -out ciphertext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">证书加密, -certin密钥文件为证书</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -decrypt -inkey test-key.pem -in ciphertext.txt -out decrtpted.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥解密加密证书</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">openssl rsautl -sign -inkey text-key.pem -in plaintext.txt -out sinature.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥签名</span> </span><br><span class="line"></span><br><span class="line">openssl rsautl -verify -inkey test-public.cer -certin -in signature.txt -out verified.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用证书验签</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="openssl-genpkey"><a href="#openssl-genpkey" class="headerlink" title="openssl genpkey"></a>openssl genpkey</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openssl genpkey -algorithm rsa </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">生成私钥,输出到控制台 指定算法为rsa</span></span><br><span class="line"></span><br><span class="line">openssl genpkey -algorithm rsa -out plaint-private.pem -pkeyopt rsa_keygen_bits:2048</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">指定使用rsa算法产生2048位私钥</span></span><br><span class="line"></span><br><span class="line">openssl genpkey -algorithm rsa -pass pass:123456 -out passwd-private.pem 2048</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用密码123456加密私钥</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="openssl-pkey"><a href="#openssl-pkey" class="headerlink" title="openssl pkey"></a>openssl pkey</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">openssl pkey -in plaint-private.pem -pubout -out plaint-public.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl pkey -in passwd-private.pem -passin pass:123456 -pubout -out plaint-public.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从加密的私钥中提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl pkey -in plaint-private.pem -pubout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取公钥,输出到控制台</span></span><br><span class="line"></span><br><span class="line">openssl pkey -in plaint-private.pem -des3 -passout pass:123456 -out passwd-private.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">私钥加密</span></span><br><span class="line"></span><br><span class="line">openssl pkey -inform pem -in plaint-private.pem -outform der -out plaint-private.der</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">私钥格式转换,pem---&gt;der格式</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="openssl-pkeyutl"><a href="#openssl-pkeyutl" class="headerlink" title="openssl pkeyutl"></a>openssl pkeyutl</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">openssl pkeyutl -encrypt -inkey plaint-public.pem -pubin -in plaintext.txt -out ciphertext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用公钥加密文件</span></span><br><span class="line"></span><br><span class="line">openssl pkeyutl -decrypt -inkey palint-private.pem -in ciphertext.txt -out decrypted.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行解密</span> </span><br><span class="line"></span><br><span class="line">openssl pkeyutl -sign -inkey plaint-private.pem -in palintext.txt -out signature.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行签名</span></span><br><span class="line"></span><br><span class="line">openssl pkeyutl -verifyrecover -inkey plaint-public.pem -pubin -in signature.txt -out virified.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用公钥进行验证</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="openssl-req"><a href="#openssl-req" class="headerlink" title="openssl req"></a>openssl req</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key plaint-private.pem -out palint-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建请求证书 -new 创建请求证书, -key使用文件中的私钥, -subj 设置请求证书主题</span></span><br><span class="line"></span><br><span class="line">openssl req -in plaint-request.csr -pubkey -nouut &gt; plaint-public.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl req -in plaint-request.csr -subject -noout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取主题</span></span><br><span class="line"></span><br><span class="line">openssl req -verify -in plaint-request.csr -noout </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">校验请求证书签名是否合法</span></span><br><span class="line"></span><br><span class="line">openssl req -newkey rsa:2048 -nodes -keyout ca-key.pem -out ca-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建私钥和请求证书文件,-newkey 创建私钥并指定算法, -nodes 输出私钥不加密 -keyout 指定私钥文件</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="openssl-x509"><a href="#openssl-x509" class="headerlink" title="openssl x509"></a>openssl x509</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca-key.pem 2048</span><br><span class="line">openssl req -new -key ca-key.pem -out ca-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line">openssl x509 -req -in ca-request.csr -days 3650 -signkey ca-key.pem -out ca-root.cer</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建根证书 自签名证书 -req 输入请求证书文件 -signkey 指定自签名证书私钥</span> </span><br><span class="line"></span><br><span class="line">openssl genrsa -out test-key.pem 2048 </span><br><span class="line">openssl req -new -key test-key.pem -out test-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line">openssl x509 -req -in text-request.csr -days 365 -CA ca-root.cer -CAkey ca-key.pem -CAcreateserial -out test-public.cer</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建通信证书 -req 输入请求证书文件 -CA 指定根证书 -CAkey 指定根证书的私钥</span> </span><br><span class="line"></span><br><span class="line">openssl x509 -in test-public.cer -dates -issuer -subject -email -noout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取证书信息 -dates  证书的可开始和结束的时间 -issuer 发行人主题 -subject 证书主题 -email  邮件信息</span></span><br><span class="line"></span><br><span class="line">openssl x509 -in test-public.cer -pubkey -noout &gt; plaint-public.pem </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/02/openssl/" data-id="cm0kzr62v000014z819m9bjh1" data-title="openssl command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/07/26/peixun/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">各次培训记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/09/02/openssl/">openssl command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/26/peixun/">各次培训记录</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/24/arch-pacman-syu/">ignore some package update</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/16/gpgme-error/">archlinux pacman gpgme-error</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/11/python_socket/">python_socket</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 tongxu24<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
