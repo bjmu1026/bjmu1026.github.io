@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>tmux-command | Bjmu1026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Sessioncreate session12345678#不指定session的名称tmux #指定session的名称为hellotmux new -s hello #查看创建的sessiontmux ls  detach session1234#^b d 快捷键可以脱离当前会话 #使用命令tmux detach   attach session12#重新连接到之前脱离的会话 tmux att">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tmux-command">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/09/05/tmux/index.html">
+<meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="Sessioncreate session12345678#不指定session的名称tmux #指定session的名称为hellotmux new -s hello #查看创建的sessiontmux ls  detach session1234#^b d 快捷键可以脱离当前会话 #使用命令tmux detach   attach session12#重新连接到之前脱离的会话 tmux att">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-09-05T01:07:38.253Z">
+<meta property="article:modified_time" content="2024-09-05T01:07:38.253Z">
+<meta property="article:author" content="tongxu24">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bjmu1026" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bjmu1026</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal study notes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bjmu1026.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-tmux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/05/tmux/" class="article-date">
+  <time class="dt-published" datetime="2024-09-05T01:07:38.253Z" itemprop="datePublished">2024-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      tmux-command
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a><strong>Session</strong></h2><h2 id="create-session"><a href="#create-session" class="headerlink" title="create session"></a>create session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">不指定session的名称</span></span><br><span class="line">tmux </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">指定session的名称为hello</span></span><br><span class="line">tmux new -s hello </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看创建的session</span></span><br><span class="line">tmux ls</span><br></pre></td></tr></table></figure>
+
+<h2 id="detach-session"><a href="#detach-session" class="headerlink" title="detach session"></a>detach session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b d 快捷键可以脱离当前会话</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用命令</span></span><br><span class="line">tmux detach </span><br></pre></td></tr></table></figure>
+
+<h2 id="attach-session"><a href="#attach-session" class="headerlink" title="attach session"></a>attach session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重新连接到之前脱离的会话</span> </span><br><span class="line">tmux attach -t hello</span><br></pre></td></tr></table></figure>
+
+<h2 id="kill-session"><a href="#kill-session" class="headerlink" title="kill session"></a>kill session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭会话hello</span></span><br><span class="line">tmux kill-session -t hello </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^d 快捷键也可以关闭当前的会话</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="switch-session"><a href="#switch-session" class="headerlink" title="switch session"></a>switch session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从当前会话切换到其他会话</span> </span><br><span class="line">tmux switch -t hello</span><br></pre></td></tr></table></figure>
+
+<h2 id="rename-session"><a href="#rename-session" class="headerlink" title="rename session"></a>rename session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将hello会话重命名为haa</span></span><br><span class="line">tmux rename-session -t hello haa</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b $来重命名当前会话</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Pane"><a href="#Pane" class="headerlink" title="Pane"></a><strong>Pane</strong></h2><h2 id="split-window"><a href="#split-window" class="headerlink" title="split window"></a>split window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前工作区划分为上下两个窗口</span> </span><br><span class="line">tmux split-window </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前工作区划分为左右两个窗口</span></span><br><span class="line">tmux split-window -h</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b % 快捷键左右切割</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b <span class="string">&quot; 快捷键上下切割</span></span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="select-pane"><a href="#select-pane" class="headerlink" title="select pane"></a>select pane</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到上方的窗口</span> </span><br><span class="line">tmux select-pane -U</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到下方的窗口</span> </span><br><span class="line">tmux select-pane -D</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到左方的窗口</span> </span><br><span class="line">tmux select-pane -L</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到右方的窗口</span> </span><br><span class="line">tmux select-pane -R</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b &lt;arrow key&gt; 方向键控制</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b ; 光标切换到上一个窗口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b o 光标切换到下一个窗口</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="swap-pane"><a href="#swap-pane" class="headerlink" title="swap pane"></a>swap pane</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口向上移动</span> </span><br><span class="line">tmux swap-pane -U</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口向下移动</span> </span><br><span class="line">tmux swap-pane -D</span><br></pre></td></tr></table></figure>
+
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b z  放大当前窗口  继续出发还原</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b t  在当前的窗口显示时间</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a><strong>Window</strong></h2><h2 id="create-window"><a href="#create-window" class="headerlink" title="create window"></a>create window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建一个名字为hello-win的窗口</span> </span><br><span class="line">tmux new-window -n hello-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b c 快捷键快速创建一个窗口出来</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="slect-window"><a href="#slect-window" class="headerlink" title="slect window"></a>slect window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在有多个窗口的条件下,可以快速进入指定的窗口</span> </span><br><span class="line">tmux select-window -t hello2-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b w 可以通过j k 进行上下选择</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b n 快速切换到下一个窗口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b p 快速切换到上一个窗口</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="rename-window"><a href="#rename-window" class="headerlink" title="rename window"></a>rename window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口的名字命名为new-window</span></span><br><span class="line">tmux rename-window new-window</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b 快捷键可以重命名窗口</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="shutdown-window"><a href="#shutdown-window" class="headerlink" title="shutdown window"></a>shutdown window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除名为hello-win的窗口</span> </span><br><span class="line">tmux kill-window -t hello-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b &amp; 可以关闭当前的窗口</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="tmux-conf"><a href="#tmux-conf" class="headerlink" title="tmux.conf"></a><strong>tmux.conf</strong></h2><ul>
+<li>在tmux中可以通过^b ?来查找tmux的帮助文档,可以查询一些功能键的快捷键信息 </li>
+<li>.tmux.conf配置文件, 默认放置在<del>目录下, 没有可以在</del>下创建一个.tmux.conf文件 </li>
+<li>可以在配置文件中将^b 改为 ^x</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/05/tmux/" data-id="cm0olaeth0000n8z88vau34r1" data-title="tmux-command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/09/02/openssl/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">openssl command</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/09/05/tmux/">tmux-command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/02/openssl/">openssl command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/26/peixun/">各次培训记录</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/24/arch-pacman-syu/">ignore some package update</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/16/gpgme-error/">archlinux pacman gpgme-error</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 tongxu24<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

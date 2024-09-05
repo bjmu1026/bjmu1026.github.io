@@ -73,6 +73,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tmux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/05/tmux/" class="article-date">
+  <time class="dt-published" datetime="2024-09-05T01:07:38.253Z" itemprop="datePublished">2024-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/09/05/tmux/">tmux-command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a><strong>Session</strong></h2><h2 id="create-session"><a href="#create-session" class="headerlink" title="create session"></a>create session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">不指定session的名称</span></span><br><span class="line">tmux </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">指定session的名称为hello</span></span><br><span class="line">tmux new -s hello </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看创建的session</span></span><br><span class="line">tmux ls</span><br></pre></td></tr></table></figure>
+
+<h2 id="detach-session"><a href="#detach-session" class="headerlink" title="detach session"></a>detach session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b d 快捷键可以脱离当前会话</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用命令</span></span><br><span class="line">tmux detach </span><br></pre></td></tr></table></figure>
+
+<h2 id="attach-session"><a href="#attach-session" class="headerlink" title="attach session"></a>attach session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重新连接到之前脱离的会话</span> </span><br><span class="line">tmux attach -t hello</span><br></pre></td></tr></table></figure>
+
+<h2 id="kill-session"><a href="#kill-session" class="headerlink" title="kill session"></a>kill session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭会话hello</span></span><br><span class="line">tmux kill-session -t hello </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^d 快捷键也可以关闭当前的会话</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="switch-session"><a href="#switch-session" class="headerlink" title="switch session"></a>switch session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从当前会话切换到其他会话</span> </span><br><span class="line">tmux switch -t hello</span><br></pre></td></tr></table></figure>
+
+<h2 id="rename-session"><a href="#rename-session" class="headerlink" title="rename session"></a>rename session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将hello会话重命名为haa</span></span><br><span class="line">tmux rename-session -t hello haa</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b $来重命名当前会话</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Pane"><a href="#Pane" class="headerlink" title="Pane"></a><strong>Pane</strong></h2><h2 id="split-window"><a href="#split-window" class="headerlink" title="split window"></a>split window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前工作区划分为上下两个窗口</span> </span><br><span class="line">tmux split-window </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前工作区划分为左右两个窗口</span></span><br><span class="line">tmux split-window -h</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b % 快捷键左右切割</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b <span class="string">&quot; 快捷键上下切割</span></span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="select-pane"><a href="#select-pane" class="headerlink" title="select pane"></a>select pane</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到上方的窗口</span> </span><br><span class="line">tmux select-pane -U</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到下方的窗口</span> </span><br><span class="line">tmux select-pane -D</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到左方的窗口</span> </span><br><span class="line">tmux select-pane -L</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到右方的窗口</span> </span><br><span class="line">tmux select-pane -R</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b &lt;arrow key&gt; 方向键控制</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b ; 光标切换到上一个窗口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b o 光标切换到下一个窗口</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="swap-pane"><a href="#swap-pane" class="headerlink" title="swap pane"></a>swap pane</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口向上移动</span> </span><br><span class="line">tmux swap-pane -U</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口向下移动</span> </span><br><span class="line">tmux swap-pane -D</span><br></pre></td></tr></table></figure>
+
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b z  放大当前窗口  继续出发还原</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b t  在当前的窗口显示时间</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a><strong>Window</strong></h2><h2 id="create-window"><a href="#create-window" class="headerlink" title="create window"></a>create window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建一个名字为hello-win的窗口</span> </span><br><span class="line">tmux new-window -n hello-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b c 快捷键快速创建一个窗口出来</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="slect-window"><a href="#slect-window" class="headerlink" title="slect window"></a>slect window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在有多个窗口的条件下,可以快速进入指定的窗口</span> </span><br><span class="line">tmux select-window -t hello2-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b w 可以通过j k 进行上下选择</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b n 快速切换到下一个窗口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b p 快速切换到上一个窗口</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="rename-window"><a href="#rename-window" class="headerlink" title="rename window"></a>rename window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口的名字命名为new-window</span></span><br><span class="line">tmux rename-window new-window</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b 快捷键可以重命名窗口</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="shutdown-window"><a href="#shutdown-window" class="headerlink" title="shutdown window"></a>shutdown window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除名为hello-win的窗口</span> </span><br><span class="line">tmux kill-window -t hello-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b &amp; 可以关闭当前的窗口</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="tmux-conf"><a href="#tmux-conf" class="headerlink" title="tmux.conf"></a><strong>tmux.conf</strong></h2><ul>
+<li>在tmux中可以通过^b ?来查找tmux的帮助文档,可以查询一些功能键的快捷键信息 </li>
+<li>.tmux.conf配置文件, 默认放置在<del>目录下, 没有可以在</del>下创建一个.tmux.conf文件 </li>
+<li>可以在配置文件中将^b 改为 ^x</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/05/tmux/" data-id="cm0olaeth0000n8z88vau34r1" data-title="tmux-command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-openssl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/09/02/openssl/" class="article-date">
@@ -2370,61 +2441,6 @@
 
 
   
-    <article id="post-wget-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/27/wget-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-27T00:10:09.000Z" itemprop="datePublished">2024-04-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/27/wget-linux-command/">wget_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="wget命令"><a href="#wget命令" class="headerlink" title="wget命令"></a>wget命令</h1><h2 id="启动参数"><a href="#启动参数" class="headerlink" title="启动参数"></a>启动参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-V --version 显示版本</span><br><span class="line">-h --help  打印帮助语法</span><br><span class="line">-b --background 后台执行</span><br><span class="line">-e --execute=COMMAND 执行wgetrc格式命令</span><br></pre></td></tr></table></figure>
-
-<h2 id="记录和输入文件参数"><a href="#记录和输入文件参数" class="headerlink" title="记录和输入文件参数"></a>记录和输入文件参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-o --output-fle=FILE 把记录写入文件FILE中</span><br><span class="line">-a --append-output=FILE 把记录追加倒FILE文件中</span><br><span class="line">-d --debug 打印调试输出</span><br><span class="line">-q --quiet 没有输出</span><br><span class="line">-v --verbose 冗长模式</span><br><span class="line">-nv --non-verbose 关闭冗长模式，但是不是安静模式</span><br><span class="line">-i --input-file=FILE 下载在FILE文件种出现的URLs</span><br><span class="line">-F --force-html 把输入文件当做HMTL格式对待</span><br><span class="line">-B --base-URL 把URL座位-F -i 参数指定的文件中出现的相对链接的前缀</span><br></pre></td></tr></table></figure>
-
-<h2 id="下载参数"><a href="#下载参数" class="headerlink" title="下载参数"></a>下载参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-t  --tries=NUMBER 设定最大尝试链接次数0表示无限制</span><br><span class="line">-O --output-document=FILE 把文档写到FILE文件种</span><br><span class="line">-nc --no-clobber 不要复盖存在的文件或使用.#前缀</span><br><span class="line">-c --continue 接着下载没下载完的文件</span><br><span class="line">--progress=TYPE 设定进程条标记</span><br><span class="line">-N --timestamping 不要下载文件除非比本地文件新</span><br><span class="line">-S --server-response 打印服务器的回应</span><br><span class="line">  --spider 不下载任何东西</span><br><span class="line">-T --timeout=SECONDS 设定响应超时的秒数</span><br><span class="line">-w --wait=SECONDS 两次尝试之间间隔SECONDS秒</span><br><span class="line">   --waitretry=SECONDS 在重新连接之间等待1..SECONDS秒</span><br><span class="line">-Y --proxy=on/off 打开或关闭代理</span><br><span class="line">-Q -quota=NUMBER 设置下载的容量限制</span><br><span class="line">  --limit-rate=RATE 限定下载速率</span><br></pre></td></tr></table></figure>
-
-<h2 id="目录格式"><a href="#目录格式" class="headerlink" title="目录格式"></a>目录格式</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-nd --no-directories 不创建目录</span><br><span class="line">-x --force-directories 强制创建目录</span><br><span class="line">-nH --no-host-directories 不创建主机目录</span><br><span class="line">-P --directory-prefix=PREFIX 将文件保存在目录PREFIX下</span><br></pre></td></tr></table></figure>
-
-<h2 id="HTTP选项参数"><a href="#HTTP选项参数" class="headerlink" title="HTTP选项参数"></a>HTTP选项参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">--http-user=USER 设定HTTP用户名为USER</span><br><span class="line">--http-passwd=PASS 设定密码为PASS</span><br><span class="line">-C --cache=on/off 允许/不允许服务器端的数据缓存</span><br><span class="line">-E --html-extension 将所有text/html文档以.html扩展名保存</span><br><span class="line">-s --save-headers 保存HTPP头到文件</span><br><span class="line">-U --user-agent=AGENT 设定代理的名称为AGENT</span><br></pre></td></tr></table></figure>
-
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">wget -S --spider url ## 不下载只显示过程</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 下载单个文件</span></span></span><br><span class="line">wget url</span><br><span class="line">wget -O filename.mp4 url</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 限速下载</span></span></span><br><span class="line">wget --limit-rate=300K url</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 后台下载</span></span></span><br><span class="line">wget -b url</span><br><span class="line">tail -f wget-log  ## 查看进度</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 伪装代理名称下载</span></span></span><br><span class="line">wget --user-agent=&quot;Mozilla/5.0 (Windows;U;Windows NT ) ...&quot; URL</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 增加重试次数</span></span></span><br><span class="line">wget --tries=40 URL</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 使用-i 下载多个文件</span></span></span><br><span class="line">cat &gt; filelist.txt</span><br><span class="line">URL1</span><br><span class="line">URL2</span><br><span class="line">URL3</span><br><span class="line"></span><br><span class="line">wget -i filelist.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 镜像网站</span></span></span><br><span class="line">wget --mirror -p --convert-links -P ./LOCAL URL</span><br><span class="line">--mirror 镜像下载</span><br><span class="line">-p 下载所有为了HTML页面正常显示的文件</span><br><span class="line">--convert-links 转换成本地的链接</span><br><span class="line">-P ./LOCAL保存在本地指定目录</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 过滤指定格式下载</span></span></span><br><span class="line">wget --reject=gif url</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 保存日志文件</span></span></span><br><span class="line">wget -o download.log url</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 限制总下载文件大小</span></span></span><br><span class="line">wget -Q5m -i filelist.txt  限制5M</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 下载指定格式的文件</span></span></span><br><span class="line">wget -r -A.pdf url</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/27/wget-linux-command/" data-id="cly86buy5000696z809728dx8" data-title="wget_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -2461,6 +2477,10 @@
       <ul>
         
           <li>
+            <a href="/2024/09/05/tmux/">tmux-command</a>
+          </li>
+        
+          <li>
             <a href="/2024/09/02/openssl/">openssl command</a>
           </li>
         
@@ -2474,10 +2494,6 @@
         
           <li>
             <a href="/2024/06/16/gpgme-error/">archlinux pacman gpgme-error</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/11/python_socket/">python_socket</a>
           </li>
         
       </ul>
