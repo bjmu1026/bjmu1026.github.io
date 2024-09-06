@@ -73,6 +73,75 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tar" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/07/tar/" class="article-date">
+  <time class="dt-published" datetime="2024-09-06T23:51:26.002Z" itemprop="datePublished">2024-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="tar-command"><a href="#tar-command" class="headerlink" title="tar command"></a>tar command</h2><ul>
+<li>tar command creates tar files by converting a group of files into an archive. It also can extract tar archives, display a list of the files included in the archive, add additional files to an existing archive, and various other kinds of operations. </li>
+<li>tar was designed for creating archives to store files on magnetic tape, which is why its name “Tape Archive”</li>
+<li>There are two versions of tar, BSD tar and GNU tar, with some functional differences. Most linux systems come with GNU tar pre-installed by default.</li>
+</ul>
+<h3 id="tar-syntax"><a href="#tar-syntax" class="headerlink" title="tar syntax"></a>tar syntax</h3><ul>
+<li>tar [operation_and_options] [archive_name] [file_name(s)]</li>
+<li>operation<ul>
+<li>–create (-c)   &#x3D;&#x3D; create a new tar archive </li>
+<li>–extract (-x) &#x3D;&#x3D; extract the entire archive or one or more files from an archive </li>
+<li>–list (-t) &#x3D;&#x3D; display a list of the files included in the archive</li>
+</ul>
+</li>
+<li>options<ul>
+<li>–verbose (-v)  &#x3D;&#x3D; show the files being processed by the tar command </li>
+<li>–file&#x3D;archive-name (-f archive-name) &#x3D;&#x3D; specifies the archive name</li>
+</ul>
+</li>
+</ul>
+<h3 id="creating-tar-archive"><a href="#creating-tar-archive" class="headerlink" title="creating tar archive"></a>creating tar archive</h3><ul>
+<li>tar supports a vast range of compression programs such as gzip, bzip2, lzip, lzma, lzop, xz, compress. </li>
+<li>It is an accepted convention to append the compressor suffix to the archive file name. </li>
+<li>e.g. an archive has been compressed with gzip, it should be named archive.tar.gz</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create an archive named archive.tar with file1 - 3</span></span><br><span class="line">tar -cf archive.tar file1 file2 file2 file3</span><br><span class="line">tar --create --file=archive.tar file1 file2 file3 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create an archive named backup.tar of the /home/user directory</span> </span><br><span class="line">tar -cf backup.tar /home/usr</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create tar gz archive, the <span class="string">&#x27;-z&#x27;</span> option tells tar to compress the archive using the gizp</span> </span><br><span class="line">tar -czf archive.tar.gz file1 file2 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create tar bzip archive file</span> </span><br><span class="line">tar -cjf archive.tar.bz2 file1 file2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="listing-tar-archives"><a href="#listing-tar-archives" class="headerlink" title="listing tar archives"></a>listing tar archives</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -tf archive.tar</span><br><span class="line">tar -tvf archive.tar</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="extracting-tar-archive"><a href="#extracting-tar-archive" class="headerlink" title="extracting tar archive"></a>extracting tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">tar -xf archive.tar</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extract the archive contents to the /opt/files directory</span></span><br><span class="line">tar -xf archive.tar -C  /opt/files</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting files from compressed archive</span> </span><br><span class="line">tar -xvf archive.tar.gz </span><br><span class="line">tar -xvf archive.tar.bz2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting specific files from a tar archive</span></span><br><span class="line">tar -xvf archive.tar file1 file2 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting specific directory from a tar archive</span></span><br><span class="line">tar -xvf archive.tar dir1 dir2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting files from a tar archive using wildcard</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">switch and quote the pattern to prevent the shell from interpreting it</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">to extract files whose names end <span class="keyword">in</span> .js</span></span><br><span class="line">tar -xvf archive.tar --wildcards &#x27;*.js&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="adding-files-to-existing-tar-archive"><a href="#adding-files-to-existing-tar-archive" class="headerlink" title="adding files to existing tar archive"></a>adding files to existing tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">use the --append(-r) operation</span></span><br><span class="line">tar -rvf archive.tar newfile </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="removing-files-from-a-tar-archive"><a href="#removing-files-from-a-tar-archive" class="headerlink" title="removing files from a tar archive"></a>removing files from a tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">use the --delete operation to remove files from an archive</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">remove the file1 from archive.tar</span> </span><br><span class="line">tar --delete -f archive.tar file1 </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/07/tar/" data-id="cm0rdekmk00009bz89fr832m1" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-lib" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/09/06/lib/" class="article-date">
@@ -2429,49 +2498,6 @@
 
 
   
-    <article id="post-hexdump-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/14/hexdump-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-05-14T12:50:59.000Z" itemprop="datePublished">2024-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/05/14/hexdump-linux-command/">hexdump_linux_command.md</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="hexdump"><a href="#hexdump" class="headerlink" title="hexdump"></a>hexdump</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">主要用来查看二进制文件的十六进制编码</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">hexdump [options] [file] ...</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-n length 格式化输出文件的前length个字节</span><br><span class="line">-C 输出规范的十六进制和ASCII码</span><br><span class="line">-b 单字节八进制显示</span><br><span class="line">-c 单字节字符显示</span><br><span class="line">-d 双字节字符显示</span><br><span class="line">-o 双字节十进制显示</span><br><span class="line">-x 双字节十六进制显示</span><br><span class="line">-s 从偏移量开始输出</span><br><span class="line">-e 指定格式字符串</span><br><span class="line">  格式字符串由&#x27;&#x27;包裹 &#x27;a/b &quot;format1&quot;  &quot;format2&quot;&#x27;</span><br><span class="line">  format %02d 两位十进制   %03x 三位十六进制数</span><br><span class="line">         %02o 两位八进制数 %c 单个字符等</span><br><span class="line">         %_ad 标记下一个输出字符的序号，用十进制表示</span><br><span class="line">         %_ax ～，用十六进制表示</span><br><span class="line">         %_ao ～，用八进制表示</span><br><span class="line">         %_p  对不能以常规字符显示的用.代替</span><br><span class="line">         同一行多个格式字符串，可以跟多个-e选项</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hexdump test   格式化输出文件</span><br><span class="line"></span><br><span class="line">hexdump -n 10 test 格式化输出文件的前10个字节</span><br><span class="line"></span><br><span class="line">hexdump -n 10 -c test 格式化输出文件的前10个字节，并以16进制表示</span><br><span class="line"></span><br><span class="line">hexdump -n 10 -C -s 20 格式化输出从10开始的10个字节，并以16进制显示</span><br><span class="line"></span><br><span class="line">hexdump -e &#x27;16/1 &quot;%02x&quot; &quot;|&quot;&#x27; -e &#x27;16/1 &quot;%_p&quot; &quot;\n&quot;&#x27; test</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">format: iteration_count/byte_count format</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/05/14/hexdump-linux-command/" data-id="cly86buz9000h96z8d32ze03e" data-title="hexdump_linux_command.md" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -2508,6 +2534,10 @@
       <ul>
         
           <li>
+            <a href="/2024/09/07/tar/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2024/09/06/lib/">(no title)</a>
           </li>
         
@@ -2521,10 +2551,6 @@
         
           <li>
             <a href="/2024/07/26/peixun/">各次培训记录</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/24/arch-pacman-syu/">ignore some package update</a>
           </li>
         
       </ul>

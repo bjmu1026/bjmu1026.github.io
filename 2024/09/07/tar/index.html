@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Bjmu1026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="tar command tar command creates tar files by converting a group of files into an archive. It also can extract tar archives, display a list of the files included in the archive, add additional files to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bjmu1026">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/09/07/tar/index.html">
+<meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="tar command tar command creates tar files by converting a group of files into an archive. It also can extract tar archives, display a list of the files included in the archive, add additional files to">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-09-06T23:51:26.002Z">
+<meta property="article:modified_time" content="2024-09-06T23:51:26.002Z">
+<meta property="article:author" content="tongxu24">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bjmu1026" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bjmu1026</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal study notes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bjmu1026.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-tar" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/07/tar/" class="article-date">
+  <time class="dt-published" datetime="2024-09-06T23:51:26.002Z" itemprop="datePublished">2024-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="tar-command"><a href="#tar-command" class="headerlink" title="tar command"></a>tar command</h2><ul>
+<li>tar command creates tar files by converting a group of files into an archive. It also can extract tar archives, display a list of the files included in the archive, add additional files to an existing archive, and various other kinds of operations. </li>
+<li>tar was designed for creating archives to store files on magnetic tape, which is why its name “Tape Archive”</li>
+<li>There are two versions of tar, BSD tar and GNU tar, with some functional differences. Most linux systems come with GNU tar pre-installed by default.</li>
+</ul>
+<h3 id="tar-syntax"><a href="#tar-syntax" class="headerlink" title="tar syntax"></a>tar syntax</h3><ul>
+<li>tar [operation_and_options] [archive_name] [file_name(s)]</li>
+<li>operation<ul>
+<li>–create (-c)   &#x3D;&#x3D; create a new tar archive </li>
+<li>–extract (-x) &#x3D;&#x3D; extract the entire archive or one or more files from an archive </li>
+<li>–list (-t) &#x3D;&#x3D; display a list of the files included in the archive</li>
+</ul>
+</li>
+<li>options<ul>
+<li>–verbose (-v)  &#x3D;&#x3D; show the files being processed by the tar command </li>
+<li>–file&#x3D;archive-name (-f archive-name) &#x3D;&#x3D; specifies the archive name</li>
+</ul>
+</li>
+</ul>
+<h3 id="creating-tar-archive"><a href="#creating-tar-archive" class="headerlink" title="creating tar archive"></a>creating tar archive</h3><ul>
+<li>tar supports a vast range of compression programs such as gzip, bzip2, lzip, lzma, lzop, xz, compress. </li>
+<li>It is an accepted convention to append the compressor suffix to the archive file name. </li>
+<li>e.g. an archive has been compressed with gzip, it should be named archive.tar.gz</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create an archive named archive.tar with file1 - 3</span></span><br><span class="line">tar -cf archive.tar file1 file2 file2 file3</span><br><span class="line">tar --create --file=archive.tar file1 file2 file3 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create an archive named backup.tar of the /home/user directory</span> </span><br><span class="line">tar -cf backup.tar /home/usr</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create tar gz archive, the <span class="string">&#x27;-z&#x27;</span> option tells tar to compress the archive using the gizp</span> </span><br><span class="line">tar -czf archive.tar.gz file1 file2 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create tar bzip archive file</span> </span><br><span class="line">tar -cjf archive.tar.bz2 file1 file2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="listing-tar-archives"><a href="#listing-tar-archives" class="headerlink" title="listing tar archives"></a>listing tar archives</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -tf archive.tar</span><br><span class="line">tar -tvf archive.tar</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="extracting-tar-archive"><a href="#extracting-tar-archive" class="headerlink" title="extracting tar archive"></a>extracting tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">tar -xf archive.tar</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extract the archive contents to the /opt/files directory</span></span><br><span class="line">tar -xf archive.tar -C  /opt/files</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting files from compressed archive</span> </span><br><span class="line">tar -xvf archive.tar.gz </span><br><span class="line">tar -xvf archive.tar.bz2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting specific files from a tar archive</span></span><br><span class="line">tar -xvf archive.tar file1 file2 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting specific directory from a tar archive</span></span><br><span class="line">tar -xvf archive.tar dir1 dir2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting files from a tar archive using wildcard</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">switch and quote the pattern to prevent the shell from interpreting it</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">to extract files whose names end <span class="keyword">in</span> .js</span></span><br><span class="line">tar -xvf archive.tar --wildcards &#x27;*.js&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="adding-files-to-existing-tar-archive"><a href="#adding-files-to-existing-tar-archive" class="headerlink" title="adding files to existing tar archive"></a>adding files to existing tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">use the --append(-r) operation</span></span><br><span class="line">tar -rvf archive.tar newfile </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="removing-files-from-a-tar-archive"><a href="#removing-files-from-a-tar-archive" class="headerlink" title="removing files from a tar archive"></a>removing files from a tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">use the --delete operation to remove files from an archive</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">remove the file1 from archive.tar</span> </span><br><span class="line">tar --delete -f archive.tar file1 </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/07/tar/" data-id="cm0rdekmk00009bz89fr832m1" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/09/06/lib/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/09/07/tar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/06/lib/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/05/tmux/">tmux-command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/02/openssl/">openssl command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/26/peixun/">各次培训记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 tongxu24<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
