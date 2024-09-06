@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Bjmu1026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="链接静态库 archive 通过 ar(用于archive的使用工具)来创建和更新 静态哭约定在他们的文件名中使用”.a”的扩展名  1234567#首先将代码文件编译为目标文件.ogcc -c staticMath.c#使用ar工具打包成.a的静态库文件ar -crv libstaticmath.a staticMath.o#使用静态库, -L指定静态库的搜索路径 -l指定静态库名 不需要lib">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bjmu1026">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/09/06/lib/index.html">
+<meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="链接静态库 archive 通过 ar(用于archive的使用工具)来创建和更新 静态哭约定在他们的文件名中使用”.a”的扩展名  1234567#首先将代码文件编译为目标文件.ogcc -c staticMath.c#使用ar工具打包成.a的静态库文件ar -crv libstaticmath.a staticMath.o#使用静态库, -L指定静态库的搜索路径 -l指定静态库名 不需要lib">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-09-06T05:13:13.417Z">
+<meta property="article:modified_time" content="2024-09-06T13:54:45.530Z">
+<meta property="article:author" content="tongxu24">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bjmu1026" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bjmu1026</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal study notes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bjmu1026.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-lib" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/06/lib/" class="article-date">
+  <time class="dt-published" datetime="2024-09-06T05:13:13.417Z" itemprop="datePublished">2024-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h2 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h2><ul>
+<li>archive 通过 ar(用于archive的使用工具)来创建和更新</li>
+<li>静态哭约定在他们的文件名中使用”.a”的扩展名</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">首先将代码文件编译为目标文件.o</span></span><br><span class="line">gcc -c staticMath.c</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用ar工具打包成.a的静态库文件</span></span><br><span class="line">ar -crv libstaticmath.a staticMath.o</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用静态库, -L指定静态库的搜索路径 -l指定静态库名 不需要lib前缀和.a后缀</span> </span><br><span class="line">gcc TestStaticMath.c -L../StaticLibrary -lstaticmath</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用-fPIC生成目标文件</span> </span><br><span class="line">gcc -fPIC -c DynamicMath.c </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用连接器选项-shared生成动态库 .so shared object</span></span><br><span class="line">gcc -shared -o libdynmath.so DynamicMath.o</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">两步可以合二为一</span> </span><br><span class="line">gcc -fPIC -shared -o libdynmath.so DynamicMath.c</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用动态库编译成可执行文件</span> </span><br><span class="line">gcc TestDynamicLibrary.c -L../DynamicLibrary -ldynmath</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将libdynmath.so安装在/lib或/usr/lib目录下</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或在/etc/ld.so.conf文件加入库目录所在的路径名</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ldconfig 运行ldconfig重建/etc/ld.so.cache文件</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#查看一个可执行程序以来的共享库</span></span></span><br><span class="line">ldd a.out </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># nm命令可以打印出库中的涉及到的所有符号</span></span> </span><br><span class="line">nm libhello.h</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">T表示 库中定义的函数</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">W表示 在库中被定义,可能被其他库中的同名符号覆盖</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">U表示 在库中被调用,单并没有在库中定义(需要其他函数库支持)</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/06/lib/" data-id="cm0qs3hod0000yez821y2212c" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/09/05/tmux/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">tmux-command</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/09/06/lib/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/05/tmux/">tmux-command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/02/openssl/">openssl command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/26/peixun/">各次培训记录</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/24/arch-pacman-syu/">ignore some package update</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 tongxu24<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

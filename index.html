@@ -73,6 +73,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-lib" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/06/lib/" class="article-date">
+  <time class="dt-published" datetime="2024-09-06T05:13:13.417Z" itemprop="datePublished">2024-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h2 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h2><ul>
+<li>archive 通过 ar(用于archive的使用工具)来创建和更新</li>
+<li>静态哭约定在他们的文件名中使用”.a”的扩展名</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">首先将代码文件编译为目标文件.o</span></span><br><span class="line">gcc -c staticMath.c</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用ar工具打包成.a的静态库文件</span></span><br><span class="line">ar -crv libstaticmath.a staticMath.o</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用静态库, -L指定静态库的搜索路径 -l指定静态库名 不需要lib前缀和.a后缀</span> </span><br><span class="line">gcc TestStaticMath.c -L../StaticLibrary -lstaticmath</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用-fPIC生成目标文件</span> </span><br><span class="line">gcc -fPIC -c DynamicMath.c </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用连接器选项-shared生成动态库 .so shared object</span></span><br><span class="line">gcc -shared -o libdynmath.so DynamicMath.o</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">两步可以合二为一</span> </span><br><span class="line">gcc -fPIC -shared -o libdynmath.so DynamicMath.c</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用动态库编译成可执行文件</span> </span><br><span class="line">gcc TestDynamicLibrary.c -L../DynamicLibrary -ldynmath</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将libdynmath.so安装在/lib或/usr/lib目录下</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或在/etc/ld.so.conf文件加入库目录所在的路径名</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ldconfig 运行ldconfig重建/etc/ld.so.cache文件</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#查看一个可执行程序以来的共享库</span></span></span><br><span class="line">ldd a.out </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># nm命令可以打印出库中的涉及到的所有符号</span></span> </span><br><span class="line">nm libhello.h</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">T表示 库中定义的函数</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">W表示 在库中被定义,可能被其他库中的同名符号覆盖</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">U表示 在库中被调用,单并没有在库中定义(需要其他函数库支持)</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/06/lib/" data-id="cm0qs3hod0000yez821y2212c" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-tmux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/09/05/tmux/" class="article-date">
@@ -2400,47 +2472,6 @@
 
 
   
-    <article id="post-telnet-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/28/telnet-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-04-28T05:59:59.000Z" itemprop="datePublished">2024-04-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/28/telnet-linux-command/">telnet_linux_command.md</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="telnet命令"><a href="#telnet命令" class="headerlink" title="telnet命令"></a>telnet命令</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">链接倒远程主机</span></span><br><span class="line">telnet [host] [port]</span><br><span class="line">telnet baidu.com 8080</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">默认脱离字符Ctrl+]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="命令界面"><a href="#命令界面" class="headerlink" title="命令界面"></a>命令界面</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">open 建立倒主机的telnet连接</span><br><span class="line">close 关闭现有的连接</span><br><span class="line">display 查看Telnet客户端当前设置</span><br><span class="line">send 向telnet服务器发送明两年</span><br><span class="line">    ao 放弃输出命令</span><br><span class="line">    ayt Are you there命令</span><br><span class="line">    esc 发送当前的转义字符</span><br><span class="line">    ip 中断进程命令</span><br><span class="line">    synch 执行telnet同步操作</span><br><span class="line">    brk 发送信号</span><br><span class="line">    quit 退出telnet</span><br><span class="line">缩写  c --close</span><br><span class="line">      d --display</span><br><span class="line">      o --open hostname [port]</span><br><span class="line">      q --quit</span><br><span class="line">      set --set</span><br><span class="line">      sen --send</span><br><span class="line">      st  --status</span><br><span class="line">      u   --unset</span><br><span class="line">      ?/h --help</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/04/28/telnet-linux-command/" data-id="cly86buy1000596z8cyqd3jnl" data-title="telnet_linux_command.md" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -2477,6 +2508,10 @@
       <ul>
         
           <li>
+            <a href="/2024/09/06/lib/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2024/09/05/tmux/">tmux-command</a>
           </li>
         
@@ -2490,10 +2525,6 @@
         
           <li>
             <a href="/2024/06/24/arch-pacman-syu/">ignore some package update</a>
-          </li>
-        
-          <li>
-            <a href="/2024/06/16/gpgme-error/">archlinux pacman gpgme-error</a>
           </li>
         
       </ul>
