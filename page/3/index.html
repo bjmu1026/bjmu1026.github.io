@@ -73,6 +73,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-squid" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/28/squid/" class="article-date">
+  <time class="dt-published" datetime="2024-03-28T10:04:22.282Z" itemprop="datePublished">2024-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/28/squid/">squid-study</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><a href="#%E5%AE%89%E8%A3%85" title="安装"></a>安装</h2><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">archlinux 安装</span></span><br><span class="line">sudo pacman -S squid</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">更改配置文件</span></span><br><span class="line">vim /etc/squid.conf</span><br><span class="line">---</span><br><span class="line">http_access allow all</span><br><span class="line"></span><br><span class="line">http_port 0.0.0.0:3128</span><br><span class="line">https_port 0.0.0.0:3129 cert=/etc/squid/my.crt  key=/etc/squid/myPrivate.key</span><br><span class="line"></span><br><span class="line">cache_dir ufs /var/spool/squid 2048 16 256</span><br></pre></td></tr></tbody></table>
+
+<h3 id="证书"><a href="#证书" class="headerlink" title="证书"></a><a href="#%E8%AF%81%E4%B9%A6" title="证书"></a>证书</h3><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -out tank.csr</span><br><span class="line"></span><br><span class="line">openssl rsa -in privkey.pem -out myPrivate.key</span><br><span class="line"></span><br><span class="line">openssl x509 -in tank.csr -out my.crt -req -signkey myPrivate.key -days 3650</span><br></pre></td></tr></tbody></table>
+
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96" title="初始化"></a>初始化</h3><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squid -z</span><br></pre></td></tr></tbody></table>
+
+<h3 id="端口开放"><a href="#端口开放" class="headerlink" title="端口开放"></a><a href="#%E7%AB%AF%E5%8F%A3%E5%BC%80%E6%94%BE" title="端口开放"></a>端口开放</h3><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -I INPUT -p tcp --dport 3129 -j ACCEPT</span><br><span class="line">sudo iptables -I INPUT -p tcp --dport 3128 -j ACCEPT</span><br></pre></td></tr></tbody></table>
+
+<h3 id="启动squid"><a href="#启动squid" class="headerlink" title="启动squid"></a><a href="#%E5%90%AF%E5%8A%A8squid" title="启动squid"></a>启动squid</h3><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start squid</span><br><span class="line">systemctl status squid</span><br></pre></td></tr></tbody></table>
+
+<hr>
+<h3 id="stunnel"><a href="#stunnel" class="headerlink" title="stunnel"></a><a href="#stunnel" title="stunnel"></a>stunnel</h3><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S stunnel</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">SERVER</span></span><br><span class="line">vim /etc/stunnel/stunnel.conf</span><br><span class="line">---</span><br><span class="line">setuid = root</span><br><span class="line">setgit = root</span><br><span class="line">output = /var/log/stunnel.log</span><br><span class="line">debug = 7</span><br><span class="line"></span><br><span class="line">[https]</span><br><span class="line">client = no</span><br><span class="line">cert = /etc/stunnel/stunnel.pem</span><br><span class="line">key = /etc/stunnel/stunnel.pem</span><br><span class="line">accept=0.0.0.0:4128      #等待远端访问端口</span><br><span class="line">connect=localhost:3128   #连接到本地squid端口</span><br><span class="line">---</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">CLIENT</span></span><br><span class="line">[https]</span><br><span class="line">client = yes</span><br><span class="line">accept = 127.0.0.1:8888     #本地8888端口等待访问</span><br><span class="line">connnect=server_IP:4128     #连接服务端4128端口</span><br></pre></td></tr></tbody></table>
+
+<h3 id="自签证书"><a href="#自签证书" class="headerlink" title="自签证书"></a><a href="#%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6" title="自签证书"></a>自签证书</h3><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out privatekey.pem 2048</span><br><span class="line">openssl req -new -x509 -key privatekey.pem -out publickey.pem -days 3650</span><br><span class="line">cat privatekey.pem publickey.pem &gt;&gt; /etc/stunnel/stunnel.pem</span><br></pre></td></tr></tbody></table>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/03/28/squid/" data-id="cly86buxx000496z8bu9naukj" data-title="squid-study" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-git" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/28/git/" class="article-date">
@@ -384,6 +438,10 @@
       <ul>
         
           <li>
+            <a href="/2024/09/17/cut-linux-command/">cut_linux_command</a>
+          </li>
+        
+          <li>
             <a href="/2024/09/07/tar/">(no title)</a>
           </li>
         
@@ -397,10 +455,6 @@
         
           <li>
             <a href="/2024/09/02/openssl/">openssl command</a>
-          </li>
-        
-          <li>
-            <a href="/2024/07/26/peixun/">各次培训记录</a>
           </li>
         
       </ul>
