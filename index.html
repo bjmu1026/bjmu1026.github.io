@@ -73,389 +73,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-cut-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/09/17/cut-linux-command/" class="article-date">
-  <time class="dt-published" datetime="2024-09-17T01:07:37.000Z" itemprop="datePublished">2024-09-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/09/17/cut-linux-command/">cut_linux_command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>cut命令用于从文件或标准输入中提取指定部分的文本行。主要通过列、字符或字段来分割文本。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cut -c 1-5 filename.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取每行的第1到第5个字符</span></span><br><span class="line"></span><br><span class="line">cut -b 1-5 filename.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取每行的第1到第5个字节</span> </span><br><span class="line"></span><br><span class="line">cut -d &#x27;:&#x27; -f 2,4 filename.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取用<span class="string">&#x27;,&#x27;</span>分隔的第2和第4个字段</span> </span><br><span class="line"></span><br><span class="line">cut -d &#x27;,&#x27; -f 1,3 --output-delimiter=&quot;:&quot; filename.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用冒号作为分隔符提取使用逗号分隔的第1和第3个字段</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/09/17/cut-linux-command/" data-id="cm1gkfyag00002zz83tk37315" data-title="cut_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-tar" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/09/07/tar/" class="article-date">
-  <time class="dt-published" datetime="2024-09-06T23:51:26.002Z" itemprop="datePublished">2024-09-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="tar-command"><a href="#tar-command" class="headerlink" title="tar command"></a>tar command</h2><ul>
-<li>tar command creates tar files by converting a group of files into an archive. It also can extract tar archives, display a list of the files included in the archive, add additional files to an existing archive, and various other kinds of operations. </li>
-<li>tar was designed for creating archives to store files on magnetic tape, which is why its name “Tape Archive”</li>
-<li>There are two versions of tar, BSD tar and GNU tar, with some functional differences. Most linux systems come with GNU tar pre-installed by default.</li>
-</ul>
-<h3 id="tar-syntax"><a href="#tar-syntax" class="headerlink" title="tar syntax"></a>tar syntax</h3><ul>
-<li>tar [operation_and_options] [archive_name] [file_name(s)]</li>
-<li>operation<ul>
-<li>–create (-c)   &#x3D;&#x3D; create a new tar archive </li>
-<li>–extract (-x) &#x3D;&#x3D; extract the entire archive or one or more files from an archive </li>
-<li>–list (-t) &#x3D;&#x3D; display a list of the files included in the archive</li>
-</ul>
-</li>
-<li>options<ul>
-<li>–verbose (-v)  &#x3D;&#x3D; show the files being processed by the tar command </li>
-<li>–file&#x3D;archive-name (-f archive-name) &#x3D;&#x3D; specifies the archive name</li>
-</ul>
-</li>
-</ul>
-<h3 id="creating-tar-archive"><a href="#creating-tar-archive" class="headerlink" title="creating tar archive"></a>creating tar archive</h3><ul>
-<li>tar supports a vast range of compression programs such as gzip, bzip2, lzip, lzma, lzop, xz, compress. </li>
-<li>It is an accepted convention to append the compressor suffix to the archive file name. </li>
-<li>e.g. an archive has been compressed with gzip, it should be named archive.tar.gz</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create an archive named archive.tar with file1 - 3</span></span><br><span class="line">tar -cf archive.tar file1 file2 file2 file3</span><br><span class="line">tar --create --file=archive.tar file1 file2 file3 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create an archive named backup.tar of the /home/user directory</span> </span><br><span class="line">tar -cf backup.tar /home/usr</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create tar gz archive, the <span class="string">&#x27;-z&#x27;</span> option tells tar to compress the archive using the gizp</span> </span><br><span class="line">tar -czf archive.tar.gz file1 file2 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create tar bzip archive file</span> </span><br><span class="line">tar -cjf archive.tar.bz2 file1 file2</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="listing-tar-archives"><a href="#listing-tar-archives" class="headerlink" title="listing tar archives"></a>listing tar archives</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -tf archive.tar</span><br><span class="line">tar -tvf archive.tar</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="extracting-tar-archive"><a href="#extracting-tar-archive" class="headerlink" title="extracting tar archive"></a>extracting tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">tar -xf archive.tar</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extract the archive contents to the /opt/files directory</span></span><br><span class="line">tar -xf archive.tar -C  /opt/files</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting files from compressed archive</span> </span><br><span class="line">tar -xvf archive.tar.gz </span><br><span class="line">tar -xvf archive.tar.bz2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting specific files from a tar archive</span></span><br><span class="line">tar -xvf archive.tar file1 file2 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting specific directory from a tar archive</span></span><br><span class="line">tar -xvf archive.tar dir1 dir2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting files from a tar archive using wildcard</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">switch and quote the pattern to prevent the shell from interpreting it</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">to extract files whose names end <span class="keyword">in</span> .js</span></span><br><span class="line">tar -xvf archive.tar --wildcards &#x27;*.js&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="adding-files-to-existing-tar-archive"><a href="#adding-files-to-existing-tar-archive" class="headerlink" title="adding files to existing tar archive"></a>adding files to existing tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">use the --append(-r) operation</span></span><br><span class="line">tar -rvf archive.tar newfile </span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="removing-files-from-a-tar-archive"><a href="#removing-files-from-a-tar-archive" class="headerlink" title="removing files from a tar archive"></a>removing files from a tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">use the --delete operation to remove files from an archive</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">remove the file1 from archive.tar</span> </span><br><span class="line">tar --delete -f archive.tar file1 </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/09/07/tar/" data-id="cm0rdekmk00009bz89fr832m1" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-lib" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/09/06/lib/" class="article-date">
-  <time class="dt-published" datetime="2024-09-06T05:13:13.417Z" itemprop="datePublished">2024-09-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h2 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h2><ul>
-<li>archive 通过 ar(用于archive的使用工具)来创建和更新</li>
-<li>静态哭约定在他们的文件名中使用”.a”的扩展名</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">首先将代码文件编译为目标文件.o</span></span><br><span class="line">gcc -c staticMath.c</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用ar工具打包成.a的静态库文件</span></span><br><span class="line">ar -crv libstaticmath.a staticMath.o</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用静态库, -L指定静态库的搜索路径 -l指定静态库名 不需要lib前缀和.a后缀</span> </span><br><span class="line">gcc TestStaticMath.c -L../StaticLibrary -lstaticmath</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用-fPIC生成目标文件</span> </span><br><span class="line">gcc -fPIC -c DynamicMath.c </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用连接器选项-shared生成动态库 .so shared object</span></span><br><span class="line">gcc -shared -o libdynmath.so DynamicMath.o</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">两步可以合二为一</span> </span><br><span class="line">gcc -fPIC -shared -o libdynmath.so DynamicMath.c</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用动态库编译成可执行文件</span> </span><br><span class="line">gcc TestDynamicLibrary.c -L../DynamicLibrary -ldynmath</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将libdynmath.so安装在/lib或/usr/lib目录下</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或在/etc/ld.so.conf文件加入库目录所在的路径名</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ldconfig 运行ldconfig重建/etc/ld.so.cache文件</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#查看一个可执行程序以来的共享库</span></span></span><br><span class="line">ldd a.out </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># nm命令可以打印出库中的涉及到的所有符号</span></span> </span><br><span class="line">nm libhello.h</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">T表示 库中定义的函数</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">W表示 在库中被定义,可能被其他库中的同名符号覆盖</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">U表示 在库中被调用,单并没有在库中定义(需要其他函数库支持)</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/09/06/lib/" data-id="cm0qs3hod0000yez821y2212c" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-tmux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/09/05/tmux/" class="article-date">
-  <time class="dt-published" datetime="2024-09-05T01:07:38.253Z" itemprop="datePublished">2024-09-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/09/05/tmux/">tmux-command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a><strong>Session</strong></h2><h2 id="create-session"><a href="#create-session" class="headerlink" title="create session"></a>create session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">不指定session的名称</span></span><br><span class="line">tmux </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">指定session的名称为hello</span></span><br><span class="line">tmux new -s hello </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看创建的session</span></span><br><span class="line">tmux ls</span><br></pre></td></tr></table></figure>
-
-<h2 id="detach-session"><a href="#detach-session" class="headerlink" title="detach session"></a>detach session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b d 快捷键可以脱离当前会话</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用命令</span></span><br><span class="line">tmux detach </span><br></pre></td></tr></table></figure>
-
-<h2 id="attach-session"><a href="#attach-session" class="headerlink" title="attach session"></a>attach session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重新连接到之前脱离的会话</span> </span><br><span class="line">tmux attach -t hello</span><br></pre></td></tr></table></figure>
-
-<h2 id="kill-session"><a href="#kill-session" class="headerlink" title="kill session"></a>kill session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭会话hello</span></span><br><span class="line">tmux kill-session -t hello </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^d 快捷键也可以关闭当前的会话</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="switch-session"><a href="#switch-session" class="headerlink" title="switch session"></a>switch session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从当前会话切换到其他会话</span> </span><br><span class="line">tmux switch -t hello</span><br></pre></td></tr></table></figure>
-
-<h2 id="rename-session"><a href="#rename-session" class="headerlink" title="rename session"></a>rename session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将hello会话重命名为haa</span></span><br><span class="line">tmux rename-session -t hello haa</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b $来重命名当前会话</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Pane"><a href="#Pane" class="headerlink" title="Pane"></a><strong>Pane</strong></h2><h2 id="split-window"><a href="#split-window" class="headerlink" title="split window"></a>split window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前工作区划分为上下两个窗口</span> </span><br><span class="line">tmux split-window </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前工作区划分为左右两个窗口</span></span><br><span class="line">tmux split-window -h</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b % 快捷键左右切割</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b <span class="string">&quot; 快捷键上下切割</span></span> </span><br></pre></td></tr></table></figure>
-
-<h2 id="select-pane"><a href="#select-pane" class="headerlink" title="select pane"></a>select pane</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到上方的窗口</span> </span><br><span class="line">tmux select-pane -U</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到下方的窗口</span> </span><br><span class="line">tmux select-pane -D</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到左方的窗口</span> </span><br><span class="line">tmux select-pane -L</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到右方的窗口</span> </span><br><span class="line">tmux select-pane -R</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b &lt;arrow key&gt; 方向键控制</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b ; 光标切换到上一个窗口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b o 光标切换到下一个窗口</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="swap-pane"><a href="#swap-pane" class="headerlink" title="swap pane"></a>swap pane</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口向上移动</span> </span><br><span class="line">tmux swap-pane -U</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口向下移动</span> </span><br><span class="line">tmux swap-pane -D</span><br></pre></td></tr></table></figure>
-
-<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b z  放大当前窗口  继续出发还原</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b t  在当前的窗口显示时间</span> </span><br></pre></td></tr></table></figure>
-
-<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a><strong>Window</strong></h2><h2 id="create-window"><a href="#create-window" class="headerlink" title="create window"></a>create window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建一个名字为hello-win的窗口</span> </span><br><span class="line">tmux new-window -n hello-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b c 快捷键快速创建一个窗口出来</span> </span><br></pre></td></tr></table></figure>
-
-<h2 id="slect-window"><a href="#slect-window" class="headerlink" title="slect window"></a>slect window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在有多个窗口的条件下,可以快速进入指定的窗口</span> </span><br><span class="line">tmux select-window -t hello2-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b w 可以通过j k 进行上下选择</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b n 快速切换到下一个窗口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b p 快速切换到上一个窗口</span> </span><br></pre></td></tr></table></figure>
-
-<h2 id="rename-window"><a href="#rename-window" class="headerlink" title="rename window"></a>rename window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口的名字命名为new-window</span></span><br><span class="line">tmux rename-window new-window</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b 快捷键可以重命名窗口</span> </span><br></pre></td></tr></table></figure>
-
-<h2 id="shutdown-window"><a href="#shutdown-window" class="headerlink" title="shutdown window"></a>shutdown window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除名为hello-win的窗口</span> </span><br><span class="line">tmux kill-window -t hello-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b &amp; 可以关闭当前的窗口</span> </span><br></pre></td></tr></table></figure>
-
-<h2 id="tmux-conf"><a href="#tmux-conf" class="headerlink" title="tmux.conf"></a><strong>tmux.conf</strong></h2><ul>
-<li>在tmux中可以通过^b ?来查找tmux的帮助文档,可以查询一些功能键的快捷键信息 </li>
-<li>.tmux.conf配置文件, 默认放置在<del>目录下, 没有可以在</del>下创建一个.tmux.conf文件 </li>
-<li>可以在配置文件中将^b 改为 ^x</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/09/05/tmux/" data-id="cm0olaeth0000n8z88vau34r1" data-title="tmux-command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-openssl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/09/02/openssl/" class="article-date">
-  <time class="dt-published" datetime="2024-09-02T12:43:00.355Z" itemprop="datePublished">2024-09-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/09/02/openssl/">openssl command</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="openssl-genrsa"><a href="#openssl-genrsa" class="headerlink" title="openssl genrsa"></a>openssl genrsa</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa #生成私钥,输出到控制台</span><br><span class="line">openssl genrsa -out plaint-private.pem 2048  #密钥长度2048 输出文件plaint-private.pem</span><br><span class="line">openssl genrsa -aes192 -passout pass:123456 -out passwd-private.pem 2048 #指定密码</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="openssl-rsa"><a href="#openssl-rsa" class="headerlink" title="openssl rsa"></a>openssl rsa</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -in plaint-private.pem -pubout -out plaint-public.pem</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从未加密的私钥中提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in passwd-private.pem -passin:12345 -pubout -out plaint-public.pem</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从加密的私钥中提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in plaint-private.key -pubout </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从未加密的私钥中提取公钥输出到控制台</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in plaint-private.pem -des3 -passout pass:123456 -out passwd-private.pem</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用des3加密私钥</span> </span><br><span class="line"></span><br><span class="line">openssl rsa -inform pem -in plaint-private.pem -outform der -out plaint-private.der</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">私钥格式转换pem -&gt; der</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in plaint-private.pem -check -noout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">校验私钥的完整性</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="openssl-rsautl"><a href="#openssl-rsautl" class="headerlink" title="openssl rsautl"></a>openssl rsautl</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">openssl rsautl -encrypt -inkey plaint-public.pem -pubin -in plaintext.txt -out ciphertext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用公钥加密文件</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -decrypt -inkey plaint-private.pem -in ciphertext.txt -out plaintext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行解密</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -sign -inkey plaint-private.pem -in plaintext.txt -out signature.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行签名</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -verify -inkey plaint-public.pem -in signature.txt -out verified.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">公钥验签</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -encrypt -inkey test-public.cer -certin -in plaintext.txt -out ciphertext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">证书加密, -certin密钥文件为证书</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -decrypt -inkey test-key.pem -in ciphertext.txt -out decrtpted.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥解密加密证书</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">openssl rsautl -sign -inkey text-key.pem -in plaintext.txt -out sinature.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥签名</span> </span><br><span class="line"></span><br><span class="line">openssl rsautl -verify -inkey test-public.cer -certin -in signature.txt -out verified.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用证书验签</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="openssl-genpkey"><a href="#openssl-genpkey" class="headerlink" title="openssl genpkey"></a>openssl genpkey</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openssl genpkey -algorithm rsa </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">生成私钥,输出到控制台 指定算法为rsa</span></span><br><span class="line"></span><br><span class="line">openssl genpkey -algorithm rsa -out plaint-private.pem -pkeyopt rsa_keygen_bits:2048</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">指定使用rsa算法产生2048位私钥</span></span><br><span class="line"></span><br><span class="line">openssl genpkey -algorithm rsa -pass pass:123456 -out passwd-private.pem 2048</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用密码123456加密私钥</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="openssl-pkey"><a href="#openssl-pkey" class="headerlink" title="openssl pkey"></a>openssl pkey</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">openssl pkey -in plaint-private.pem -pubout -out plaint-public.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl pkey -in passwd-private.pem -passin pass:123456 -pubout -out plaint-public.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从加密的私钥中提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl pkey -in plaint-private.pem -pubout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取公钥,输出到控制台</span></span><br><span class="line"></span><br><span class="line">openssl pkey -in plaint-private.pem -des3 -passout pass:123456 -out passwd-private.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">私钥加密</span></span><br><span class="line"></span><br><span class="line">openssl pkey -inform pem -in plaint-private.pem -outform der -out plaint-private.der</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">私钥格式转换,pem---&gt;der格式</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="openssl-pkeyutl"><a href="#openssl-pkeyutl" class="headerlink" title="openssl pkeyutl"></a>openssl pkeyutl</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">openssl pkeyutl -encrypt -inkey plaint-public.pem -pubin -in plaintext.txt -out ciphertext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用公钥加密文件</span></span><br><span class="line"></span><br><span class="line">openssl pkeyutl -decrypt -inkey palint-private.pem -in ciphertext.txt -out decrypted.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行解密</span> </span><br><span class="line"></span><br><span class="line">openssl pkeyutl -sign -inkey plaint-private.pem -in palintext.txt -out signature.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行签名</span></span><br><span class="line"></span><br><span class="line">openssl pkeyutl -verifyrecover -inkey plaint-public.pem -pubin -in signature.txt -out virified.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用公钥进行验证</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="openssl-req"><a href="#openssl-req" class="headerlink" title="openssl req"></a>openssl req</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key plaint-private.pem -out palint-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建请求证书 -new 创建请求证书, -key使用文件中的私钥, -subj 设置请求证书主题</span></span><br><span class="line"></span><br><span class="line">openssl req -in plaint-request.csr -pubkey -nouut &gt; plaint-public.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl req -in plaint-request.csr -subject -noout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取主题</span></span><br><span class="line"></span><br><span class="line">openssl req -verify -in plaint-request.csr -noout </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">校验请求证书签名是否合法</span></span><br><span class="line"></span><br><span class="line">openssl req -newkey rsa:2048 -nodes -keyout ca-key.pem -out ca-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建私钥和请求证书文件,-newkey 创建私钥并指定算法, -nodes 输出私钥不加密 -keyout 指定私钥文件</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="openssl-x509"><a href="#openssl-x509" class="headerlink" title="openssl x509"></a>openssl x509</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca-key.pem 2048</span><br><span class="line">openssl req -new -key ca-key.pem -out ca-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line">openssl x509 -req -in ca-request.csr -days 3650 -signkey ca-key.pem -out ca-root.cer</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建根证书 自签名证书 -req 输入请求证书文件 -signkey 指定自签名证书私钥</span> </span><br><span class="line"></span><br><span class="line">openssl genrsa -out test-key.pem 2048 </span><br><span class="line">openssl req -new -key test-key.pem -out test-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line">openssl x509 -req -in text-request.csr -days 365 -CA ca-root.cer -CAkey ca-key.pem -CAcreateserial -out test-public.cer</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建通信证书 -req 输入请求证书文件 -CA 指定根证书 -CAkey 指定根证书的私钥</span> </span><br><span class="line"></span><br><span class="line">openssl x509 -in test-public.cer -dates -issuer -subject -email -noout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取证书信息 -dates  证书的可开始和结束的时间 -issuer 发行人主题 -subject 证书主题 -email  邮件信息</span></span><br><span class="line"></span><br><span class="line">openssl x509 -in test-public.cer -pubkey -noout &gt; plaint-public.pem </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/09/02/openssl/" data-id="cm0kzr62v000014z819m9bjh1" data-title="openssl command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-peixun" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/07/26/peixun/" class="article-date">
-  <time class="dt-published" datetime="2024-07-26T05:04:27.875Z" itemprop="datePublished">2024-07-26</time>
+    <a href="/2024/09/24/peixun/" class="article-date">
+  <time class="dt-published" datetime="2024-09-24T12:00:00.000Z" itemprop="datePublished">2024-09-24</time>
 </a>
     
   </div>
@@ -466,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/07/26/peixun/">各次培训记录</a>
+      <a class="p-name article-title" href="/2024/09/24/peixun/">各次培训记录</a>
     </h1>
   
 
@@ -1059,7 +680,386 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://bjmu1026.github.io/2024/07/26/peixun/" data-id="clz28tt7o0000r6z81buhgx2n" data-title="各次培训记录" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://bjmu1026.github.io/2024/09/24/peixun/" data-id="clz28tt7o0000r6z81buhgx2n" data-title="各次培训记录" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-cut-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/17/cut-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-09-17T01:07:37.000Z" itemprop="datePublished">2024-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/09/17/cut-linux-command/">cut_linux_command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>cut命令用于从文件或标准输入中提取指定部分的文本行。主要通过列、字符或字段来分割文本。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cut -c 1-5 filename.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取每行的第1到第5个字符</span></span><br><span class="line"></span><br><span class="line">cut -b 1-5 filename.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取每行的第1到第5个字节</span> </span><br><span class="line"></span><br><span class="line">cut -d &#x27;:&#x27; -f 2,4 filename.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取用<span class="string">&#x27;,&#x27;</span>分隔的第2和第4个字段</span> </span><br><span class="line"></span><br><span class="line">cut -d &#x27;,&#x27; -f 1,3 --output-delimiter=&quot;:&quot; filename.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用冒号作为分隔符提取使用逗号分隔的第1和第3个字段</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/17/cut-linux-command/" data-id="cm1gkfyag00002zz83tk37315" data-title="cut_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-tar" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/07/tar/" class="article-date">
+  <time class="dt-published" datetime="2024-09-06T23:51:26.002Z" itemprop="datePublished">2024-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="tar-command"><a href="#tar-command" class="headerlink" title="tar command"></a>tar command</h2><ul>
+<li>tar command creates tar files by converting a group of files into an archive. It also can extract tar archives, display a list of the files included in the archive, add additional files to an existing archive, and various other kinds of operations. </li>
+<li>tar was designed for creating archives to store files on magnetic tape, which is why its name “Tape Archive”</li>
+<li>There are two versions of tar, BSD tar and GNU tar, with some functional differences. Most linux systems come with GNU tar pre-installed by default.</li>
+</ul>
+<h3 id="tar-syntax"><a href="#tar-syntax" class="headerlink" title="tar syntax"></a>tar syntax</h3><ul>
+<li>tar [operation_and_options] [archive_name] [file_name(s)]</li>
+<li>operation<ul>
+<li>–create (-c)   &#x3D;&#x3D; create a new tar archive </li>
+<li>–extract (-x) &#x3D;&#x3D; extract the entire archive or one or more files from an archive </li>
+<li>–list (-t) &#x3D;&#x3D; display a list of the files included in the archive</li>
+</ul>
+</li>
+<li>options<ul>
+<li>–verbose (-v)  &#x3D;&#x3D; show the files being processed by the tar command </li>
+<li>–file&#x3D;archive-name (-f archive-name) &#x3D;&#x3D; specifies the archive name</li>
+</ul>
+</li>
+</ul>
+<h3 id="creating-tar-archive"><a href="#creating-tar-archive" class="headerlink" title="creating tar archive"></a>creating tar archive</h3><ul>
+<li>tar supports a vast range of compression programs such as gzip, bzip2, lzip, lzma, lzop, xz, compress. </li>
+<li>It is an accepted convention to append the compressor suffix to the archive file name. </li>
+<li>e.g. an archive has been compressed with gzip, it should be named archive.tar.gz</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create an archive named archive.tar with file1 - 3</span></span><br><span class="line">tar -cf archive.tar file1 file2 file2 file3</span><br><span class="line">tar --create --file=archive.tar file1 file2 file3 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create an archive named backup.tar of the /home/user directory</span> </span><br><span class="line">tar -cf backup.tar /home/usr</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create tar gz archive, the <span class="string">&#x27;-z&#x27;</span> option tells tar to compress the archive using the gizp</span> </span><br><span class="line">tar -czf archive.tar.gz file1 file2 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">create tar bzip archive file</span> </span><br><span class="line">tar -cjf archive.tar.bz2 file1 file2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="listing-tar-archives"><a href="#listing-tar-archives" class="headerlink" title="listing tar archives"></a>listing tar archives</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -tf archive.tar</span><br><span class="line">tar -tvf archive.tar</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="extracting-tar-archive"><a href="#extracting-tar-archive" class="headerlink" title="extracting tar archive"></a>extracting tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">tar -xf archive.tar</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extract the archive contents to the /opt/files directory</span></span><br><span class="line">tar -xf archive.tar -C  /opt/files</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting files from compressed archive</span> </span><br><span class="line">tar -xvf archive.tar.gz </span><br><span class="line">tar -xvf archive.tar.bz2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting specific files from a tar archive</span></span><br><span class="line">tar -xvf archive.tar file1 file2 </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting specific directory from a tar archive</span></span><br><span class="line">tar -xvf archive.tar dir1 dir2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">extracting files from a tar archive using wildcard</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">switch and quote the pattern to prevent the shell from interpreting it</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">to extract files whose names end <span class="keyword">in</span> .js</span></span><br><span class="line">tar -xvf archive.tar --wildcards &#x27;*.js&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="adding-files-to-existing-tar-archive"><a href="#adding-files-to-existing-tar-archive" class="headerlink" title="adding files to existing tar archive"></a>adding files to existing tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">use the --append(-r) operation</span></span><br><span class="line">tar -rvf archive.tar newfile </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="removing-files-from-a-tar-archive"><a href="#removing-files-from-a-tar-archive" class="headerlink" title="removing files from a tar archive"></a>removing files from a tar archive</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">use the --delete operation to remove files from an archive</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">remove the file1 from archive.tar</span> </span><br><span class="line">tar --delete -f archive.tar file1 </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/07/tar/" data-id="cm0rdekmk00009bz89fr832m1" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-lib" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/06/lib/" class="article-date">
+  <time class="dt-published" datetime="2024-09-06T05:13:13.417Z" itemprop="datePublished">2024-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h2 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h2><ul>
+<li>archive 通过 ar(用于archive的使用工具)来创建和更新</li>
+<li>静态哭约定在他们的文件名中使用”.a”的扩展名</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">首先将代码文件编译为目标文件.o</span></span><br><span class="line">gcc -c staticMath.c</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用ar工具打包成.a的静态库文件</span></span><br><span class="line">ar -crv libstaticmath.a staticMath.o</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用静态库, -L指定静态库的搜索路径 -l指定静态库名 不需要lib前缀和.a后缀</span> </span><br><span class="line">gcc TestStaticMath.c -L../StaticLibrary -lstaticmath</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用-fPIC生成目标文件</span> </span><br><span class="line">gcc -fPIC -c DynamicMath.c </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用连接器选项-shared生成动态库 .so shared object</span></span><br><span class="line">gcc -shared -o libdynmath.so DynamicMath.o</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">两步可以合二为一</span> </span><br><span class="line">gcc -fPIC -shared -o libdynmath.so DynamicMath.c</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用动态库编译成可执行文件</span> </span><br><span class="line">gcc TestDynamicLibrary.c -L../DynamicLibrary -ldynmath</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将libdynmath.so安装在/lib或/usr/lib目录下</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或在/etc/ld.so.conf文件加入库目录所在的路径名</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ldconfig 运行ldconfig重建/etc/ld.so.cache文件</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#查看一个可执行程序以来的共享库</span></span></span><br><span class="line">ldd a.out </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># nm命令可以打印出库中的涉及到的所有符号</span></span> </span><br><span class="line">nm libhello.h</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">T表示 库中定义的函数</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">W表示 在库中被定义,可能被其他库中的同名符号覆盖</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">U表示 在库中被调用,单并没有在库中定义(需要其他函数库支持)</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/06/lib/" data-id="cm0qs3hod0000yez821y2212c" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-tmux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/05/tmux/" class="article-date">
+  <time class="dt-published" datetime="2024-09-05T01:07:38.253Z" itemprop="datePublished">2024-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/09/05/tmux/">tmux-command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a><strong>Session</strong></h2><h2 id="create-session"><a href="#create-session" class="headerlink" title="create session"></a>create session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">不指定session的名称</span></span><br><span class="line">tmux </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">指定session的名称为hello</span></span><br><span class="line">tmux new -s hello </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看创建的session</span></span><br><span class="line">tmux ls</span><br></pre></td></tr></table></figure>
+
+<h2 id="detach-session"><a href="#detach-session" class="headerlink" title="detach session"></a>detach session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b d 快捷键可以脱离当前会话</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用命令</span></span><br><span class="line">tmux detach </span><br></pre></td></tr></table></figure>
+
+<h2 id="attach-session"><a href="#attach-session" class="headerlink" title="attach session"></a>attach session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重新连接到之前脱离的会话</span> </span><br><span class="line">tmux attach -t hello</span><br></pre></td></tr></table></figure>
+
+<h2 id="kill-session"><a href="#kill-session" class="headerlink" title="kill session"></a>kill session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭会话hello</span></span><br><span class="line">tmux kill-session -t hello </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^d 快捷键也可以关闭当前的会话</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="switch-session"><a href="#switch-session" class="headerlink" title="switch session"></a>switch session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从当前会话切换到其他会话</span> </span><br><span class="line">tmux switch -t hello</span><br></pre></td></tr></table></figure>
+
+<h2 id="rename-session"><a href="#rename-session" class="headerlink" title="rename session"></a>rename session</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将hello会话重命名为haa</span></span><br><span class="line">tmux rename-session -t hello haa</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b $来重命名当前会话</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Pane"><a href="#Pane" class="headerlink" title="Pane"></a><strong>Pane</strong></h2><h2 id="split-window"><a href="#split-window" class="headerlink" title="split window"></a>split window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前工作区划分为上下两个窗口</span> </span><br><span class="line">tmux split-window </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前工作区划分为左右两个窗口</span></span><br><span class="line">tmux split-window -h</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b % 快捷键左右切割</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b <span class="string">&quot; 快捷键上下切割</span></span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="select-pane"><a href="#select-pane" class="headerlink" title="select pane"></a>select pane</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到上方的窗口</span> </span><br><span class="line">tmux select-pane -U</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到下方的窗口</span> </span><br><span class="line">tmux select-pane -D</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到左方的窗口</span> </span><br><span class="line">tmux select-pane -L</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把当前光标移动到右方的窗口</span> </span><br><span class="line">tmux select-pane -R</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b &lt;arrow key&gt; 方向键控制</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b ; 光标切换到上一个窗口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b o 光标切换到下一个窗口</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="swap-pane"><a href="#swap-pane" class="headerlink" title="swap pane"></a>swap pane</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口向上移动</span> </span><br><span class="line">tmux swap-pane -U</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口向下移动</span> </span><br><span class="line">tmux swap-pane -D</span><br></pre></td></tr></table></figure>
+
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b z  放大当前窗口  继续出发还原</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b t  在当前的窗口显示时间</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a><strong>Window</strong></h2><h2 id="create-window"><a href="#create-window" class="headerlink" title="create window"></a>create window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建一个名字为hello-win的窗口</span> </span><br><span class="line">tmux new-window -n hello-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b c 快捷键快速创建一个窗口出来</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="slect-window"><a href="#slect-window" class="headerlink" title="slect window"></a>slect window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在有多个窗口的条件下,可以快速进入指定的窗口</span> </span><br><span class="line">tmux select-window -t hello2-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b w 可以通过j k 进行上下选择</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b n 快速切换到下一个窗口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b p 快速切换到上一个窗口</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="rename-window"><a href="#rename-window" class="headerlink" title="rename window"></a>rename window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将当前窗口的名字命名为new-window</span></span><br><span class="line">tmux rename-window new-window</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b 快捷键可以重命名窗口</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="shutdown-window"><a href="#shutdown-window" class="headerlink" title="shutdown window"></a>shutdown window</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除名为hello-win的窗口</span> </span><br><span class="line">tmux kill-window -t hello-win</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">^b &amp; 可以关闭当前的窗口</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="tmux-conf"><a href="#tmux-conf" class="headerlink" title="tmux.conf"></a><strong>tmux.conf</strong></h2><ul>
+<li>在tmux中可以通过^b ?来查找tmux的帮助文档,可以查询一些功能键的快捷键信息 </li>
+<li>.tmux.conf配置文件, 默认放置在<del>目录下, 没有可以在</del>下创建一个.tmux.conf文件 </li>
+<li>可以在配置文件中将^b 改为 ^x</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/05/tmux/" data-id="cm0olaeth0000n8z88vau34r1" data-title="tmux-command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-openssl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/02/openssl/" class="article-date">
+  <time class="dt-published" datetime="2024-09-02T12:43:00.355Z" itemprop="datePublished">2024-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/09/02/openssl/">openssl command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="openssl-genrsa"><a href="#openssl-genrsa" class="headerlink" title="openssl genrsa"></a>openssl genrsa</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa #生成私钥,输出到控制台</span><br><span class="line">openssl genrsa -out plaint-private.pem 2048  #密钥长度2048 输出文件plaint-private.pem</span><br><span class="line">openssl genrsa -aes192 -passout pass:123456 -out passwd-private.pem 2048 #指定密码</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="openssl-rsa"><a href="#openssl-rsa" class="headerlink" title="openssl rsa"></a>openssl rsa</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -in plaint-private.pem -pubout -out plaint-public.pem</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从未加密的私钥中提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in passwd-private.pem -passin:12345 -pubout -out plaint-public.pem</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从加密的私钥中提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in plaint-private.key -pubout </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从未加密的私钥中提取公钥输出到控制台</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in plaint-private.pem -des3 -passout pass:123456 -out passwd-private.pem</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用des3加密私钥</span> </span><br><span class="line"></span><br><span class="line">openssl rsa -inform pem -in plaint-private.pem -outform der -out plaint-private.der</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">私钥格式转换pem -&gt; der</span></span><br><span class="line"></span><br><span class="line">openssl rsa -in plaint-private.pem -check -noout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">校验私钥的完整性</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="openssl-rsautl"><a href="#openssl-rsautl" class="headerlink" title="openssl rsautl"></a>openssl rsautl</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">openssl rsautl -encrypt -inkey plaint-public.pem -pubin -in plaintext.txt -out ciphertext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用公钥加密文件</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -decrypt -inkey plaint-private.pem -in ciphertext.txt -out plaintext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行解密</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -sign -inkey plaint-private.pem -in plaintext.txt -out signature.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行签名</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -verify -inkey plaint-public.pem -in signature.txt -out verified.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">公钥验签</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -encrypt -inkey test-public.cer -certin -in plaintext.txt -out ciphertext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">证书加密, -certin密钥文件为证书</span></span><br><span class="line"></span><br><span class="line">openssl rsautl -decrypt -inkey test-key.pem -in ciphertext.txt -out decrtpted.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥解密加密证书</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">openssl rsautl -sign -inkey text-key.pem -in plaintext.txt -out sinature.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥签名</span> </span><br><span class="line"></span><br><span class="line">openssl rsautl -verify -inkey test-public.cer -certin -in signature.txt -out verified.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用证书验签</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="openssl-genpkey"><a href="#openssl-genpkey" class="headerlink" title="openssl genpkey"></a>openssl genpkey</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openssl genpkey -algorithm rsa </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">生成私钥,输出到控制台 指定算法为rsa</span></span><br><span class="line"></span><br><span class="line">openssl genpkey -algorithm rsa -out plaint-private.pem -pkeyopt rsa_keygen_bits:2048</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">指定使用rsa算法产生2048位私钥</span></span><br><span class="line"></span><br><span class="line">openssl genpkey -algorithm rsa -pass pass:123456 -out passwd-private.pem 2048</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用密码123456加密私钥</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="openssl-pkey"><a href="#openssl-pkey" class="headerlink" title="openssl pkey"></a>openssl pkey</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">openssl pkey -in plaint-private.pem -pubout -out plaint-public.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl pkey -in passwd-private.pem -passin pass:123456 -pubout -out plaint-public.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从加密的私钥中提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl pkey -in plaint-private.pem -pubout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取公钥,输出到控制台</span></span><br><span class="line"></span><br><span class="line">openssl pkey -in plaint-private.pem -des3 -passout pass:123456 -out passwd-private.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">私钥加密</span></span><br><span class="line"></span><br><span class="line">openssl pkey -inform pem -in plaint-private.pem -outform der -out plaint-private.der</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">私钥格式转换,pem---&gt;der格式</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="openssl-pkeyutl"><a href="#openssl-pkeyutl" class="headerlink" title="openssl pkeyutl"></a>openssl pkeyutl</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">openssl pkeyutl -encrypt -inkey plaint-public.pem -pubin -in plaintext.txt -out ciphertext.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用公钥加密文件</span></span><br><span class="line"></span><br><span class="line">openssl pkeyutl -decrypt -inkey palint-private.pem -in ciphertext.txt -out decrypted.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行解密</span> </span><br><span class="line"></span><br><span class="line">openssl pkeyutl -sign -inkey plaint-private.pem -in palintext.txt -out signature.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用私钥进行签名</span></span><br><span class="line"></span><br><span class="line">openssl pkeyutl -verifyrecover -inkey plaint-public.pem -pubin -in signature.txt -out virified.txt</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用公钥进行验证</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="openssl-req"><a href="#openssl-req" class="headerlink" title="openssl req"></a>openssl req</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key plaint-private.pem -out palint-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建请求证书 -new 创建请求证书, -key使用文件中的私钥, -subj 设置请求证书主题</span></span><br><span class="line"></span><br><span class="line">openssl req -in plaint-request.csr -pubkey -nouut &gt; plaint-public.pem </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取公钥</span></span><br><span class="line"></span><br><span class="line">openssl req -in plaint-request.csr -subject -noout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取主题</span></span><br><span class="line"></span><br><span class="line">openssl req -verify -in plaint-request.csr -noout </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">校验请求证书签名是否合法</span></span><br><span class="line"></span><br><span class="line">openssl req -newkey rsa:2048 -nodes -keyout ca-key.pem -out ca-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建私钥和请求证书文件,-newkey 创建私钥并指定算法, -nodes 输出私钥不加密 -keyout 指定私钥文件</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="openssl-x509"><a href="#openssl-x509" class="headerlink" title="openssl x509"></a>openssl x509</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca-key.pem 2048</span><br><span class="line">openssl req -new -key ca-key.pem -out ca-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line">openssl x509 -req -in ca-request.csr -days 3650 -signkey ca-key.pem -out ca-root.cer</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建根证书 自签名证书 -req 输入请求证书文件 -signkey 指定自签名证书私钥</span> </span><br><span class="line"></span><br><span class="line">openssl genrsa -out test-key.pem 2048 </span><br><span class="line">openssl req -new -key test-key.pem -out test-request.csr -subj &quot;/C=CN/ST=ZJ/L=HZ/O=RX/OU=ZG/CN=RXCA&quot;</span><br><span class="line">openssl x509 -req -in text-request.csr -days 365 -CA ca-root.cer -CAkey ca-key.pem -CAcreateserial -out test-public.cer</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建通信证书 -req 输入请求证书文件 -CA 指定根证书 -CAkey 指定根证书的私钥</span> </span><br><span class="line"></span><br><span class="line">openssl x509 -in test-public.cer -dates -issuer -subject -email -noout</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提取证书信息 -dates  证书的可开始和结束的时间 -issuer 发行人主题 -subject 证书主题 -email  邮件信息</span></span><br><span class="line"></span><br><span class="line">openssl x509 -in test-public.cer -pubkey -noout &gt; plaint-public.pem </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/09/02/openssl/" data-id="cm0kzr62v000014z819m9bjh1" data-title="openssl command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -1565,7 +1565,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
     </div>
   </div>
 
@@ -1576,6 +1576,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/09/24/peixun/">各次培训记录</a>
+          </li>
         
           <li>
             <a href="/2024/09/17/cut-linux-command/">cut_linux_command</a>
@@ -1591,10 +1595,6 @@
         
           <li>
             <a href="/2024/09/05/tmux/">tmux-command</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/02/openssl/">openssl command</a>
           </li>
         
       </ul>
