@@ -73,6 +73,68 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-find-linux-command" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/13/find-linux-command/" class="article-date">
+  <time class="dt-published" datetime="2024-04-13T01:39:35.000Z" itemprop="datePublished">2024-04-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/13/find-linux-command/">find_linux_command</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="find-命令"><a href="#find-命令" class="headerlink" title="find 命令"></a>find 命令</h1><h2 id="根据文件名查找"><a href="#根据文件名查找" class="headerlink" title="根据文件名查找"></a>根据文件名查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-name 跟文件名 可用通配符</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-iname 忽略大小写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-regex 跟文件路径字符串</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-iregex 忽略大小写</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-prune 不寻找字符串作为范本样式</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找<span class="built_in">test</span>开头 sh结尾的文件</span></span><br><span class="line">find ./ -iname &quot;test*.sh&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据属主-属组查找"><a href="#根据属主-属组查找" class="headerlink" title="根据属主 属组查找"></a>根据属主 属组查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-user username</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-group groupname</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-uid UserID</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-gid GroupID</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-nouser 没有属主</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-nogroup 没有属组</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前文件查找属主是root 以pass开头的文件</span></span><br><span class="line">find ./ -user root -name &quot;pass*&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据文件类型查找"><a href="#根据文件类型查找" class="headerlink" title="根据文件类型查找"></a>根据文件类型查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">type</span> f普通文件 d目录文件 l符号链接 s套接字文件 b块设备文件 c字符设备文件 p管道文件</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找myDemo开头的目录文件</span></span><br><span class="line">find ./ -type d -name &quot;myDemo*&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="组合条件"><a href="#组合条件" class="headerlink" title="组合条件"></a>组合条件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-a and与</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-o or或</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-not -! 非</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="根据文件大小查找"><a href="#根据文件大小查找" class="headerlink" title="根据文件大小查找"></a>根据文件大小查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-size b c w k M G</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找文件大小大于10M小于10G的普通文件</span></span><br><span class="line">find ./ -type f -size -10G -size +10M</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据时间戳查找"><a href="#根据时间戳查找" class="headerlink" title="根据时间戳查找"></a>根据时间戳查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以天为单位</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-atime 最近访问时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mtime 最近修改文件内容时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ctime 最近修改元数据时间</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以分钟为单位</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-amin</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mmin</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-cmin</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">高级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-daystart 从本日开始计算时间</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-newer &lt;参考文件或目录&gt; 查找其更改时间更接近现在的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-anewer &lt;参考文件或目录&gt;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-cnewer &lt;参考文件或目录&gt;</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找比new文件修改时间更新的文件或目录</span></span><br><span class="line">find ./ -type f -newer new</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="根据权限查找"><a href="#根据权限查找" class="headerlink" title="根据权限查找"></a>根据权限查找</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-perm 4-r 2-w 1-x</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录查找可读可写的目录</span></span><br><span class="line">find ./ -type d -perm 555</span><br></pre></td></tr></table></figure>
+
+<h2 id="符号链接处理"><a href="#符号链接处理" class="headerlink" title="符号链接处理"></a>符号链接处理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-follow 排除符号链接</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-links &lt;链接数目&gt;  查找符合指定的硬链接数目的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-inum &lt;inode 编号&gt;  查找符合指定的inode编号的文件或目录</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-noleaf 不去考虑目录至少需要拥有两个硬链接存在</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录排除符号链接查找含有pass的普通文件</span></span><br><span class="line">find ./ -type f -follow -name  &quot;*pass*&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找深度"><a href="#查找深度" class="headerlink" title="查找深度"></a>查找深度</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-path &lt;范本样式&gt; 指定字符串做为寻找目录的范本样式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ipath 忽略大小写</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-mindepth &lt;目录层级&gt;  设置最小目录层级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-maxdepth &lt;目录层级&gt;  设置最大目录层级</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-depth 从指定目录下最深层的子目录开始查找</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录3层深度内查找10天内访问过的普通文件</span></span><br><span class="line">find ./ -type f -atime -10 -maxdepth 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理动作"><a href="#处理动作" class="headerlink" title="处理动作"></a>处理动作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">print</span> 默认处理动作  显示岛屏幕</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-print0 将文件或目录名称列出岛标准输出，格式为全部的名称全在同一行</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">printf</span> &lt;输出格式&gt;  自行设定输出格式</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">ls</span> 类似对查找盗的文件执行“<span class="built_in">ls</span> -l”命令</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-delete 刹车农户查找盗的文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-fls /path/to/somefile 查找到所有文件的长格式信息保存至指定文件种</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-ok COMMAND &#123;&#125; \; 对查找到的每个文件执行由COMMAND指定的命令  每次都会要求用户确认</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-<span class="built_in">exec</span> COMMAND &#123;&#125; \; 不需要确认</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在当前目录下对所有包含pass的普通文件执行<span class="built_in">ls</span> -lh命令</span></span><br><span class="line">find ./ -type f -exec ls -lh &#123;&#125; \; -name &quot;*pass*&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/04/13/find-linux-command/" data-id="cly86buyr000b96z80co87i5b" data-title="find_linux_command" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-squid" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/28/squid/" class="article-date">
@@ -425,7 +487,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
     </div>
   </div>
 
@@ -436,6 +498,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/10/18/ntp-linux/">ntp_linux</a>
+          </li>
         
           <li>
             <a href="/2024/09/24/peixun/">各次培训记录</a>
@@ -451,10 +517,6 @@
         
           <li>
             <a href="/2024/09/06/lib/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/05/tmux/">tmux-command</a>
           </li>
         
       </ul>

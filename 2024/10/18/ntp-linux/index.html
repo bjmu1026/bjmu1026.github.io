@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>ntp_linux | Bjmu1026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="linux 时间同步 在windows中，系统时间设定后，机器关机、重启时系统时间会自动保存在Bios的时钟里面。启动计算机的时候会自动在bios里面读取硬件时间，以保证时间的不间断。  在linux下，默认情况，系统时间和硬件时间不会自动同步。在linux运行过程中，系统时间和硬件时间互不干扰。硬件时间是靠bios电池来维持，系统时间是靠cpu tick来维持。  linux时间与时区 概念：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ntp_linux">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/10/18/ntp-linux/index.html">
+<meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="linux 时间同步 在windows中，系统时间设定后，机器关机、重启时系统时间会自动保存在Bios的时钟里面。启动计算机的时候会自动在bios里面读取硬件时间，以保证时间的不间断。  在linux下，默认情况，系统时间和硬件时间不会自动同步。在linux运行过程中，系统时间和硬件时间互不干扰。硬件时间是靠bios电池来维持，系统时间是靠cpu tick来维持。  linux时间与时区 概念：">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-10-18T10:00:15.000Z">
+<meta property="article:modified_time" content="2024-10-18T11:21:52.121Z">
+<meta property="article:author" content="tongxu24">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bjmu1026" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bjmu1026</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal study notes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bjmu1026.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ntp-linux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/18/ntp-linux/" class="article-date">
+  <time class="dt-published" datetime="2024-10-18T10:00:15.000Z" itemprop="datePublished">2024-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      ntp_linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="linux-时间同步"><a href="#linux-时间同步" class="headerlink" title="linux 时间同步"></a>linux 时间同步</h2><ul>
+<li>在windows中，系统时间设定后，机器关机、重启时系统时间会自动保存在Bios的时钟里面。启动计算机的时候会自动在bios里面读取硬件时间，以保证时间的不间断。 </li>
+<li>在linux下，默认情况，系统时间和硬件时间不会自动同步。在linux运行过程中，系统时间和硬件时间互不干扰。硬件时间是靠bios电池来维持，系统时间是靠cpu tick来维持。</li>
+</ul>
+<h4 id="linux时间与时区"><a href="#linux时间与时区" class="headerlink" title="linux时间与时区"></a>linux时间与时区</h4><ul>
+<li><p>概念：</p>
+<ul>
+<li><p>系统时间 system time </p>
+<ul>
+<li>linux操作系统运行时的时间，存储在内存中，内核会持续更新这个时间。在系统重启后，系统时间从硬件时钟中读取并加载到内存中，操作系统使用系统时间作为主要的时间源。</li>
+</ul>
+</li>
+<li><p>硬件时间hardware time, RTC(Real-Time Clock)</p>
+<ul>
+<li>硬件时间是主板上的实时时钟RTC提供的时间信息，它在系统关闭时仍然保持运行，确保时间不会丢失。硬件时钟是杜立德，不以来操作系统的运行，系统关机后依然记录时间。 </li>
+<li>系统启动时，内核会读取硬件时间，并设置系统时间。 </li>
+<li>系统关机或重启时，通常会将系统时间写回到硬件时间，以确保下一次启动时硬件时间是最新的。 </li>
+<li>系统运行期间，系统时间会定期同步或手动同步，不会直接影响硬件时间。</li>
+</ul>
+</li>
+<li><p>时区 Timezone</p>
+<ul>
+<li><p>时区是定义时间相对于标准时间UTC的偏移量。时区定义了一个地理区域的标准时间，linux系统允许用户设置本地失去，以便显示本地时间。 </p>
+</li>
+<li><p>UTC vs 本地时间 </p>
+<ul>
+<li><p>在linux系统中默认使用UTC(universal Time Coordinated),来存储和计算时间。如果设置了本地时区，系统会在显示时将UTC时间转换为指定时区的本地时间。 </p>
+</li>
+<li><p>时区文件： 时区信息保存在 &#x2F;etc&#x2F;localtime文件中， 这个文件是一个指向具体时区信息的符号链接，时区数据存储在 &#x2F;usr&#x2F;share&#x2F;zoneinfo&#x2F;目录中。可以通过链接到指定区域的时区文件来临更改系统的时区。 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>timedatectl命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 查看当前时区</span></span></span><br><span class="line">timedatectl</span><br><span class="line"><span class="meta prompt_">	# </span><span class="language-bash">Local time: Mon 2024-10-18 12:34:56 CST</span></span><br><span class="line"><span class="meta prompt_">	# </span><span class="language-bash">Universal time: Mon 2024-10-18 04:34:56 UTC</span></span><br><span class="line"><span class="meta prompt_">	# </span><span class="language-bash">RIC time: Mon 2024-10-18 04:34:56</span></span><br><span class="line"><span class="meta prompt_">	# </span><span class="language-bash">Time zone: Asia/Shanghai (CST, +0800)</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">System clock synchronized: <span class="built_in">yes</span></span></span><br><span class="line"><span class="meta prompt_">	# </span><span class="language-bash">NTP serveice: active</span></span><br><span class="line"><span class="meta prompt_">	# </span><span class="language-bash">TRC <span class="keyword">in</span> <span class="built_in">local</span> TZ: no  <span class="comment">## RTC是否以本地时区存储</span></span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置时区</span></span></span><br><span class="line">sudo timedatectl set-timezone Asia/Shanghai</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 将硬件硬件时钟设置为UTC：</span></span></span><br><span class="line">sudo timedatectl set-local-rtc 0</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 将硬件时钟设置为本地时区：</span></span></span><br><span class="line">sudo timedatectl set-local-rtc 1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">windows的做法，如果同一台机器装了linux和windows需要这样做</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="linux-系统时间的设定"><a href="#linux-系统时间的设定" class="headerlink" title="linux 系统时间的设定"></a>linux 系统时间的设定</h4><ul>
+<li><p>date命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 查看命令</span></span></span><br><span class="line">date </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">2024年10月19日星期五 18:00:32 CST</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置命令</span></span> </span><br><span class="line">date -set=&quot;2024-10-19 00:01&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">2024年10月19日星期五00:00:01 CST</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置命令</span></span></span><br><span class="line">date 101900012004.35 </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">2004年10月19日00:01:35 CST</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="linux-硬件时间的设定"><a href="#linux-硬件时间的设定" class="headerlink" title="linux 硬件时间的设定"></a>linux 硬件时间的设定</h4><ul>
+<li><p>hwclock命令 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 查看命令</span></span></span><br><span class="line">hwclock --show</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">2024-10-18 18:11:13.147770+08:0</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 查看命令</span></span> </span><br><span class="line">hwclock </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">2024-10-18 18:11:13.147770+08:0</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置命令</span></span></span><br><span class="line">hwclock --set --date=&quot;10/19/23 00:00:01&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">2023年10月19日 00：00：01 cst</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 根据系统时间设置硬件时间</span></span></span><br><span class="line">hwclock -w </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="linux系统时间和硬件时间的同步"><a href="#linux系统时间和硬件时间的同步" class="headerlink" title="linux系统时间和硬件时间的同步"></a>linux系统时间和硬件时间的同步</h4><ul>
+<li><p>hwclock命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 根据系统时间设置硬件时间</span></span> </span><br><span class="line">hwclock --systohc  # sys time to hadr clock </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 根据系统时间设置硬件时间</span></span></span><br><span class="line">hwclock -w </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 根据硬件时间设置系统时间</span></span> </span><br><span class="line">hwclock -hctosys # hadr clock to sys time</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 根据硬件时间设置系统时间</span></span></span><br><span class="line">hwclcok -s</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="linux-不同机器间的时间同步"><a href="#linux-不同机器间的时间同步" class="headerlink" title="linux 不同机器间的时间同步"></a>linux 不同机器间的时间同步</h4><ul>
+<li><p>为了避免主机因长时间运转下所导致的时间偏差，进行时间同步synchronize的工作是非常必要的。linux系统下，一般使用ntp服务器来同步不同机器的时间，一台机器可以同时是ntp客户端和ntp服务器。</p>
+</li>
+<li><p>ntpdate命令 强制将系统时间设置为ntp服务器时间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ntpdate [-nv] [NTP IP/hostname]</span><br><span class="line">ntpdate time.ntp.org </span><br><span class="line">ntpdate 192.168.0.2</span><br></pre></td></tr></table></figure>
+
+<p>这样的同步只是强制性的将系统时间设置为ntp服务器时间，如果cpu tick有问题，只是指标不治本。所以一般配合cron命令，来进行定期同步设置。在crontab中添加0 12 * * * * &#x2F;usr&#x2F;sbin&#x2F;ntpdate 192.168.0.1，这样会在每天12点同步一次时间。 ntp服务器ip为192.168.0.1</p>
+</li>
+<li><p>ntpd有一个自我保护设置：如果本机与ntp服务器时间差距太大，ntpd将不会运行。新设置的时间服务器一定要先ntpdate从上源取得时间初值。然后启动ntpd服务。ntpd服务先是每64秒与ntp服务器同步一次，根据每次同步时测得的时间差值经复杂计算逐步调整自己的时间，随着误差减小，逐步增加同步的间隔，每次跳动都会重复这个过程。 </p>
+</li>
+<li><p>ntpd服务</p>
+<ul>
+<li>ntp安装</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S ntp # archlinux</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>配置文件&#x2F;etc&#x2F;ntp.conf</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server 0.pool.ntp.org iburst # iburst客户端无法立即连接到服务器时，允许快速发送几个同步请求 </span><br><span class="line">server 1.pool.ntp.org iburst #pool.ntp.org通用的ntp服务器 </span><br><span class="line">server 2.pool.ntp.org iburst</span><br><span class="line">server 3.pool.ntp.org iburst</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动ntpd</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start ntpd</span><br><span class="line">sudo systemctl status ntpd </span><br><span class="line">sudo systemctl enable ntpd </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>手动同步时间</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ntpd -gq </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># -g 允许时间进行大幅度调整，-q ntpd调整完后立即退出而不作为守护进程</span></span> </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看ntp同步状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ntpq -p </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">remote 			refid  st t   when poll reach delay   offset   jitter</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">=======================================================================</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">time.cloudflare 	.CFCD. 3  u   60   64    1    50.236  -12.345  5.678</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ntp1.ntp.org		.GPS.  1  u   30   64    1    32.586  0.234    1.234</span></span><br></pre></td></tr></table></figure>
+
+<p>第一个当前使用的服务器 time.cloudflare</p>
+<p>第二个备选服务器ntp1.ntp.org</p>
+<p>st 层级 stratum </p>
+<p>delay 客户端和服务器之间的延迟</p>
+<p>offset 本地时钟和远程时钟之间的时间差 </p>
+<p>jitter 时间抖动（时间的波动）</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/10/18/ntp-linux/" data-id="cm2en5cti0000toz81lxf2s9e" data-title="ntp_linux" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/09/24/peixun/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">各次培训记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/18/ntp-linux/">ntp_linux</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/24/peixun/">各次培训记录</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/17/cut-linux-command/">cut_linux_command</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/07/tar/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/06/lib/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 tongxu24<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
