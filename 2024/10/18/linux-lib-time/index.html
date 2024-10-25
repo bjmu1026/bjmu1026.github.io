@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>linux_lib_time | Bjmu1026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="linux lib time&lt;time.h&gt;头文件 数据类型  time_t （long）存储从1970年1月1日 00:00:00 UTC以来的秒数   struct tm{  int tm_sec 秒 0~59 int tm_min 分钟 0~59 int tm_hour 小时 0~23 int tm_mday 一个月中的天数 1~31 int tm_mon 月 0～11 int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux_lib_time">
+<meta property="og:url" content="https://bjmu1026.github.io/2024/10/18/linux-lib-time/index.html">
+<meta property="og:site_name" content="Bjmu1026">
+<meta property="og:description" content="linux lib time&lt;time.h&gt;头文件 数据类型  time_t （long）存储从1970年1月1日 00:00:00 UTC以来的秒数   struct tm{  int tm_sec 秒 0~59 int tm_min 分钟 0~59 int tm_hour 小时 0~23 int tm_mday 一个月中的天数 1~31 int tm_mon 月 0～11 int">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-10-18T11:49:57.000Z">
+<meta property="article:modified_time" content="2024-10-18T17:03:01.934Z">
+<meta property="article:author" content="tongxu24">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bjmu1026" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bjmu1026</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">personal study notes</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://bjmu1026.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-linux-lib-time" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/18/linux-lib-time/" class="article-date">
+  <time class="dt-published" datetime="2024-10-18T11:49:57.000Z" itemprop="datePublished">2024-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      linux_lib_time
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="linux-lib-time"><a href="#linux-lib-time" class="headerlink" title="linux lib time"></a>linux lib time</h2><h4 id="头文件"><a href="#头文件" class="headerlink" title="&lt;time.h&gt;头文件"></a>&lt;time.h&gt;头文件</h4><ul>
+<li><p>数据类型</p>
+<ul>
+<li><p>time_t （long）存储从1970年1月1日 00:00:00 UTC以来的秒数 </p>
+</li>
+<li><p>struct tm{</p>
+<ul>
+<li>int tm_sec 秒 0~59</li>
+<li>int tm_min 分钟 0~59</li>
+<li>int tm_hour 小时 0~23</li>
+<li>int tm_mday 一个月中的天数 1~31</li>
+<li>int tm_mon 月 0～11</li>
+<li>int tm_year 从1970年开始的年份 </li>
+<li>int tm_wday 星期0~6</li>
+<li>int tm_yday 一年中的天数 0～365</li>
+<li>int tm_isdst 夏令时标志</li>
+</ul>
+<p>}	</p>
+</li>
+<li><p>struct timespec{</p>
+<ul>
+<li>time_t tv_sec 秒数 </li>
+<li>long tv_nsec 纳秒</li>
+</ul>
+<p>}</p>
+</li>
+<li><p>clockid_t 用于标识时钟的类型，CLOCK_REALTIME &amp; CLOCK_MONOTONIC</p>
+</li>
+<li><p>常量 </p>
+<ul>
+<li>CLOCK_REALTIME 表示系统当前的实时时间 </li>
+<li>CLOCK_MONOTONIC 表示系统启动以来的时间，不受系统时间的改变</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>库函数</p>
+<ul>
+<li>time()<ul>
+<li>time_t time(time_t *tloc);</li>
+<li>tloc非NULL,当前时间被存储到tloc指向的变量中 </li>
+<li>return 从1970年1月1日00:00:00 UTC到当前的秒数</li>
+</ul>
+</li>
+<li>localtime()<ul>
+<li>struct tm* localtime(const time_t *timer);</li>
+<li>timer 指向time_t的指针 </li>
+<li>return struct tm结构体，表示本地时间</li>
+</ul>
+</li>
+<li>gmtime()<ul>
+<li>struct tm* gmtime(const time_t *timer);</li>
+<li>timer 指向time_t的指针 </li>
+<li>return struct tm结构体，表示utc时间</li>
+</ul>
+</li>
+<li>mktime()<ul>
+<li>time_t mktime(struct tm* tm)；</li>
+<li>tm 指向struct tm的指针 ，表示要转换的时间 </li>
+<li>return 转换后的time_t 时间</li>
+</ul>
+</li>
+<li>difftime()<ul>
+<li>计算两个time_t时间值之间的差值</li>
+<li>double difftime(time_t end, time_t start);</li>
+<li>end 结束时间  start 开始时间 </li>
+<li>return end-start的差值，秒为单位</li>
+</ul>
+</li>
+<li>strftime()<ul>
+<li>size_t strftime(char *s, size_t max, const char *fomat, const struct tm *tm);</li>
+<li>s指向字符串的指针，用于存储格式化的结果 </li>
+<li>max 格式化字符串 </li>
+<li>format格式<ul>
+<li>日期格式<ul>
+<li>%Y 年份 2024</li>
+<li>%y 年份 24</li>
+<li>%m 月份 数字 01～12</li>
+<li>%B 完整的月份名称 January</li>
+<li>%b 缩写的月份名称 Jan</li>
+<li>%d 月份中的第几天  01~31</li>
+<li>%A 完整的星期几  Monday</li>
+<li>%a 缩写的星期几  Mon</li>
+<li>%j 一年中的第几天  001~365</li>
+</ul>
+</li>
+<li>时间格式 <ul>
+<li>%H 24小时制度 </li>
+<li>%I  12小时制</li>
+<li>%M 分钟 </li>
+<li>%S 秒</li>
+<li>%p AM或PM</li>
+<li>%Z 时区名称或缩写 </li>
+<li>%z 时区的数字形式 如 +0200</li>
+</ul>
+</li>
+<li>日期时间混合<ul>
+<li>%c 标准日期和时间字符串 Wed Oct 18 16:54:00 2024</li>
+<li>%x 标准日期字符串 10&#x2F;18&#x2F;2024</li>
+<li>%X 标准时间字符串 16:54:00</li>
+</ul>
+</li>
+<li>其他 <ul>
+<li>%% 表示 %</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tm 指向struct tm的指针 </li>
+<li>return 成功写入字符串的字符数不包括终止符，失败return 0</li>
+</ul>
+</li>
+<li>asctime()<ul>
+<li>char * asctime(const struct tm* tm)；</li>
+<li>tm 指向struct tm的结构体 </li>
+<li>return 格式化之后的字符串</li>
+</ul>
+</li>
+<li>ctime()<ul>
+<li>char * ctime(const time_t *timer);</li>
+<li>timer 指向time_t 的指针 </li>
+<li>return 格式化之后的时间字符串</li>
+</ul>
+</li>
+<li>clock()<ul>
+<li>clock_t clock(void);</li>
+<li>return 程序从启动到当前所消耗的时间，单位时钟周期。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="sys-time-h-头文件"><a href="#sys-time-h-头文件" class="headerlink" title="sys&#x2F;time.h 头文件"></a>sys&#x2F;time.h 头文件</h4><ul>
+<li><p>主要数据类型 </p>
+<ul>
+<li><p>struct timeval{</p>
+<ul>
+<li>time_t tv_sec;  秒数1970-01-01 00:00:00 后的秒数 </li>
+<li>suseconds_t tv_usec;微妙数</li>
+</ul>
+<p>}</p>
+</li>
+<li><p>struct timezone{</p>
+<ul>
+<li>int tz_minuteswest; 西方时区与utc的时差 分钟 </li>
+<li>int tz_sdttime; 夏令时标志 默认0</li>
+</ul>
+<p>}</p>
+</li>
+<li><p>fd_set </p>
+<ul>
+<li>与select()函数一起 使用时，与时间相关的等待操作有密切关系。是用于文件描述符集合的数据类型。 select()函数通过它来监测多个文件描述符的I&#x2F;O状态。 </li>
+<li>常用宏<ul>
+<li>FD_ZERO(fd_set *set); 将文件描述符集合set清空 </li>
+<li>FD_SET(int fd, fd_set *set); 将fd添加到set中 </li>
+<li>FD_ISSET(int fd, fd_set *set); 判断fd是否已经添加到set中 </li>
+<li>FD_CLR(int fd, fd_set *set); 将fd 从set中移除。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>函数 </p>
+<ul>
+<li><p>gettimeofday() 获取当前时间，精确到微秒 </p>
+<ul>
+<li>int gettimeofday(struct timeval *tv,  struct timezone *tz);</li>
+<li>tv  指向struct timeval结构体 </li>
+<li>tz 指向struct timezone结构体 </li>
+<li>return 0表示成功， return -1表示失败</li>
+</ul>
+</li>
+<li><p>settimeofday() 设置系统时间 </p>
+<ul>
+<li>int settimeofday(const struct timeval *tv, const struct timezone *tz);</li>
+<li>tv指向struct timeval结构体 </li>
+<li>tz指向struct timezone结构体 </li>
+<li>return 0 表示成功， -1 表示失败</li>
+</ul>
+</li>
+<li><p>timersub()  宏 用于将两个struct timeval结构体相减的宏 </p>
+<ul>
+<li>void timersub(struct timeval* a, struct timeval *b, struct timeval *result);</li>
+</ul>
+</li>
+<li><p>timeradd() 宏 用于将两个struct timeval 结构体相加的宏 </p>
+<ul>
+<li>void timeradd(struct timeval *a, struct timeval *b, struct timeval *result);</li>
+<li>a 指向 struct timeval</li>
+<li>b 指向 struct timeval</li>
+<li>result 指向 struct timeval</li>
+</ul>
+</li>
+<li><p>timercmp() 宏 </p>
+<ul>
+<li>int timercmp(struct timeval <em>a, struct timeval</em> b, CMP);</li>
+<li>a b 指向struct timeval</li>
+<li>CMP 比较操作符 &lt; &gt; &#x3D;&#x3D; 等</li>
+</ul>
+</li>
+<li><p>select()  多路io操作 ，也可以用于实现高精度的超时等待 </p>
+<ul>
+<li>int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);</li>
+<li>nfds 文件描述符的数量 通常为fd_set中最大文件描述符的值加1</li>
+<li>readfds 用于监控可读事件的文件描述符集合 </li>
+<li>writefds 用于监控可写事件的文件描述符集合 </li>
+<li>exceptfds 用于监控异常事件的文件描述符集合 </li>
+<li>timeout  指定超时时间NULL表示无限等待，timeout指向一个struct timeval结构。</li>
+<li>return 就绪的fd个数 超时return 0 出错return -1 并设置errno</li>
+</ul>
+</li>
+<li><p>setitimer() 用于设置计时器，并在计时器到期时发送信号，可以用于定时任务的实现 </p>
+<ul>
+<li><p>int setitimer(int which, const struct itimerval *new_value, struct itimerval *old_value);</p>
+</li>
+<li><p>which 选择定时器的类型 </p>
+<ul>
+<li>ITIMER_REAL 实时时钟，计时器到期时发送SIGALRM信号 </li>
+<li>ITIMER_VIRTUAL 进程消耗的虚拟事件，计时器到期发送SIGALRM信号</li>
+<li>ITIMER_PROF  进程执行事件与系统调用时间之和，计时器到期后发送SIGPROF信号</li>
+</ul>
+</li>
+<li><p>new_value 指向 struct itimerval用于设置定时器的初始值和间隔值 </p>
+<ul>
+<li><p>struct itimerval{</p>
+<ul>
+<li><p>struct timeval it_value{</p>
+<ul>
+<li>time_t tv_sec</li>
+<li>suseconds_t tv_usec</li>
+</ul>
+<p>}</p>
+</li>
+<li><p>struct timeval it_interval{</p>
+<ul>
+<li>tv_sec</li>
+<li>tv_usec</li>
+</ul>
+<p>}</p>
+</li>
+</ul>
+<p>}</p>
+</li>
+</ul>
+</li>
+<li><p>odl_value 如果部位null, 存储先前的定时器值 </p>
+</li>
+<li><p>return 0 成功， return -1 失败 设置errno</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://bjmu1026.github.io/2024/10/18/linux-lib-time/" data-id="cm2ow6y0w000194z8h8hv4lvb" data-title="linux_lib_time" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/10/19/linux-lib-signal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          linux_lib_signal
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/10/18/ntp-linux/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">ntp_linux</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/25/peixun/">各次培训记录</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/19/linux-lib-signal/">linux_lib_signal</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/18/linux-lib-time/">linux_lib_time</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/18/ntp-linux/">ntp_linux</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/17/cut-linux-command/">cut_linux_command</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 tongxu24<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
